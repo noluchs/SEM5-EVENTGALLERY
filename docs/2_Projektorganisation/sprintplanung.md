@@ -2,7 +2,7 @@
 layout: default
 title: 2.3 Sprint Planung 
 parent: 2. Projektorganisation
-nav_order: 2
+nav_order: 3
 ---
 
 
