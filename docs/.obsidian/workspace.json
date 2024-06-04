@@ -1,0 +1,164 @@
+{
+  "main": {
+    "id": "ff468ead7412811e",
+    "type": "split",
+    "children": [
+      {
+        "id": "1050d1ec5758aeb7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4636542e08733b6e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2_Projektorganisation/index.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9c3d864b049c1fed",
+    "type": "split",
+    "children": [
+      {
+        "id": "3453edf43356a00e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f7b3269eb441cb0f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "f349da93505112af",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1a174b07eeb28713",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "69c68b50bd21e5e1",
+    "type": "split",
+    "children": [
+      {
+        "id": "8d6adf8f7bbb48fd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "848731e1250f567f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "2_Projektorganisation/index.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "7882165d9be76f2b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "2_Projektorganisation/index.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "8f060cceda265649",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "bedb2122e9e06574",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "2_Projektorganisation/index.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Schnellauswahl öffnen": false,
+      "graph:Graphen-Ansicht öffnen": false,
+      "canvas:Neuen Canvas erstellen": false,
+      "daily-notes:Heutige Notiz öffnen": false,
+      "templates:Vorlage einfügen": false,
+      "command-palette:Befehlspalette öffnen": false
+    }
+  },
+  "active": "4636542e08733b6e",
+  "lastOpenFiles": [
+    "2_Projektorganisation/sprintplanung.md",
+    "index.md",
+    "2_Projektorganisation/projektmethode.md",
+    "2_Projektorganisation/projektorganisation.md",
+    "2_Projektorganisation/index.md",
+    "1_Einleitung/Einleitung.md",
+    "1_Einleitung/Unbenannt.md",
+    "anhang/quellen.md",
+    "anhang/Schmittel.md",
+    "2_Projektorganisation",
+    "1_Einleitung",
+    "anhang"
+  ]
+}
