@@ -1,8 +1,8 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
+title: MSVC Gallery with Face Matching
+description: 3 Semesterarbeit für Cloud Native Engineer Studium
 theme: just-the-docs
 
-url: https://just-the-docs.github.io
+url: https://noluchs.github.io/MSCV-Gallery-with-Face-Matching/
 
 aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+   Projektplanung: https://github.com/users/noluchs/projects/6
