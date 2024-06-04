@@ -1,6 +1,8 @@
 ---
-title: Home
-layout: home
+layout: default
+title: 1. Einleitung
+nav_order: 1
+permalink: /
 ---
 
 
@@ -17,3 +19,4 @@ Die Hauptvorteile dieses Systems sind die erhebliche Zeitersparnis für die Nutz
 
 ### Competition: 
 Aktuelle Lösungen erfordern oft manuelles Durchsuchen der Galerien oder bieten keine spezifische, nutzerfreundliche Suche basierend auf Gesichtserkennung. Dieses System stellt eine direkte Verbesserung dar, indem es eine intuitive, effektive und schnelle Suche ermöglicht und sich durch seine Microservice-Architektur leicht an verschiedene Größen und Arten von Veranstaltungen anpassen lässt.
+

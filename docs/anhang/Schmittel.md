@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 7. Sachmittel
-nav_order: 700
+nav_order: 7
 ---
 
 # Sachmittel

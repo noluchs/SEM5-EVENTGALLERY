@@ -1,4 +1,12 @@
-# Sprint Planung für "MSCV Gallery with Face Matching"
+---
+layout: default
+title: 2.3 Sprint Planung 
+parent: 2. Projektorganisation
+nav_order: 2
+---
+
+
+# Sprint Planung 
 
 ## Sprint 1: Initialisierung und Basis-Setup (11. Mai - 31. Mai)
 
