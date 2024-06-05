@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  face_recognition_service:
+    build: .
+    environment:
+      - DATABASE_URL=mysql+pymysql://user:password@db:3306/mydatabase
+      - S3_KEY=${S3_KEY}
+      - S3_SECRET=${S3_SECRET}
+      - REGION=${REGION}
+      - UPLOAD_BUCKET=${UPLOAD_BUCKET}
+      - COMPARE_BUCKET=${COMPARE_BUCKET}
+    ports:
+      - "5003:5000"
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:

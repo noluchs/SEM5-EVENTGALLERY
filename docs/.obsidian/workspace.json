@@ -13,13 +13,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2_Projektorganisation/index.md",
+                "file": "3_Servicedesign/index.md",
                 "mode": "source",
                 "source": true
               }
             }
+          },
+          {
+            "id": "47979d7beba8cfe9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "3_Servicedesign/Serviceaufbau.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "cb06f3b8b0a436c5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "3_Servicedesign/Datenbank Konzept.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -85,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2_Projektorganisation/index.md",
+                "file": "3_Servicedesign/Datenbank Konzept.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2_Projektorganisation/index.md",
+                "file": "3_Servicedesign/Datenbank Konzept.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2_Projektorganisation/index.md"
+                "file": "3_Servicedesign/Datenbank Konzept.md"
               }
             }
           }
@@ -146,13 +171,17 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "4636542e08733b6e",
+  "active": "cb06f3b8b0a436c5",
   "lastOpenFiles": [
+    "3_Servicedesign/Serviceaufbau.md",
+    "3_Servicedesign/Datenbank Konzept.md",
+    "Unbenannt.md",
+    "3_Servicedesign/index.md",
+    "2_Projektorganisation/projektmethode.md",
+    "2_Projektorganisation/index.md",
     "2_Projektorganisation/sprintplanung.md",
     "index.md",
-    "2_Projektorganisation/projektmethode.md",
     "2_Projektorganisation/projektorganisation.md",
-    "2_Projektorganisation/index.md",
     "1_Einleitung/Einleitung.md",
     "1_Einleitung/Unbenannt.md",
     "anhang/quellen.md",
