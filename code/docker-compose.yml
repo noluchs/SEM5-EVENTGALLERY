@@ -93,6 +93,16 @@ services:
       - backend-network
     command: gunicorn -b 0.0.0.0:5000 app:create_app()
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: vue_frontend
+    ports:
+      - "8080:80"
+    networks:
+      - backend-network
+
 networks:
   backend-network:
     driver: bridge
