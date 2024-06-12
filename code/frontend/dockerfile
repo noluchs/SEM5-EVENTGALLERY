@@ -1,0 +1,21 @@
+# Use an official Node.js runtime as a parent image
+FROM node:lts-alpine3.17
+
+# Set the working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json from frontend directory
+COPY package.json package-lock.json ./
+
+# Install dependencies
+RUN npm install -g npm@7 && npm install
+RUN npm install express
+
+# Copy all files from the frontend directory
+COPY . .
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Start the application
+CMD ["node", "server.cjs"]

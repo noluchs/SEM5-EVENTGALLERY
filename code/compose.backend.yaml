@@ -1,0 +1,47 @@
+version: '3.9'
+
+networks:
+  eventgallery-net:
+
+services:
+  eventgallery-backend:
+    container_name: eventgallery-backend-dev
+    networks:
+      eventgallery-net:
+        aliases:
+          - eventgallery-backend
+    restart: always
+    ports:
+      - "5001:5000"
+    build:
+      context: ./backend
+    volumes:
+      - ./backend:/app
+    env_file:
+      - environment.env
+    depends_on:
+      eventgallery-db:
+        condition: service_healthy
+
+  eventgallery-db:
+    image: mysql:latest
+    container_name: eventgallery-db-backend-dev
+    networks:
+      - eventgallery-net
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: eventgallery
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "--password=$$MYSQL_ROOT_PASSWORD"]
+      start_period: 2s
+      interval: 5s
+      timeout: 5s
+      retries: 3
+    volumes:
+      - eventgallery-db:/var/lib/mysql
+
+volumes:
+  eventgallery-db:

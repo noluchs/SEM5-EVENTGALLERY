@@ -1,5 +1,5 @@
-from flask import Blueprint
+from apiflask import APIBlueprint
 
-gallery_bp = Blueprint('gallery', __name__)
+gallery_bp = APIBlueprint('gallery', __name__)
 
 from app.gallery import routes

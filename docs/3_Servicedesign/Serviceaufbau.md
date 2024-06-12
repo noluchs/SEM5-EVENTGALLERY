@@ -1,11 +1,11 @@
 ---
 layout: default
-title: 3.1 Servicedesign
+title: 3.2 Servicedesign
 parent: 3. Service Design
 nav_order: 1
 ---
 
-# Serviceaufbau
+# 3.2 Serviceaufbau
 
 
 ## Verzeichnisaufbau

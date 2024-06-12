@@ -1,7 +1,11 @@
-Flask
+flask
+apiflask
 Flask-SQLAlchemy
+mysql-connector-python 
 pymysql
 boto3
 python-dotenv
 gunicorn
 Pillow
+pyjwt
+marshmallow_sqlalchemy

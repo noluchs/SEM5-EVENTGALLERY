@@ -1,0 +1,75 @@
+version: '3.9'
+
+name: face-recognition-gallery-prod
+
+networks:
+  ma-net:
+
+services:
+
+  ma-proxy:
+    container_name: ma-proxy
+    restart: unless-stopped
+    image: jonasal/nginx-certbot:latest
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      - CERTBOT_EMAIL=admin@vonlangerhand.net
+    volumes:
+      - nginx_secrets:/etc/letsencrypt
+      - ./user_conf.d:/etc/nginx/user_conf.d
+    networks:
+      - ma-net
+
+
+  ma-frontend:
+    image: registry.gitlab.com/ch-tbz-wb/te/modules/msvc/mikro-adventures/ma-frontend:latest
+    build:
+      context: ./ma-frontend
+      dockerfile: 'Dockerfile.prod'
+    container_name: ma-frontend
+    restart: always
+    networks:
+      ma-net:
+        aliases:
+          - ma-frontend
+
+  ma-backend:
+    image: registry.gitlab.com/ch-tbz-wb/te/modules/msvc/mikro-adventures/ma-backend:latest
+    build:
+      context: ./ma-backend
+      dockerfile: 'Dockerfile.prod'
+    container_name: ma-backend
+    restart: always
+    environment:
+      - DATABASE_URI=mysql+mysqlconnector://root:root@ma-db:3306/ma
+    networks:
+      ma-net:
+        aliases:
+          - ma-backend
+    depends_on:
+      ma-db:
+        condition: service_healthy
+
+  ma-db:
+    image: mysql:5.7.43
+    container_name: ma-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ma
+    networks:
+      - ma-net
+    healthcheck:
+      test: mysqladmin ping -h localhost -uroot --password=$$MYSQL_ROOT_PASSWORD
+      start_period: 2s
+      interval: 5s
+      timeout: 5s
+      retries: 55
+    volumes:
+      - ma-db:/var/lib/mysql
+
+volumes:
+  ma-db:
+  nginx_secrets:
