@@ -1,8 +1,4 @@
-Hier ist eine umfassende Dokumentation, die den aktuellen Projektaufbau und das Datenbankmodell erläutert:
-
----
-
-## Projekt: Event Gallery Management mit Gesichtserkennung
+# Projekt: Event Gallery Management mit Gesichtserkennung
 
 ### Einführung
 
@@ -29,6 +25,7 @@ Aktuelle Lösungen erfordern oft manuelles Durchsuchen der Galerien oder bieten 
 ### Verzeichnungsstruktur
 
 ```plaintext
+
 code/
 ├── environment.env
 ├── compose.test.yaml
@@ -203,3 +200,34 @@ class FaceRecognition(db.Model):
     photo_id = Column(Integer, ForeignKey('photos.id'), nullable=False)
     user_id = Column(Integer, ForeignKey
 ```
+### Frontend
+```plaintext
+frontend/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── Home.jsx
+│   │   ├── GalleryView.jsx
+│   │   ├── Admin/
+│   │   │   ├── Login.jsx
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── GalleryManager.jsx
+│   │   │   ├── PhotoManager.jsx
+│   │   ├── common/
+│   │   │   ├── GalleryCard.jsx
+│   │   │   └── PhotoCard.jsx
+│   ├── context/
+│   │   └── AuthContext.jsx
+│   ├── App.jsx
+│   ├── index.css
+│   ├── main.jsx
+├── Dockerfile
+├── package.json
+├── tailwind.config.js
+└── vite.config.js
+```
+
+
+### Backend
+    

@@ -7,13 +7,18 @@ gallery_bp = Blueprint('gallery', __name__)
 gallery_schema = GallerySchema()
 galleries_schema = GallerySchema(many=True)
 
-@gallery_bp.route('/galleries', methods=['POST'])
+# Corrected code to align with the provided models
+@gallery_bp.route('/create', methods=['POST'])
 def create_gallery():
-    data = request.json
-    gallery = gallery_schema.load(data)
-    db.session.add(gallery)
+    data = request.get_json()
+    new_gallery = Gallery(
+        title=data.get('title'),  # Corrected field name
+        description=data.get('description'),
+        user_id=data.get('user_id')
+    )
+    db.session.add(new_gallery)
     db.session.commit()
-    return gallery_schema.jsonify(gallery), 201
+    return jsonify({"message": "Gallery created"}), 201
 
 @gallery_bp.route('/galleries', methods=['GET'])
 def get_galleries():

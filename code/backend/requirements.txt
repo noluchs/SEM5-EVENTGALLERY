@@ -9,3 +9,6 @@ gunicorn
 Pillow
 pyjwt
 marshmallow_sqlalchemy
+Flask-JWT-Extended
+Flask-Migrate
+cryptography

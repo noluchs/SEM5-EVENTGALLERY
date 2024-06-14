@@ -45,10 +45,14 @@ services:
     image: mysql:latest
     container_name: eventgallery-db-backend-dev
     networks:
-      - eventgallery-net
+      eventgallery-net:
+        aliases:
+          - eventgallery-db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: eventgallery
+      MYSQL_PASSWORD: zHa3eXfvof6Z2nX
       MYSQL_DATABASE: eventgallery
     ports:
       - "3306:3306"

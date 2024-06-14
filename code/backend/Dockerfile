@@ -15,5 +15,6 @@ RUN pip install -r requirements.txt
 # copy the source code of the app
 COPY . .
 
+
 # Executable commands
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
