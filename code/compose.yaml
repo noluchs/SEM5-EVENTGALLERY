@@ -9,9 +9,9 @@ services:
   frontend:
     build:
       context: ./frontend
-      dockerfile: dockerfile
+      dockerfile: Dockerfile
     ports:
-      - '3000:5173'
+      - '3000:3000'
     container_name: frontend-dev
     networks:
        eventgallery-net:
