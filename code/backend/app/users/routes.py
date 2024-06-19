@@ -3,7 +3,7 @@ from app.extensions import db
 from werkzeug.security import generate_password_hash
 from apiflask import abort as flask_abort
 from app.auth import token_auth
-from app.models.users import UsersModel, UsersIn, UsersOut, LoginIn, TokenOut
+from app.models.user import UsersModel, UsersIn, UsersOut, LoginIn, TokenOut
 from logging import warning as logging_warning
 from logging import info as logging_info
 

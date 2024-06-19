@@ -25,14 +25,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4_Serivce/index.md",
+                "file": "2_Projektorganisation/Sprint/index.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "d9790dbf385293f7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2_Projektorganisation/Sprint/Sprint 3.md",
                 "mode": "source",
                 "source": true
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -98,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "4_Serivce/index.md",
+                "file": "2_Projektorganisation/Sprint/Sprint 3.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "4_Serivce/index.md",
+                "file": "2_Projektorganisation/Sprint/Sprint 3.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "4_Serivce/index.md"
+                "file": "2_Projektorganisation/Sprint/Sprint 3.md"
               }
             }
           }
@@ -159,18 +171,24 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "47979d7beba8cfe9",
+  "active": "d9790dbf385293f7",
   "lastOpenFiles": [
-    "3_Servicedesign/index.md",
+    "2_Projektorganisation/Sprint/Sprint 2.md",
+    "2_Projektorganisation/Sprint/Sprint 1.md",
+    "anhang/quellen.md",
+    "anhang/Schmittel.md",
     "2_Projektorganisation/sprintplanung.md",
     "2_Projektorganisation/projektorganisation.md",
     "2_Projektorganisation/projektmethode.md",
     "2_Projektorganisation/index.md",
-    "4_Serivce/index.md",
+    "2_Projektorganisation/Sprint/index.md",
+    "2_Projektorganisation/Sprint/Sprint 3.md",
     "3_Servicedesign/Anforderung.md",
     "3_Servicedesign/Datenmodell.md",
-    "3_Servicedesign/Security und Datenschutz.md",
     "3_Servicedesign/Serviceaufbau.md",
+    "4_Serivce/index.md",
+    "3_Servicedesign/index.md",
+    "3_Servicedesign/Security und Datenschutz.md",
     "3_Servicedesign/Anforderung",
     "3_Servicedesign/Datenmodell copy.md",
     "4_Serivce",
@@ -179,8 +197,6 @@
     "index.md",
     "1_Einleitung/Einleitung.md",
     "1_Einleitung/Unbenannt.md",
-    "anhang/quellen.md",
-    "anhang/Schmittel.md",
     "2_Projektorganisation",
     "1_Einleitung",
     "anhang"

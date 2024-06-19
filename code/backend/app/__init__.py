@@ -15,6 +15,9 @@ def create_app(config_class=Config):
     app.register_blueprint(gallery_bp, url_prefix='/api')
     app.register_blueprint(image_bp, url_prefix='/api')
 
+    #from app.image import bp as images_bp
+    #app.register_blueprint(images_bp, url_prefix='/images')
+
 
     from app.users import bp as users_bp
     app.register_blueprint(users_bp, url_prefix='/users')

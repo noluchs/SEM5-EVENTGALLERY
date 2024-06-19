@@ -1,5 +1,5 @@
 from apiflask import HTTPTokenAuth
-from app.models.users import UsersModel
+from app.models.user import UsersModel
 
 token_auth = HTTPTokenAuth()
 
