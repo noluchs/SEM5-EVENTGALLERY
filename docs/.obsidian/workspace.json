@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3_Servicedesign/index.md",
+                "file": "3_Servicedesign/3.1 Anforderung.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "3_Servicedesign/index.md",
+                "file": "3_Servicedesign/3.1 Anforderung.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "3_Servicedesign/index.md",
+                "file": "3_Servicedesign/3.1 Anforderung.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "3_Servicedesign/index.md"
+                "file": "3_Servicedesign/3.1 Anforderung.md"
               }
             }
           }
@@ -173,10 +173,12 @@
   },
   "active": "d9790dbf385293f7",
   "lastOpenFiles": [
-    "2_Projektorganisation/index.md",
+    "3_Servicedesign/3.4 Security und Datenschutz.md",
+    "3_Servicedesign/3.2 Serviceaufbau.md",
+    "3_Servicedesign/3.3 Datenmodell.md",
+    "3_Servicedesign/3.1 Anforderung.md",
     "3_Servicedesign/index.md",
-    "3_Servicedesign/Anforderung.md",
-    "3_Servicedesign/Datenmodell.md",
+    "2_Projektorganisation/index.md",
     "2_Projektorganisation/Sprint/Sprint 2.md",
     "2_Projektorganisation/Sprint/index.md",
     "2_Projektorganisation/sprintplanung.md",
@@ -187,9 +189,7 @@
     "anhang/quellen.md",
     "anhang/Schmittel.md",
     "Pasted image 20240619150500.png",
-    "3_Servicedesign/Serviceaufbau.md",
     "4_Serivce/index.md",
-    "3_Servicedesign/Security und Datenschutz.md",
     "3_Servicedesign/Anforderung",
     "3_Servicedesign/Datenmodell copy.md",
     "4_Serivce",
