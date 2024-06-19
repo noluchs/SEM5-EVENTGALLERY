@@ -2,7 +2,6 @@ import pytest
 from app import create_app
 from test.create_test_data import create_test_data
 
-
 # Initialize the testing environment
 
 @pytest.fixture
@@ -17,3 +16,4 @@ def client():
         create_test_data()
 
     return app.test_client()
+
