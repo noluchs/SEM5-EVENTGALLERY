@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3_Servicedesign/index.md",
+                "file": "3_Servicedesign/3.4 Security und Datenschutz.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "3_Servicedesign/index.md",
+                "file": "3_Servicedesign/3.4 Security und Datenschutz.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "3_Servicedesign/index.md",
+                "file": "3_Servicedesign/3.4 Security und Datenschutz.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "3_Servicedesign/index.md"
+                "file": "3_Servicedesign/3.4 Security und Datenschutz.md"
               }
             }
           }
@@ -173,6 +173,7 @@
   },
   "active": "d9790dbf385293f7",
   "lastOpenFiles": [
+    "3_Servicedesign/index.md",
     "2_Projektorganisation/projektmethode.md",
     "2_Projektorganisation/index.md",
     "anhang/Schmittel.md",
@@ -184,7 +185,6 @@
     "3_Servicedesign/3.3 Datenmodell.md",
     "2_Projektorganisation/sprintplanung.md",
     "2_Projektorganisation/projektorganisation.md",
-    "3_Servicedesign/index.md",
     "2_Projektorganisation/Sprint/Sprint 2.md",
     "2_Projektorganisation/Sprint/index.md",
     "2_Projektorganisation/Sprint/Sprint 1.md",
