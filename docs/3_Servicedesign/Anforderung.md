@@ -6,4 +6,64 @@ nav_order: 2
 ---
 
 
-# Anforderungen
+# # Anforderungsanalyse
+
+## Ziel des Projekts
+Entwicklung eines Microservice-basierten Galerie-Verwaltungssystems mit integrierter Gesichtserkennung, um Event-Teilnehmern eine effiziente und schnelle Methode zur Identifizierung persönlicher Fotos in großen Fotogalerien zu bieten.
+
+## Benutzeranforderungen
+
+1. **Gesichtserkennung**:
+    - **Genauigkeit**: Das System muss in der Lage sein, Gesichter mit hoher Genauigkeit zu erkennen, auch bei unterschiedlichen Lichtverhältnissen und Bildqualitäten.
+    - **Skalierbarkeit**: Das System muss große Mengen an Bildern in kurzer Zeit verarbeiten können.
+    - **Datenschutz**: Alle verarbeiteten Fotos und Gesichtsmerkmale müssen sicher gespeichert und datenschutzkonform behandelt werden.
+
+2. **Benutzerfreundlichkeit**:
+    - **Selfie-Upload**: Benutzer sollen durch einfaches Hochladen eines Selfies alle Fotos finden können, auf denen sie abgebildet sind.
+    - **Intuitive Oberfläche**: Die Benutzeroberfläche muss einfach und intuitiv zu bedienen sein, sowohl für Veranstalter als auch für Teilnehmer.
+    - **Schnelle Suchergebnisse**: Ergebnisse sollten innerhalb weniger Sekunden nach dem Upload eines Selfies angezeigt werden.
+
+3. **Integration und Anpassbarkeit**:
+    - **Microservice-Architektur**: Das System muss aus unabhängigen, aber miteinander kommunizierenden Microservices bestehen, um eine einfache Wartung und Erweiterung zu gewährleisten.
+    - **Cloud-Dienste**: Nutzung moderner Cloud-Dienste zur Sicherstellung von Verfügbarkeit, Skalierbarkeit und Redundanz.
+    - **Anpassbarkeit**: Das System sollte leicht an verschiedene Veranstaltungsgrößen und -typen anpassbar sein.
+
+4. **Sicherheit**:
+    - **Datenverschlüsselung**: Alle Datenübertragungen und Speicherungen müssen verschlüsselt sein.
+    - **Zugangskontrolle**: Nur autorisierte Benutzer sollen Zugang zu bestimmten Systemfunktionen haben.
+
+## User Stories
+
+1. **Als Event-Teilnehmer** möchte ich ein Selfie hochladen können, um schnell alle Fotos zu finden, auf denen ich zu sehen bin.
+2. **Als Event-Teilnehmer** möchte ich sicherstellen, dass meine Fotos und Gesichtsdaten sicher und datenschutzkonform behandelt werden.
+3. **Als Event-Veranstalter** möchte ich eine große Menge an Fotos effizient verwalten und durchsuchen können.
+4. **Als Event-Veranstalter** möchte ich eine einfach zu bedienende Oberfläche haben, um Fotos hochzuladen und zu organisieren.
+5. **Als Entwickler** möchte ich eine Microservice-Architektur nutzen, um das System leicht warten und erweitern zu können.
+
+## Use Cases
+
+1. **Foto-Suche durch Teilnehmer**:
+    - **Akteure**: Event-Teilnehmer
+    - **Vorbedingungen**: Teilnehmer hat ein Selfie zur Verfügung.
+    - **Beschreibung**: Teilnehmer lädt ein Selfie hoch, das System analysiert das Selfie und zeigt alle Fotos an, auf denen der Teilnehmer abgebildet ist.
+    - **Nachbedingungen**: Suchergebnisse werden angezeigt.
+
+2. **Foto-Upload durch Veranstalter**:
+    - **Akteure**: Event-Veranstalter
+    - **Vorbedingungen**: Veranstalter hat Zugang zur Verwaltungsoberfläche.
+    - **Beschreibung**: Veranstalter lädt eine große Anzahl von Event-Fotos in das System hoch, das System verarbeitet die Fotos und integriert sie in die Datenbank.
+    - **Nachbedingungen**: Fotos sind in der Datenbank verfügbar und durchsuchbar.
+
+3. **Verwaltung von Benutzerrechten**:
+    - **Akteure**: Administrator
+    - **Vorbedingungen**: Administrator hat Zugang zur Verwaltungsoberfläche.
+    - **Beschreibung**: Administrator definiert und verwaltet die Zugriffsrechte der Benutzer im System.
+    - **Nachbedingungen**: Benutzerrechte sind aktualisiert.
+
+4. **Skalierung des Systems**:
+    - **Akteure**: Entwickler
+    - **Vorbedingungen**: System muss mehr Benutzer und Fotos verarbeiten als ursprünglich vorgesehen.
+    - **Beschreibung**: Entwickler erweitern die Kapazität des Systems durch Hinzufügen weiterer Ressourcen und Optimierung der Microservices.
+    - **Nachbedingungen**: System kann die erhöhte Last bewältigen.
+
+Diese Anforderungsanalyse dient als Grundlage für die weitere Entwicklung und Umsetzung des Projekts. Die klar definierten Benutzeranforderungen, User Stories und Use Cases stellen sicher, dass das System den Bedürfnissen der Nutzer gerecht wird und flexibel sowie skalierbar bleibt.
