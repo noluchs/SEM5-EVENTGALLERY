@@ -26,51 +26,7 @@ Aktuelle Lösungen erfordern oft manuelles Durchsuchen der Galerien oder bieten 
 
 ```plaintext
 
-code/
-├── environment.env
-├── compose.test.yaml
-├── compose.backend.yaml
-├── frontend/
-└── backend/
-    ├── Dockerfile.prod
-    ├── .DS_Store
-    ├── Dockerfile.test
-    ├── app/
-    │   ├── app.db
-    │   ├── .DS_Store
-    │   ├── config.py
-    │   ├── face_recognition/
-    │   │   ├── __init__.py
-    │   │   └── recognition_utils.py
-    │   │   └── routes.py
-    │   ├── auth/
-    │   │   ├── models.py
-    │   │   ├── auth_utils.py
-    │   │   ├── __init__.py
-    │   │   └── routes.py
-    │   ├── gallery/
-    │   │   ├── models.py
-    │   │   ├── __init__.py
-    │   │   └── routes.py
-    │   ├── __init__.py
-    │   ├── models/
-    │   │   ├── auth.py
-    │   │   ├── user.py
-    │   │   ├── event.py
-    │   │   ├── __init__.py
-    │   │   └── gallery.py
-    │   ├── image/
-    │   │   ├── models.py
-    │   │   ├── __init__.py
-    │   │   └── routes.py
-    │   └── extensions.py
-    ├── requirements.txt
-    ├── Dockerfile
-    ├── compose.yaml
-    ├── wsgi.py
-├── compose.prod.yaml
-├── compose.yaml
-└── docker-compose.yml.old
+
 ```
 
 ---

@@ -1,21 +1,20 @@
-# Use an official Node.js runtime as a parent image
+# Base image
 FROM node:lts-alpine3.17
 
 # Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json from frontend directory
-COPY package.json package-lock.json ./
+# Copy the package.json and package-lock.json
+COPY package*.json ./
 
 # Install dependencies
-RUN npm install -g npm@7 && npm install
-RUN npm install express
+RUN npm install
 
-# Copy all files from the frontend directory
+# Copy the rest of the application code
 COPY . .
 
-# Expose the port the app runs on
+# Expose the port that the Vite development server listens on
 EXPOSE 3000
 
-# Start the application
-CMD ["node", "server.cjs"]
+# Start the Vite development server with the --host flag
+CMD ["npm", "run", "dev", "--", "--host"]

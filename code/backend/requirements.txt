@@ -12,3 +12,5 @@ marshmallow_sqlalchemy
 Flask-JWT-Extended
 Flask-Migrate
 cryptography
+pytest
+pytest-flask

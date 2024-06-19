@@ -9,9 +9,12 @@ const Home = () => {
     const fetchGalleries = async () => {
       try {
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/galleries`);
-        setGalleries(response.data);
+        // Ensure response data is an array
+        const data = Array.isArray(response.data) ? response.data : [];
+        setGalleries(data);
       } catch (error) {
         console.error('Error fetching galleries:', error);
+        setGalleries([]); // Set galleries to an empty array on error
       }
     };
 

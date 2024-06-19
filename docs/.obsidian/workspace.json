@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3_Servicedesign/Serviceaufbau.md",
+                "file": "4_Serivce/index.md",
                 "mode": "source",
                 "source": true
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "3_Servicedesign/Serviceaufbau.md",
+                "file": "4_Serivce/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "3_Servicedesign/Serviceaufbau.md",
+                "file": "4_Serivce/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "3_Servicedesign/Serviceaufbau.md"
+                "file": "4_Serivce/index.md"
               }
             }
           }
@@ -161,21 +161,22 @@
   },
   "active": "47979d7beba8cfe9",
   "lastOpenFiles": [
-    "3_Servicedesign/Security und Datenschutz.md",
     "3_Servicedesign/index.md",
-    "3_Servicedesign/Anforderung.md",
-    "3_Servicedesign/Anforderung",
-    "3_Servicedesign/Datenmodell copy.md",
-    "3_Servicedesign/Datenmodell.md",
-    "4_Serivce",
-    "3_Servicedesign/Serviceaufbau.md",
-    "3_Servicedesign/Datenbank Konzept.md",
-    "Unbenannt.md",
+    "2_Projektorganisation/sprintplanung.md",
+    "2_Projektorganisation/projektorganisation.md",
     "2_Projektorganisation/projektmethode.md",
     "2_Projektorganisation/index.md",
-    "2_Projektorganisation/sprintplanung.md",
+    "4_Serivce/index.md",
+    "3_Servicedesign/Anforderung.md",
+    "3_Servicedesign/Datenmodell.md",
+    "3_Servicedesign/Security und Datenschutz.md",
+    "3_Servicedesign/Serviceaufbau.md",
+    "3_Servicedesign/Anforderung",
+    "3_Servicedesign/Datenmodell copy.md",
+    "4_Serivce",
+    "3_Servicedesign/Datenbank Konzept.md",
+    "Unbenannt.md",
     "index.md",
-    "2_Projektorganisation/projektorganisation.md",
     "1_Einleitung/Einleitung.md",
     "1_Einleitung/Unbenannt.md",
     "anhang/quellen.md",

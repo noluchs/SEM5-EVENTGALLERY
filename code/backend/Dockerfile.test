@@ -14,7 +14,7 @@ RUN pip install -r requirements.txt
 RUN pip install pytest responses
 
 # for flask web server
-EXPOSE 5000
+EXPOSE 5001
 
 # add files
 ADD . /app
