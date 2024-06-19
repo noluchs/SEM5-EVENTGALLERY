@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3_Servicedesign/3.1 Anforderung.md",
+                "file": "3_Servicedesign/index.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "3_Servicedesign/3.1 Anforderung.md",
+                "file": "3_Servicedesign/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "3_Servicedesign/3.1 Anforderung.md",
+                "file": "3_Servicedesign/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "3_Servicedesign/3.1 Anforderung.md"
+                "file": "3_Servicedesign/index.md"
               }
             }
           }
@@ -173,26 +173,27 @@
   },
   "active": "d9790dbf385293f7",
   "lastOpenFiles": [
-    "3_Servicedesign/3.4 Security und Datenschutz.md",
-    "3_Servicedesign/3.2 Serviceaufbau.md",
-    "3_Servicedesign/3.3 Datenmodell.md",
-    "3_Servicedesign/3.1 Anforderung.md",
-    "3_Servicedesign/index.md",
+    "2_Projektorganisation/projektmethode.md",
     "2_Projektorganisation/index.md",
-    "2_Projektorganisation/Sprint/Sprint 2.md",
-    "2_Projektorganisation/Sprint/index.md",
+    "anhang/Schmittel.md",
+    "anhang/quellen.md",
+    "anhang/ITCNE23_Semesterarbeit 3 (Einreichungsformular).pdf",
+    "3_Servicedesign/3.2 Serviceaufbau.md",
+    "3_Servicedesign/3.1 Anforderung.md",
+    "3_Servicedesign/3.4 Security und Datenschutz.md",
+    "3_Servicedesign/3.3 Datenmodell.md",
     "2_Projektorganisation/sprintplanung.md",
     "2_Projektorganisation/projektorganisation.md",
-    "2_Projektorganisation/projektmethode.md",
+    "3_Servicedesign/index.md",
+    "2_Projektorganisation/Sprint/Sprint 2.md",
+    "2_Projektorganisation/Sprint/index.md",
     "2_Projektorganisation/Sprint/Sprint 1.md",
     "2_Projektorganisation/Sprint/Sprint 3.md",
-    "anhang/quellen.md",
-    "anhang/Schmittel.md",
     "Pasted image 20240619150500.png",
-    "4_Serivce/index.md",
+    "4_Service/index.md",
     "3_Servicedesign/Anforderung",
     "3_Servicedesign/Datenmodell copy.md",
-    "4_Serivce",
+    "4_Service",
     "3_Servicedesign/Datenbank Konzept.md",
     "Unbenannt.md",
     "index.md",
