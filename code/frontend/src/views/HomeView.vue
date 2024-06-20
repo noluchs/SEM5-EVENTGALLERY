@@ -28,7 +28,7 @@ export default {
   methods: {
     async fetchGalleries() {
       try {
-        const response = await fetch('http://backend:5001/api/galleries');
+        const response = await fetch('http://localhost:5001/api/galleries');
         if (response.ok) {
           this.galleries = await response.json();
         } else {

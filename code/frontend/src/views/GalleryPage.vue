@@ -21,7 +21,7 @@ export default {
     async fetchGallery() {
       const galleryId = this.$route.params.id;
       try {
-        const response = await fetch(`http://backend:5001/api/galleries/${galleryId}`);
+        const response = await fetch(`http://localhost:5001/api/galleries/${galleryId}`);
         if (response.ok) {
           this.gallery = await response.json();
         } else {

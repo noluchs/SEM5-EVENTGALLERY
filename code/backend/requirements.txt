@@ -14,3 +14,4 @@ Flask-Migrate
 cryptography
 pytest
 pytest-flask
+flask_cors==3.0.10

@@ -1,39 +1,61 @@
-from flask import Blueprint, request, jsonify
-from app.image.models import Photo
+from app.image import bp
+from flask import Blueprint, request, jsonify, current_app
+from app.models import Photo
 from app.extensions import db
+from werkzeug.utils import secure_filename
+from app.schemas import PhotoSchema
 import os
 import uuid
+import boto3
+import logging
 
 
-image_bp = Blueprint('image', __name__)
+# Create boto3 client for AWS S3
+s3 = boto3.client(
+    "s3",
+    aws_access_key_id=os.environ.get("S3_KEY"),
+    aws_secret_access_key=os.environ.get("S3_SECRET"),
+)
 
-@image_bp.route('/', methods=['GET'])
+
+@bp.route('/', methods=['GET'])
 def get_photos():
     photos = Photo.query.all()
     return jsonify([photo.to_dict() for photo in photos])
 
-@image_bp.route('/', methods=['POST'])
-@app.input(PhotoSchema, location='files')
-@app.output(PhotoSchema, status_code=201)
+
+@bp.route('/', methods=['POST'])
+@bp.input(PhotoSchema, location='files')
+@bp.output(PhotoSchema, status_code=201)
 def upload_image(data):
+    logging.debug(f"Incoming request data: {data}")
+    logging.debug(f"Incoming files: {request.files}")
+
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file part in the request'}), 400
+
     file = request.files['file']
-    s3_client = get_s3_client()
 
-    # Split the filename into name and extension
-    filename, file_extension = os.path.splitext(file.filename)
+    if file.filename == '':
+        return jsonify({'error': 'No selected file'}), 400
 
-    # Generate a random name for the image
-    random_name = f"{filename}_{uuid.uuid4()}{file_extension}"
+    filename = secure_filename(file.filename)
+    unique_filename = f"{filename}_{uuid.uuid4().hex}"
 
-    s3_client.upload_fileobj(file, current_app.config['S3_BUCKET'], random_name)
+    try:
+        s3.upload_fileobj(file, current_app.config['S3_BUCKET'], unique_filename)
+    except Exception as e:
+        logging.error(f"Error uploading file to S3: {e}")
+        return jsonify({'error': 'Failed to upload file to S3'}), 500
 
-    photo = Photo(filename=random_name, gallery_id=data['gallery_id'])
+    photo = Photo(filename=unique_filename, gallery_id=data['gallery_id'])
     db.session.add(photo)
     db.session.commit()
+
     return photo
 
 
-@image_bp.route('/<int:id>', methods=['DELETE'])
+@bp.route('/<int:id>', methods=['DELETE'])
 def delete_photo(id):
     photo = Photo.query.get_or_404(id)
     s3_client = get_s3_client()
@@ -41,7 +63,6 @@ def delete_photo(id):
     try:
         s3_client.delete_object(Bucket=current_app.config['S3_BUCKET'], Key=photo.filename)
     except ClientError as e:
-        # If the object does not exist in the bucket, return an error message
         if e.response['Error']['Code'] == 'NoSuchKey':
             return jsonify({'error': 'Photo does not exist in the bucket'}), 404
         else:

@@ -16,7 +16,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ gallery.name }}</h5>
           <button @click="deleteGallery(gallery.id)" class="btn btn-danger">Delete Gallery</button>
-          <input type="file" @change="uploadImage(gallery.id, $event)" class="form-control mt-3">
+          <input type="file" @change="handleFileUpload(gallery.id, $event)" class="form-control mt-3" multiple>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@ const newGallery = ref({ name: '' });
 
 async function fetchGalleries() {
   try {
-    const response = await axios.get('http://localhost:5001/api/api/gallery', {
+    const response = await axios.get('http://localhost:5001/api/gallery', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
@@ -46,7 +46,7 @@ async function fetchGalleries() {
 
 async function createGallery() {
   try {
-    const response = await axios.post('http://localhost:5001/api/api/gallery', newGallery.value, {
+    const response = await axios.post('http://localhost:5001/api/gallery', newGallery.value, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
@@ -60,7 +60,7 @@ async function createGallery() {
 
 async function deleteGallery(galleryId) {
   try {
-    await axios.delete(`http://localhost:5001/api/api/gallery/${galleryId}`, {
+    await axios.delete(`http://localhost:5001/api/gallery/${galleryId}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
@@ -71,24 +71,26 @@ async function deleteGallery(galleryId) {
   }
 }
 
-async function uploadImage(galleryId, event) {
-  const file = event.target.files[0];
-  if (!file) return;
+async function handleFileUpload(galleryId, event) {
+  const files = event.target.files;
+  if (!files.length) return;
 
   const formData = new FormData();
-  formData.append('file', file);
   formData.append('gallery_id', galleryId);
+  for (let file of files) {
+    formData.append('file', file); // Ensure 'file' is used as key for each file
+  }
 
   try {
-    await axios.post('http://backend:5001/api/api/image', formData, {
+    await axios.post('http://localhost:5001/api/image', formData, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'multipart/form-data'
       }
     });
-    alert('Image uploaded successfully');
+    alert('Files uploaded successfully');
   } catch (error) {
-    console.error('Error uploading image:', error);
+    console.error('Error uploading files:', error);
   }
 }
 

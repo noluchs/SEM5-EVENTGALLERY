@@ -1,26 +1,34 @@
-from flask import request, jsonify, Blueprint
-from app.extensions import db
-from app.gallery.models import Gallery
+from app.gallery import bp
+from flask import Blueprint, request, jsonify, current_app
+from app.models import Gallery
 from app.schemas import GallerySchema
+from app.extensions import db
+import logging
 
-gallery_bp = Blueprint('gallery', __name__)
-gallery_schema = GallerySchema()
-galleries_schema = GallerySchema(many=True)
-
-# Corrected code to align with the provided models
-@gallery_bp.route('/create', methods=['POST'])
-def create_gallery():
-    data = request.get_json()
-    new_gallery = Gallery(
-        title=data.get('title'),  # Corrected field name
-        description=data.get('description'),
-        user_id=data.get('user_id')
-    )
-    db.session.add(new_gallery)
-    db.session.commit()
-    return jsonify({"message": "Gallery created"}), 201
-
-@gallery_bp.route('/galleries', methods=['GET'])
+@bp.route('/', methods=['GET'])
 def get_galleries():
     galleries = Gallery.query.all()
-    return galleries_schema.jsonify(galleries), 200
+    return jsonify([gallery.to_dict() for gallery in galleries])
+
+@bp.route('/', methods=['POST'])
+def create_gallery():
+    data = request.get_json()
+    logging.debug(f"Incoming request data: {data}")
+
+    name = data.get('name')
+    if not name:
+        return jsonify({'error': 'Name is required'}), 400
+
+    gallery = Gallery(name=name)
+    db.session.add(gallery)
+    db.session.commit()
+
+    return jsonify(gallery.to_dict()), 201
+
+@bp.route('/<int:id>', methods=['DELETE'])
+def delete_gallery(id):
+    gallery = Gallery.query.get_or_404(id)
+    db.session.delete(gallery)
+    db.session.commit()
+
+    return jsonify({'message': 'Gallery deleted successfully'}), 200

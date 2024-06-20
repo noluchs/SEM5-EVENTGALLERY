@@ -45,7 +45,7 @@ export const useAuthStore = defineStore('auth', () => {
 
     async function login(email, password) {
         const config = {
-            url: 'http://backend:5001/users/login',
+            url: 'http://localhost:5001/users/login',
             method: "POST",
             data: { email, password }
         };
