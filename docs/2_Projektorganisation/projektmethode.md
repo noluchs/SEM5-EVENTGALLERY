@@ -10,7 +10,7 @@ nav_order: 1
 In diesem Projekt verwenden wir eine hybride Methode aus Scrum und Kanban, um die Vorteile beider agilen Ansätze zu kombinieren. Diese Methode ermöglicht es uns, sowohl die Flexibilität und iterative Entwicklung von Scrum als auch die visuelle Aufgabenverwaltung und Durchsatzorientierung von Kanban zu nutzen.
 ## Scrum
 
-![[Bierdeckel_20_Vor.png]]
+![](../anhang/Bierdeckel_20_Vor.png)
 
 Scrum ist ein agiles Framework, das darauf abzielt, Produkte inkrementell und iterativ zu entwickeln. Es fördert die Zusammenarbeit, Flexibilität und kontinuierliche Verbesserung. In unserem Projekt wird Scrum wie folgt umgesetzt:
   
