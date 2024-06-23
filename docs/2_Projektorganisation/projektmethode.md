@@ -41,7 +41,7 @@ Das Kanban Board ist ein zentrales Werkzeug in unserem Projekt, das hilft, den A
 
 • **Done**: Abgeschlossene Aufgaben werden hierhin verschoben. Dies gibt dem Team und den Stakeholdern einen klaren Überblick über den Fortschritt des Projekts.
 
-![[Screenshot 2024-06-23 at 12.48.18.png]]
+![](Screenshot%202024-06-23%20at%2012.48.18.png)
 
 Durch die Verwendung des Kanban Boards kann das Team effizienter arbeiten und Engpässe im Arbeitsprozess frühzeitig erkennen und beheben.
 
@@ -50,4 +50,4 @@ Durch die Verwendung des Kanban Boards kann das Team effizienter arbeiten und En
 
 
 Der Zeitplan unseres Projekts ist wie folgt strukturiert:
-![[Screenshot 2024-06-23 at 12.49.56.png]]
+![](Screenshot%202024-06-23%20at%2012.49.56.png)

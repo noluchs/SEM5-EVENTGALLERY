@@ -7,7 +7,7 @@ nav_order: 2
 
 # 2.2 Projektorganisation 
 
-![[download.png]]
+![](download.png)
 
 ## Scrum Master
 
