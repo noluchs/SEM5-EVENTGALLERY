@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2_Projektorganisation/projektmethode.md",
+                "file": "3_Servicedesign/3.3 Architektur.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2_Projektorganisation/projektmethode.md",
+                "file": "3_Servicedesign/3.3 Architektur.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2_Projektorganisation/projektmethode.md",
+                "file": "3_Servicedesign/3.3 Architektur.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2_Projektorganisation/projektmethode.md"
+                "file": "3_Servicedesign/3.3 Architektur.md"
               }
             }
           }
@@ -173,18 +173,21 @@
   },
   "active": "d9790dbf385293f7",
   "lastOpenFiles": [
-    "2_Projektorganisation/sprintplanung.md",
+    "3_Servicedesign/3.4 Security und Datenschutz.md",
+    "3_Servicedesign/3.3 Architektur.md",
+    "3_Servicedesign/3.2 Technologien.md",
     "2_Projektorganisation/projektorganisation.md",
+    "2_Projektorganisation/Sprint/Sprint 2.md",
+    "2_Projektorganisation/Sprint/Sprint 1.md",
+    "2_Projektorganisation/sprintplanung.md",
     "2_Projektorganisation/projektmethode.md",
     "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.48.18.png",
     "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.49.56.png",
     "2_Projektorganisation/attachments",
     "4_Service/testing.md",
     "4_Service/index.md",
-    "2_Projektorganisation/Sprint/Sprint 2.md",
     "anhang/quellen.md",
     "anhang/Bierdeckel_20_Vor.png",
-    "3_Servicedesign/3.4 Security und Datenschutz.md",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10774975494_ff1f0e85a4_s.jpg",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10589670286_9cfa212324_s.jpg",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10514059394_46a6c59f4d_s.jpg",
@@ -202,12 +205,9 @@
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/IStock_corporate_logo.svg",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/11435888666_f3aa003bcc_s.jpg",
     "2_Projektorganisation/Sprint/index.md",
-    "3_Servicedesign/3.2 Technologien.md",
     "3_Servicedesign/3.1 Anforderung.md",
-    "3_Servicedesign/3.3 Architektur.md",
     "3_Servicedesign/3.5 Servicekosten.md",
     "Unbenannt.md",
-    "2_Projektorganisation/Sprint/Sprint 1.md",
     "anhang/learnings.md",
     "anhang/Schmittel.md",
     "3_Servicedesign/index.md",
