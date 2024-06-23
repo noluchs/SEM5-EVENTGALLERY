@@ -6,3 +6,10 @@ url: https://noluchs.github.io/MSCV-Gallery-with-Face-Matching/
 
 aux_links:
    Projektplanung: https://github.com/users/noluchs/projects/6
+
+
+
+mermaid:
+  # Version of mermaid library
+  # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
+  version: "9.1.3"
