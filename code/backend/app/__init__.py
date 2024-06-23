@@ -8,7 +8,7 @@ from .config import Config
 def create_app(config_class=Config):
     app = APIFlask(__name__)
     app.config.from_object(config_class)
-    CORS(app, origins="http://localhost:3000")  # Allow CORS for your frontend server
+    CORS(app)
     # Initialize Flask extensions here
     db.init_app(app)
 

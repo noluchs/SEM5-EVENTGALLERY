@@ -1,14 +1,23 @@
+// path: src/stores/auth.store.js
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
-import axios from 'axios';
+import { callExternalApi } from "../services/ExternalApiService";
 import router from '../router';
 import { useAlertStore } from '@/stores/alert.store';
 
 export const useAuthStore = defineStore('auth', () => {
-    const token = ref(JSON.parse(localStorage.getItem('token')));
-    const user = ref(JSON.parse(localStorage.getItem('user')));
+    const token = ref(getItemFromLocalStorage('token'));
+    const user = ref(getItemFromLocalStorage('user'));
     const returnUrl = ref(null);
     const alertStore = useAlertStore(); // Initialize once, use everywhere
+
+    function getItemFromLocalStorage(key) {
+        try {
+            return JSON.parse(localStorage.getItem(key)) || null;
+        } catch (error) {
+            return null;
+        }
+    }
 
     function saveUser(newUser) {
         user.value = newUser;
@@ -32,28 +41,41 @@ export const useAuthStore = defineStore('auth', () => {
 
     async function handleApiCall(config, successMessage) {
         try {
-            const response = await axios(config);
-            if (successMessage) {
-                alertStore.addAlert('success', successMessage);
+            const { data, error } = await callExternalApi({ config });
+            if (error) {
+                alertStore.addAlert('error', error);
+                return null;
+            } else {
+                if (successMessage) {
+                    alertStore.addAlert('success', successMessage);
+                }
+                return data;
             }
-            return { data: response.data, error: null };
         } catch (error) {
-            alertStore.addAlert('error', error.response.data.message || 'An error occurred');
-            return { data: null, error: error.response.data };
+            alertStore.addAlert('error', 'An error occurred during the API call');
+            return null;
         }
+    }
+
+    async function register(name, email, password) {
+        const config = {
+            url: 'http://localhost:5001/users/',
+            method: "POST",
+            data: { name, email, password }
+        };
+        await handleApiCall(config, 'Registration successful');
     }
 
     async function login(email, password) {
         const config = {
-            url: 'http://localhost:5001/users/login',
+            url: 'http://localhost:5001/users/login/',
             method: "POST",
             data: { email, password }
         };
-        const { data } = await handleApiCall(config);
+        const data = await handleApiCall(config);
         if (data) {
             saveToken(data.token);
-            // User data might need to be fetched separately if not included in the login response
-            saveUser({ email }); // Adjust as necessary if user data is returned
+            saveUser(data.user);
             router.push(returnUrl.value || '/');
         }
     }
@@ -69,6 +91,7 @@ export const useAuthStore = defineStore('auth', () => {
         user,
         returnUrl,
         login,
-        logout
+        logout,
+        register,
     };
 });

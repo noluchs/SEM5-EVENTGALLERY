@@ -33,7 +33,7 @@ const newGallery = ref({ name: '' });
 
 async function fetchGalleries() {
   try {
-    const response = await axios.get('http://localhost:5001/api/gallery', {
+    const response = await axios.get('http://localhost:5001/api/gallery/', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
@@ -46,7 +46,7 @@ async function fetchGalleries() {
 
 async function createGallery() {
   try {
-    const response = await axios.post('http://localhost:5001/api/gallery', newGallery.value, {
+    const response = await axios.post('http://localhost:5001/api/gallery/', newGallery.value, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
@@ -82,7 +82,7 @@ async function handleFileUpload(galleryId, event) {
   }
 
   try {
-    await axios.post('http://localhost:5001/api/image', formData, {
+    await axios.post('http://localhost:5001/api/image/', formData, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'multipart/form-data'

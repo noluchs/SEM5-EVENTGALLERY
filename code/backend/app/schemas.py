@@ -13,7 +13,7 @@ class GallerySchema(Schema):
 
 class PhotoSchema(Schema):
     id = fields.Int(dump_only=True)
-    filename = fields.Str(required=True)
-    gallery_id = fields.Int(load_only=True)
-    gallery = fields.Nested(GallerySchema, dump_only=True)
+    filename = fields.Str(dump_only=True)  # Only dump the filename, do not require it in the input
+    gallery_id = fields.Int(required=True)  # Ensure gallery_id is required
+    gallery = fields.Nested('GallerySchema', dump_only=True)
 

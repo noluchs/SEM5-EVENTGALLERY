@@ -13,6 +13,8 @@ Für die erfolgreiche Umsetzung dieses Projekts werden verschiedene Sachmittel b
 Obsidian wird als zentrales Tool für die Dokumentation des Projekts eingesetzt. Es bietet eine strukturierte Umgebung für das Festhalten von Ideen, Entscheidungen und Fortschritten. Die Möglichkeit zur Verknüpfung von Notizen erleichtert die Navigation und das Verständnis des Gesamtprojekts.
 
 
+## Postmann
+
 ## PyCharm
 
 PyCharm ist eine weitere Entwicklungsumgebung für Python, die speziell auf die Bedürfnisse von Python-Entwicklern zugeschnitten ist. Es bietet fortgeschrittene Funktionen wie Code-Analyse, Test-Unterstützung und eine übersichtliche Benutzeroberfläche für eine effiziente Entwicklung.

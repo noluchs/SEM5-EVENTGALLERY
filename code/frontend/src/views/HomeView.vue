@@ -27,17 +27,17 @@ export default {
   },
   methods: {
     async fetchGalleries() {
-      try {
-        const response = await fetch('http://localhost:5001/api/galleries');
-        if (response.ok) {
-          this.galleries = await response.json();
-        } else {
-          console.error('Failed to fetch galleries');
-        }
-      } catch (error) {
-        console.error('Error fetching galleries:', error);
-      }
-    },
+  try {
+    const response = await fetch('http://localhost:5001/api/gallery/');
+    if (response.ok) {
+      this.galleries = await response.json();
+    } else {
+      console.error('Failed to fetch galleries');
+    }
+  } catch (error) {
+    console.error('Error fetching galleries:', error);
+  }
+},
     openGallery(id) {
       this.$router.push(`/gallery/${id}`);
     }

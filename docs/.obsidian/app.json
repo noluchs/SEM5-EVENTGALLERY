@@ -1,4 +1,6 @@
 {
   "foldHeading": false,
-  "showInlineTitle": false
+  "showInlineTitle": false,
+  "attachmentFolderPath": "./attachments",
+  "alwaysUpdateLinks": true
 }
