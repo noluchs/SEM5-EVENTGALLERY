@@ -1,22 +1,19 @@
 <template>
   <div id="app">
+    <MenuBar />
     <router-view></router-view>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'App',
-};
+<script setup>
+import MenuBar from '@/components/MenuBar.vue';
 </script>
 
 <style>
-#app {
+body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 </style>

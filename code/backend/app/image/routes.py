@@ -1,9 +1,9 @@
 from app.image import bp
 from flask import Blueprint, request, jsonify, current_app
 from app.models import Photo
+from app.schemas import PhotoSchema
 from app.extensions import db
 from werkzeug.utils import secure_filename
-from app.schemas import PhotoSchema
 import os
 import uuid
 import boto3
@@ -11,7 +11,8 @@ import logging
 
 
 # Create boto3 client for AWS S3
-s3 = boto3.client("s3",
+s3 = boto3.client(
+    "s3",
     aws_access_key_id=os.environ.get("S3_KEY"),
     aws_secret_access_key=os.environ.get("S3_SECRET"),
 )
@@ -31,20 +32,12 @@ def upload_image(data):
     logging.debug(f"Incoming files: {request.files}")
 
     if 'file' not in request.files:
-        logging.error("No file part in the request")
         return jsonify({'error': 'No file part in the request'}), 400
 
     file = request.files['file']
-    if file.filename == '':
-        logging.error("No selected file")
-        return jsonify({'error': 'No selected file'}), 400
 
-    # Check if the file is an image
-    file.seek(0)
-    image_type = imghdr.what(file)
-    if not image_type:
-        logging.error("Uploaded file is not an image")
-        return jsonify({'error': 'Uploaded file is not an image'}), 400
+    if file.filename == '':
+        return jsonify({'error': 'No selected file'}), 400
 
     filename = secure_filename(file.filename)
     unique_filename = f"{filename}_{uuid.uuid4().hex}"
@@ -54,10 +47,6 @@ def upload_image(data):
     except Exception as e:
         logging.error(f"Error uploading file to S3: {e}")
         return jsonify({'error': 'Failed to upload file to S3'}), 500
-
-    if 'gallery_id' not in data:
-        logging.error("No gallery_id in request data")
-        return jsonify({'error': 'gallery_id is required'}), 400
 
     photo = Photo(filename=unique_filename, gallery_id=data['gallery_id'])
     db.session.add(photo)

@@ -16,3 +16,6 @@ pytest
 pytest-flask
 flask_cors==3.0.10
 passlib==1.7.4
+authlib
+requests
+python-dotenv

@@ -6,5 +6,4 @@ class Photo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     filename = db.Column(db.String(256), nullable=False)
     upload_date = db.Column(db.DateTime, default=datetime.utcnow)
-    gallery_id = db.Column(db.Integer, db.ForeignKey('galleries.id'), nullable=False)
-    gallery = db.relationship('Gallery', back_populates='photos')
+    gallery_id = db.Column(db.Integer, db.ForeignKey('gallery.id'), nullable=False)

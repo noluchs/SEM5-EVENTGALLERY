@@ -1,73 +1,78 @@
 from app.users import bp
-from apiflask import abort as flask_abort
-from app.extensions import db, token_auth
+from apiflask import APIBlueprint, abort
+from flask import redirect, url_for, session, request, current_app, jsonify
+from authlib.integrations.flask_client import OAuth
+from app.extensions import db
 from app.models.user import UsersModel, UsersIn, UsersOut, LoginIn, TokenOut
 import logging
+from urllib.parse import urlencode, quote_plus
+from app import oauth
 
 logging.basicConfig(level=logging.DEBUG)
 
-# get all users
-@bp.get('/')
+@bp.before_app_request
+def setup_oauth():
+    if not hasattr(oauth, 'okta'):
+        oauth.register(
+            "okta",
+            client_id=current_app.config['OKTA_CLIENT_ID'],
+            client_secret=current_app.config['OKTA_CLIENT_SECRET'],
+            client_kwargs={
+                "scope": "openid profile email",
+            },
+            server_metadata_url=f'https://{current_app.config["OKTA_DOMAIN"]}/.well-known/openid-configuration',
+        )
+
+@bp.route('/login', methods=['GET'])
+def login():
+    redirect_uri = url_for("users.auth_callback", _external=True)
+    logging.debug(f"Redirecting to Okta for authorization with redirect URI: {redirect_uri}")
+    return oauth.okta.authorize_redirect(redirect_uri)
+
+@bp.route('/authorization-code/callback', methods=['GET', 'POST'])
+def auth_callback():
+    try:
+        token = oauth.okta.authorize_access_token()
+        logging.debug(f"Token received: {token}")
+        user_info = token['userinfo']
+        session["user"] = user_info
+        return redirect(url_for('users.home'))
+    except Exception as e:
+        logging.error(f"OAuth Error: {str(e)}")
+        logging.debug(f"Request args: {request.args}")
+        logging.debug(f"Request form: {request.form}")
+        return jsonify({"error": "Authorization failed"}), 400
+
+@bp.route('/logout', methods=['GET'])
+def logout():
+    session.clear()
+    return redirect(
+        f'https://{current_app.config["OKTA_DOMAIN"]}/oauth2/v1/logout?'
+        + urlencode(
+            {
+                "returnTo": url_for("users.home", _external=True),
+                "client_id": current_app.config["OKTA_CLIENT_ID"],
+            },
+            quote_via=quote_plus,
+        )
+    )
+
+@bp.route('/', methods=['GET'])
+def home():
+    return jsonify({
+        "message": "Welcome to the home page",
+        "user": session.get("user")
+    })
+
+@bp.route('/protected', methods=['GET'])
+def protected():
+    if 'user' not in session:
+        abort(401, message="Unauthorized")
+    user = session.get('user')
+    return {'message': f'Hello, {user["name"]}!'}
+
+@bp.route('/view_users', methods=['GET'])
 @bp.output(UsersOut(many=True))
-def view_users(database_table=UsersModel):
-    return database_table.query.all()
-
-# get user by id
-@bp.get('/<int:user_id>')
-@bp.auth_required(token_auth)
-@bp.output(UsersOut)
-def view_user_by_id(user_id, database_table=UsersModel):
-    user = db.get_or_404(database_table, user_id)
-    return user
-
-# create new user
-@bp.post('/create')
-@bp.input(UsersIn, location='json')
-@bp.output(UsersOut, status_code=201)
-def create_user(json_data, database_table=UsersModel):
-    password = json_data.pop('password')
-    user = database_table(password=password, **json_data)
-    db.session.add(user)
-    db.session.commit()
-    logging.debug(f"User created: {user.email} with raw password: {password} and hashed password: {user.password}")
-    return user
-
-# change the information for a db entry
-@bp.patch('/<int:user_id>/edit')
-@bp.auth_required(token_auth)
-@bp.input(UsersIn(partial=True), location='json')
-@bp.output(UsersOut)
-def update_user(user_id, json_data, database_table=UsersModel):
-    user = db.get_or_404(database_table, user_id)
-    for key, value in json_data.items():
-        insert_data = value
-        if key == "password":
-            insert_data = custom_generate_password_hash(value)
-        setattr(user, key, insert_data)
-    db.session.commit()
-    return user
-
-# remove user by id
-@bp.delete('/<int:user_id>/delete')
-@bp.auth_required(token_auth)
-@bp.output(UsersOut(many=True))
-def delete_user(user_id, database_table=UsersModel):
-    user = db.get_or_404(database_table, user_id)
-    db.session.delete(user)
-    db.session.commit()
-    return database_table.query.all()
-
-# Login route
-@bp.route('/login', methods=['POST', 'OPTIONS'])
-@bp.input(LoginIn)
-@bp.output(TokenOut)
-def login(json_data):
-    user = UsersModel.query.filter_by(email=json_data['email']).first()
-    if user:
-        logging.debug(f"Login attempt: user email: {json_data['email']}, entered password: {json_data['password']}, stored hash: {user.password}")
-        password_check = user.check_password(json_data['password'])
-        logging.debug(f"Password check result: {password_check}")
-        if password_check:
-            token = user.generate_auth_token()
-            return {'token': token, 'duration': 600}
-    flask_abort(401, message="Invalid email or password")
+def view_users():
+    users = UsersModel.query.all()
+    return users

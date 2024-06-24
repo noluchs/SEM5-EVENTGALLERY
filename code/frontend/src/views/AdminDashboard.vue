@@ -7,6 +7,10 @@
         <label for="galleryName" class="form-label">Gallery Name</label>
         <input type="text" class="form-control" id="galleryName" v-model="newGallery.name" required>
       </div>
+      <div class="mb-3">
+        <label for="coverImage" class="form-label">Cover Image</label>
+        <input type="file" class="form-control" id="coverImage" @change="handleCoverImageUpload" required>
+      </div>
       <button type="submit" class="btn btn-primary">Create Gallery</button>
     </form>
 
@@ -15,6 +19,7 @@
       <div v-for="gallery in galleries" :key="gallery.id" class="card mb-3">
         <div class="card-body">
           <h5 class="card-title">{{ gallery.name }}</h5>
+          <img :src="gallery.cover_image_url" alt="Cover Image" class="img-thumbnail">
           <button @click="deleteGallery(gallery.id)" class="btn btn-danger">Delete Gallery</button>
           <input type="file" @change="handleFileUpload(gallery.id, $event)" class="form-control mt-3" multiple>
         </div>
@@ -30,6 +35,7 @@ import axios from 'axios';
 
 const galleries = ref([]);
 const newGallery = ref({ name: '' });
+const coverImage = ref(null);
 
 async function fetchGalleries() {
   try {
@@ -46,13 +52,19 @@ async function fetchGalleries() {
 
 async function createGallery() {
   try {
-    const response = await axios.post('http://localhost:5001/api/gallery/', newGallery.value, {
+    const formData = new FormData();
+    formData.append('name', newGallery.value.name);
+    formData.append('cover_image', coverImage.value);
+
+    const response = await axios.post('http://localhost:5001/api/gallery/', formData, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'multipart/form-data'
       }
     });
     galleries.value.push(response.data);
     newGallery.value.name = '';
+    coverImage.value = null;
   } catch (error) {
     console.error('Error creating gallery:', error);
   }
@@ -71,6 +83,10 @@ async function deleteGallery(galleryId) {
   }
 }
 
+function handleCoverImageUpload(event) {
+  coverImage.value = event.target.files[0];
+}
+
 async function handleFileUpload(galleryId, event) {
   const files = event.target.files;
   if (!files.length) return;
@@ -78,7 +94,7 @@ async function handleFileUpload(galleryId, event) {
   const formData = new FormData();
   formData.append('gallery_id', galleryId);
   for (let file of files) {
-    formData.append('file', file); // Ensure 'file' is used as key for each file
+    formData.append('file', file);
   }
 
   try {

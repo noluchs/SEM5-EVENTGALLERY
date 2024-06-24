@@ -1,18 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
-import GalleryPage from '../views/GalleryPage.vue';
-import LoginPage from '../views/LoginPage.vue'; // Updated name
-import AdminDashboard from '../views/AdminDashboard.vue';
+import HomeView from '@/views/HomeView.vue';
+import LoginPage from '@/views/LoginPage.vue';
+import CallbackPage from '@/views/CallbackPage.vue';
+import AdminDashboard from '@/views/AdminDashboard.vue';
+import { authGuard } from '@auth0/auth0-vue';
 
 const routes = [
-  { path: '/', name: 'Home', component: HomeView },
-  { path: '/gallery/:id', name: 'Gallery', component: GalleryPage },
-  { path: '/login', name: 'LoginPage', component: LoginPage }, // Updated name
-  { path: '/admin', name: 'Admin', component: AdminDashboard }
+  { path: '/', component: HomeView },
+  { path: '/login', component: LoginPage },
+  { path: '/callback', component: CallbackPage },
+  {
+    path: '/admin',
+    component: AdminDashboard,
+    beforeEnter: authGuard
+  }
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes
 });
 

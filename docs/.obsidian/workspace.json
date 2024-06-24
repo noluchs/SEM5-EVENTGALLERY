@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3_Servicedesign/3.3 Architektur.md",
+                "file": "3_Servicedesign/3.2 Technologien.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "3_Servicedesign/3.3 Architektur.md",
+                "file": "3_Servicedesign/3.2 Technologien.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "3_Servicedesign/3.3 Architektur.md",
+                "file": "3_Servicedesign/3.2 Technologien.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "3_Servicedesign/3.3 Architektur.md"
+                "file": "3_Servicedesign/3.2 Technologien.md"
               }
             }
           }
@@ -173,6 +173,7 @@
   },
   "active": "d9790dbf385293f7",
   "lastOpenFiles": [
+    "3_Servicedesign/3.5 Servicekosten.md",
     "3_Servicedesign/3.4 Security und Datenschutz.md",
     "3_Servicedesign/3.3 Architektur.md",
     "3_Servicedesign/3.2 Technologien.md",
@@ -206,7 +207,6 @@
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/11435888666_f3aa003bcc_s.jpg",
     "2_Projektorganisation/Sprint/index.md",
     "3_Servicedesign/3.1 Anforderung.md",
-    "3_Servicedesign/3.5 Servicekosten.md",
     "Unbenannt.md",
     "anhang/learnings.md",
     "anhang/Schmittel.md",
