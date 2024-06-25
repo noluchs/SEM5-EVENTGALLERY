@@ -37,7 +37,8 @@
           </div>
           <div class="modal-body">
             <h5 v-if="selectedGallery">{{ selectedGallery.name }}</h5>
-            <input type="file" @change="handleFileUpload($event)" class="form-control mt-3" multiple>
+            <input type="file" @change="handleFileSelection($event)" class="form-control mt-3" multiple>
+            <button @click="uploadFiles" class="btn btn-primary mt-3">Upload Files</button>
             <div class="mt-4">
               <h6>Existing Pictures</h6>
               <div v-if="pictures.length" class="row">
@@ -70,6 +71,7 @@ const newGallery = ref({ name: '' });
 const coverImage = ref(null);
 const selectedGallery = ref(null);
 const pictures = ref([]);
+const selectedFiles = ref([]);
 
 async function fetchGalleries() {
   try {
@@ -140,29 +142,32 @@ function openManagePicturesModal(gallery) {
   new Modal(document.getElementById('managePicturesModal')).show();
 }
 
-function handleFileUpload(event) {
-  const files = event.target.files;
-  if (!files.length) return;
+function handleFileSelection(event) {
+  selectedFiles.value = event.target.files;
+}
+
+async function uploadFiles() {
+  if (!selectedFiles.value.length) return;
 
   const formData = new FormData();
   formData.append('gallery_id', selectedGallery.value.id);
-  for (let file of files) {
+  for (let file of selectedFiles.value) {
     formData.append('files', file);
   }
 
-  axios.post('http://localhost:5001/api/image/', formData, {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-      'Content-Type': 'multipart/form-data'
-    }
-  })
-    .then(() => {
-      alert('Files uploaded successfully');
-      fetchPictures(selectedGallery.value.id);
-    })
-    .catch(error => {
-      console.error('Error uploading files:', error);
+  try {
+    await axios.post('http://localhost:5001/api/image/', formData, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'multipart/form-data'
+      }
     });
+    alert('Files uploaded successfully');
+    fetchPictures(selectedGallery.value.id);
+    selectedFiles.value = [];
+  } catch (error) {
+    console.error('Error uploading files:', error);
+  }
 }
 
 async function deletePicture(pictureId) {

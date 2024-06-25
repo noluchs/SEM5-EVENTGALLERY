@@ -9,6 +9,8 @@ import uuid
 import boto3
 import logging
 
+photo_schema = PhotoSchema()
+
 # Create boto3 client for AWS S3
 s3_client = boto3.client(
     's3',
