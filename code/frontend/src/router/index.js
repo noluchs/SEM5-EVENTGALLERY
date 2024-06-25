@@ -3,6 +3,7 @@ import HomeView from '@/views/HomeView.vue';
 import LoginPage from '@/views/LoginPage.vue';
 import CallbackPage from '@/views/CallbackPage.vue';
 import AdminDashboard from '@/views/AdminDashboard.vue';
+import GalleryPage from '@/views/GalleryPage.vue'; // Import GalleryPage component
 import { authGuard } from '@auth0/auth0-vue';
 
 const routes = [
@@ -13,7 +14,8 @@ const routes = [
     path: '/admin',
     component: AdminDashboard,
     beforeEnter: authGuard
-  }
+  },
+  { path: '/gallery/:id', component: GalleryPage } // Add GalleryPage route
 ];
 
 const router = createRouter({

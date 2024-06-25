@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-4" v-for="gallery in galleries" :key="gallery.id" @click="openGallery(gallery.id)">
         <div class="card mb-4">
-          <img :src="getCoverImageUrl(gallery.cover_image)" class="card-img-top" alt="Gallery Cover">
+          <img :src="getCoverImageUrl(gallery.cover_image)" class="card-img-top" alt="Gallery Cover" @error="handleImageError">
           <div class="card-body">
             <h5 class="card-title">{{ gallery.name }}</h5>
           </div>
@@ -25,7 +25,9 @@ async function fetchGalleries() {
   try {
     const response = await fetch('http://localhost:5001/api/gallery/');
     if (response.ok) {
-      galleries.value = await response.json();
+      const data = await response.json();
+      console.log('Fetched galleries:', data); // Debugging: Log API response
+      galleries.value = data;
     } else {
       console.error('Failed to fetch galleries');
     }
@@ -36,13 +38,18 @@ async function fetchGalleries() {
 
 function getCoverImageUrl(filename) {
   if (!filename) {
-    return '/path/to/default/image.png';  // Update the path to your default image
+    console.error('Cover image filename is undefined or empty');
+    return ''; // Optionally return a placeholder or leave empty to avoid a broken image
   }
   return `https://msvc-gallery.s3.eu-central-1.amazonaws.com/${filename}`;
 }
 
 function openGallery(id) {
   router.push(`/gallery/${id}`);
+}
+
+function handleImageError(event) {
+  console.error(`Error loading image: ${event.target.src}`);
 }
 
 onMounted(() => {

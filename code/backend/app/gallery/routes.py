@@ -29,6 +29,13 @@ def get_galleries():
     return jsonify(galleries_data)
 
 
+@bp.route('/<int:id>', methods=['GET'])
+def get_gallery(id):
+    gallery = Gallery.query.get_or_404(id)
+    return jsonify(GallerySchema().dump(gallery))
+
+
+
 @bp.route('/', methods=['POST'])
 def create_gallery():
     logging.debug("Received create gallery request")
