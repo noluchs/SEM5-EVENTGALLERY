@@ -8,9 +8,9 @@ class EventSchema(Schema):
 
 class PhotoSchema(Schema):
     id = fields.Int(dump_only=True)
-    filename = fields.Str(dump_only=True)  # Only dump the filename, do not require it in the input
-    gallery_id = fields.Int(required=True)  # Ensure gallery_id is required
-    gallery = fields.Nested('GallerySchema', dump_only=True)
+    filename = fields.Str(dump_only=True)
+    gallery_id = fields.Int(required=True)
+    gallery = fields.Nested('GallerySchema', only=['id', 'name'], dump_only=True)
 
 class GallerySchema(Schema):
     id = fields.Int(dump_only=True)

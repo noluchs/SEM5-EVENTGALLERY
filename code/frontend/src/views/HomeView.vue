@@ -14,37 +14,45 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'HomeView',
-  data() {
-    return {
-      galleries: []
-    };
-  },
-  created() {
-    this.fetchGalleries();
-  },
-  methods: {
-    async fetchGalleries() {
-      try {
-        const response = await fetch('http://localhost:5001/api/gallery/');
-        if (response.ok) {
-          this.galleries = await response.json();
-        } else {
-          console.error('Failed to fetch galleries');
-        }
-      } catch (error) {
-        console.error('Error fetching galleries:', error);
-      }
-    },
-    openGallery(id) {
-      this.$router.push(`/gallery/${id}`);
-    },
-    getCoverImageUrl(filename) {
-      const baseUrl = 'https://msvc-gallery.s3.eu-central-1.amazonaws.com/';
-      return filename ? `${baseUrl}${filename}` : 'path/to/default/image.png';
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
+const galleries = ref([]);
+const router = useRouter();
+
+async function fetchGalleries() {
+  try {
+    const response = await fetch('http://localhost:5001/api/gallery/');
+    if (response.ok) {
+      galleries.value = await response.json();
+    } else {
+      console.error('Failed to fetch galleries');
     }
+  } catch (error) {
+    console.error('Error fetching galleries:', error);
   }
-};
+}
+
+function getCoverImageUrl(filename) {
+  if (!filename) {
+    return '/path/to/default/image.png';  // Update the path to your default image
+  }
+  return `https://msvc-gallery.s3.eu-central-1.amazonaws.com/${filename}`;
+}
+
+function openGallery(id) {
+  router.push(`/gallery/${id}`);
+}
+
+onMounted(() => {
+  fetchGalleries();
+});
 </script>
+
+<style scoped>
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+</style>

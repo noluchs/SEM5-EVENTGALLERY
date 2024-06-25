@@ -28,6 +28,7 @@ def get_galleries():
         galleries_data.append(gallery_data)
     return jsonify(galleries_data)
 
+
 @bp.route('/', methods=['POST'])
 def create_gallery():
     logging.debug("Received create gallery request")
@@ -70,6 +71,34 @@ def create_gallery():
         return jsonify({'error': 'Failed to create gallery'}), 500
 
     return jsonify(GallerySchema().dump(gallery)), 201
+
+@bp.route('/<int:id>/cover_image', methods=['PUT'])
+def update_cover_image(id):
+    logging.debug(f"Received update cover image request for gallery {id}")
+
+    gallery = Gallery.query.get_or_404(id)
+    cover_image = request.files.get('cover_image')
+
+    if not cover_image:
+        logging.error("Cover image is required")
+        return jsonify({'error': 'Cover image is required'}), 400
+
+    cover_image_filename = f"{uuid.uuid4()}.png"
+    try:
+        s3_client.upload_fileobj(
+            cover_image,
+            current_app.config['S3_BUCKET'],
+            cover_image_filename,
+            ExtraArgs={'ACL': 'public-read'}
+        )
+        gallery.cover_image = cover_image_filename
+        db.session.commit()
+        logging.debug(f"Updated cover image for gallery {id}")
+    except Exception as e:
+        logging.error(f"Failed to update cover image to S3: {e}")
+        return jsonify({'error': 'Failed to update cover image'}), 500
+
+    return jsonify(GallerySchema().dump(gallery))
 
 @bp.route('/<int:id>', methods=['DELETE'])
 def delete_gallery(id):

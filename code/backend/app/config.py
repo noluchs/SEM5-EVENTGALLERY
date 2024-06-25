@@ -11,7 +11,7 @@ class Config:
     S3_SECRET = os.environ.get('S3_SECRET')
     S3_LOCATION = f'http://{S3_BUCKET}.s3.amazonaws.com/'
     AWS_REGION = os.environ.get('AWS_REGION')
-    S3_REGION = os.getenv('S3_REGION', 'eu-central-2')
+    S3_REGION = os.getenv('S3_REGION', 'eu-central-1')
 
     S3_BUCKET_2="msvc-gallery"
     S3_REGION_2="eu-central-1"
