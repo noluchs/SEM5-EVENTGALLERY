@@ -43,7 +43,7 @@ services:
     container_name: eventgallery-backend
     restart: always
     environment:
-      - DATABASE_URI=mysql+mysqlconnector://root:root@ma-db:3306/ma
+      - DATABASE_URI=mysql+mysqlconnector://root:root@eventgallery-db:3306/eventgallery
     networks:
       eventgallery-net:
         aliases:
@@ -52,9 +52,9 @@ services:
       ma-db:
         condition: service_healthy
 
-  ma-db:
+  eventgallery-db:
     image: mysql:5.7.43
-    container_name: ma-db
+    container_name: eventgallery-db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root

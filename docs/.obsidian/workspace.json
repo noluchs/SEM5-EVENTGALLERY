@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5_Schlussteil/index.md",
+                "file": "4_Service/4.2 Frontend.md",
                 "mode": "source",
                 "source": false
               }
@@ -61,14 +61,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4_Service/4.1 Backend.md",
+                "file": "4_Service/4.4 Deployment.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "4_Service/4.1 Backend.md",
+                "file": "4_Service/4.2 Frontend.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "4_Service/4.1 Backend.md",
+                "file": "4_Service/4.2 Frontend.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "4_Service/4.1 Backend.md"
+                "file": "4_Service/4.2 Frontend.md"
               }
             }
           }
@@ -195,11 +195,13 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "9abd05ba2ae29aa7",
+  "active": "d9790dbf385293f7",
   "lastOpenFiles": [
+    "4_Service/4.4 Deployment.md",
+    "5_Schlussteil/index.md",
+    "4_Service/4.1 Backend.md",
     "4_Service/4.3 Testing.md",
     "4_Service/4.2 Frontend.md",
-    "4_Service/4.1 Backend.md",
     "3_Servicedesign/3.5 Servicekosten.md",
     "3_Servicedesign/3.4 Security und Datenschutz.md",
     "3_Servicedesign/3.3 Datenbank-Schema.md",
@@ -210,12 +212,10 @@
     "2_Projektorganisation/projektmethode.md",
     "2_Projektorganisation/Sprint/Sprint 1.md",
     "2_Projektorganisation/Sprint/Sprint 2.md",
-    "4_Service/4.4 Deployment.md",
     "4_Service/index.md",
     "5_Schlussteil/5.2 Reflexion.md",
     "anhang/learnings.md",
     "5_Schlussteil/5.1 Fazit.md",
-    "5_Schlussteil/index.md",
     "Unbenannt",
     "5_Schlussteil",
     "4_Service/testing.md",

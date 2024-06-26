@@ -45,3 +45,7 @@ Ich muss sicherstellen, dass ich meine Aufgaben effektiver priorisiere und Zeitm
 **Genauere Planung der Tasks**
   
 Es ist wichtig, die Aufgaben genauer zu planen und detaillierte Schritte für deren Umsetzung zu definieren. Eine präzisere Planung wird dazu beitragen, die Aufgaben effizienter zu bearbeiten und mögliche Probleme frühzeitig zu erkennen.
+
+
+
+## Kritische Würdigung des Sprint-Reviews
