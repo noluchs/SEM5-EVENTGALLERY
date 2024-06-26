@@ -2,12 +2,10 @@ from apiflask import APIFlask
 from flask_cors import CORS
 from .extensions import db
 from .config import Config
-from authlib.integrations.flask_client import OAuth
 import os
 from flask_migrate import Migrate
 
 migrate = Migrate()
-oauth = OAuth()
 
 def create_app(config_class=Config):
     app = APIFlask(__name__)
@@ -17,18 +15,16 @@ def create_app(config_class=Config):
     db.init_app(app)
     migrate.init_app(app, db)
 
-    # Initialize OAuth
-    oauth.init_app(app)
-
     # Register blueprints
-    from .users import bp as users_bp
-    app.register_blueprint(users_bp, url_prefix='/users')
 
     from .gallery import bp as gallery_bp
     app.register_blueprint(gallery_bp, url_prefix='/api/gallery')
 
     from .image import bp as image_bp
     app.register_blueprint(image_bp, url_prefix='/api/image')
+
+    from .facerecognition import bp as face_recognition_bp
+    app.register_blueprint(face_recognition_bp, url_prefix='/api/rekognition')
 
     with app.app_context():
         db.create_all()

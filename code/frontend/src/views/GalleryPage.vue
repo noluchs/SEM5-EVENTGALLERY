@@ -1,31 +1,56 @@
 <template>
-  <div v-if="gallery">
-    <h1>{{ gallery.name }}</h1>
-    <button @click="startCamera">Filter Pictures by Face</button>
-    <div v-if="cameraEnabled">
-      <video ref="video" width="320" height="240" autoplay></video>
-      <button @click="captureImage">Capture</button>
+  <div>
+    <div v-if="isLoading" class="loading-container">
+      <img src="@/assets/loading.svg" alt="Loading..." class="loading-animation">
     </div>
-    <div class="row">
-      <div class="col-md-3" v-for="picture in filteredPictures" :key="picture.id">
-        <img :src="getPictureUrl(picture.filename)" class="img-thumbnail mb-2" alt="Picture">
+    <div v-else>
+      <div v-if="gallery">
+        <h1>{{ gallery.name }}</h1>
+        <button @click="openUploadModal">Filter by Face</button>
+        <div class="row">
+          <div class="col-md-3" v-for="picture in pictures" :key="picture.id">
+            <img :src="getPictureUrl(picture.filename)" class="img-thumbnail mb-2" alt="Picture">
+          </div>
+        </div>
+      </div>
+      <p v-else>Loading gallery...</p>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="uploadModalLabel">Upload Image</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <input type="file" @change="handleFileUpload" class="form-control" accept="image/*">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" @click="submitImage">Submit</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <p v-else>Loading gallery...</p>
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue';
-import {useRoute} from 'vue-router';
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { Modal } from 'bootstrap';
 
 const gallery = ref(null);
 const pictures = ref([]);
-const filteredPictures = ref([]);
-const cameraEnabled = ref(false);
-const video = ref(null);
+const isLoading = ref(true);
 const route = useRoute();
+const selectedImage = ref(null);
+let uploadModal = null;
 
 async function fetchGalleries() {
   try {
@@ -53,7 +78,6 @@ async function fetchPictures() {
       }
     });
     pictures.value = response.data;
-    filteredPictures.value = response.data; // Initialize filtered pictures
     console.log('Fetched pictures:', response.data);
   } catch (error) {
     console.error('Error fetching pictures:', error);
@@ -64,53 +88,77 @@ function getPictureUrl(filename) {
   return `https://msvc-gallery.s3.eu-central-1.amazonaws.com/${filename}`;
 }
 
-function startCamera() {
-  cameraEnabled.value = true;
-  navigator.mediaDevices.getUserMedia({video: true}).then((stream) => {
-    video.value.srcObject = stream;
-  }).catch((error) => {
-    console.error('Error accessing camera:', error);
-  });
+function openUploadModal() {
+  console.log("Opening upload modal...");
+  selectedImage.value = null;
+  uploadModal = new Modal(document.getElementById('uploadModal'));
+  uploadModal.show();
 }
 
-async function captureImage() {
-  const canvas = document.createElement('canvas');
-  canvas.width = video.value.videoWidth;
-  canvas.height = video.value.videoHeight;
-  const context = canvas.getContext('2d');
-  context.drawImage(video.value, 0, 0, canvas.width, canvas.height);
-  const imageData = canvas.toDataURL('image/png');
+function handleFileUpload(event) {
+  console.log("File upload triggered...");
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      selectedImage.value = e.target.result;
+      console.log("Selected image: ", selectedImage.value);
+    };
+    reader.readAsDataURL(file);
+  }
+}
 
-  // Send the captured image to the backend for Rekognition
+async function submitImage() {
+  if (!selectedImage.value) {
+    alert('Please select an image to upload.');
+    return;
+  }
+
+  const galleryId = route.params.id;
   try {
-    const response = await axios.post('http://localhost:5001/api/rekognition/', {
-      image: imageData,
-      gallery_id: gallery.value.id
+    console.log("Sending image to backend for comparison...");
+    const response = await axios.post(`http://localhost:5001/api/rekognition/`, {
+      gallery_id: galleryId,
+      image: selectedImage.value
     }, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     });
-    filteredPictures.value = response.data;
-    console.log('Filtered pictures:', response.data);
+    const matchedPictures = response.data;
+    pictures.value = matchedPictures;
+    console.log('Matched pictures:', matchedPictures);
+
+    if (uploadModal) {
+      uploadModal.hide();
+    }
   } catch (error) {
     console.error('Error comparing faces:', error);
+    alert('An error occurred while comparing faces. Please try again.');
   }
-
-  cameraEnabled.value = false;
 }
 
-onMounted(() => {
-  fetchGalleries().then(() => {
-    if (gallery.value) {
-      fetchPictures();
-    }
-  });
+onMounted(async () => {
+  await fetchGalleries();
+  if (gallery.value) {
+    await fetchPictures();
+  }
+  isLoading.value = false;
 });
 </script>
 
 <style scoped>
 .row {
   margin-top: 20px;
+}
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.loading-animation {
+  width: 100px;
+  height: 100px;
 }
 </style>

@@ -2,23 +2,14 @@ import boto3
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
-from apiflask import HTTPTokenAuth
 
-from jwt import decode, InvalidTokenError
-from flask import current_app
 
 import logging
 logging.getLogger('botocore').setLevel(logging.WARNING)
 logging.getLogger('boto3').setLevel(logging.WARNING)
 
-token_auth = HTTPTokenAuth()
 
-@token_auth.verify_token
-def verify_token(token):
-    user = User.verify_auth_token(token)
-    if not user:
-        return False
-    return user
+
 
 def get_s3_client():
     return boto3.client(

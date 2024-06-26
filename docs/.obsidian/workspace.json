@@ -37,14 +37,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3_Servicedesign/3.2 Technologien.md",
+                "file": "5_Schlussteil/index.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "44e16d9d2f9fbe85",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "5_Schlussteil/5.1 Fazit.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9abd05ba2ae29aa7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "4_Service/4.1 Backend.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -94,7 +118,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 364.5
   },
   "right": {
     "id": "69c68b50bd21e5e1",
@@ -110,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "3_Servicedesign/3.2 Technologien.md",
+                "file": "4_Service/4.1 Backend.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "3_Servicedesign/3.2 Technologien.md",
+                "file": "4_Service/4.1 Backend.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "3_Servicedesign/3.2 Technologien.md"
+                "file": "4_Service/4.1 Backend.md"
               }
             }
           }
@@ -171,22 +195,33 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "d9790dbf385293f7",
+  "active": "9abd05ba2ae29aa7",
   "lastOpenFiles": [
+    "4_Service/4.3 Testing.md",
+    "4_Service/4.2 Frontend.md",
+    "4_Service/4.1 Backend.md",
     "3_Servicedesign/3.5 Servicekosten.md",
     "3_Servicedesign/3.4 Security und Datenschutz.md",
-    "3_Servicedesign/3.3 Architektur.md",
+    "3_Servicedesign/3.3 Datenbank-Schema.md",
     "3_Servicedesign/3.2 Technologien.md",
-    "2_Projektorganisation/projektorganisation.md",
-    "2_Projektorganisation/Sprint/Sprint 2.md",
-    "2_Projektorganisation/Sprint/Sprint 1.md",
+    "3_Servicedesign/3.1 Anforderung.md",
     "2_Projektorganisation/sprintplanung.md",
+    "2_Projektorganisation/projektorganisation.md",
     "2_Projektorganisation/projektmethode.md",
+    "2_Projektorganisation/Sprint/Sprint 1.md",
+    "2_Projektorganisation/Sprint/Sprint 2.md",
+    "4_Service/4.4 Deployment.md",
+    "4_Service/index.md",
+    "5_Schlussteil/5.2 Reflexion.md",
+    "anhang/learnings.md",
+    "5_Schlussteil/5.1 Fazit.md",
+    "5_Schlussteil/index.md",
+    "Unbenannt",
+    "5_Schlussteil",
+    "4_Service/testing.md",
     "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.48.18.png",
     "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.49.56.png",
     "2_Projektorganisation/attachments",
-    "4_Service/testing.md",
-    "4_Service/index.md",
     "anhang/quellen.md",
     "anhang/Bierdeckel_20_Vor.png",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10774975494_ff1f0e85a4_s.jpg",
@@ -201,22 +236,12 @@
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/rollup-c7f38863.css",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/prbd-bfd1863f.js",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/maplibre-GKTYIQWA.js",
-    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/hermes-core-23168383.js",
-    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/flimojis-044772fa.js",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/IStock_corporate_logo.svg",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/11435888666_f3aa003bcc_s.jpg",
     "2_Projektorganisation/Sprint/index.md",
-    "3_Servicedesign/3.1 Anforderung.md",
-    "Unbenannt.md",
-    "anhang/learnings.md",
     "anhang/Schmittel.md",
     "3_Servicedesign/index.md",
     "2_Projektorganisation/index.md",
-    "2_Projektorganisation/Sprint/Sprint 3.md",
-    "3_Servicedesign/Datenmodell copy.md",
-    "3_Servicedesign/Datenbank Konzept.md",
-    "index.md",
-    "1_Einleitung/Einleitung.md",
-    "1_Einleitung/Unbenannt.md"
+    "2_Projektorganisation/Sprint/Sprint 3.md"
   ]
 }

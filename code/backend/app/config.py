@@ -10,11 +10,11 @@ class Config:
     S3_KEY = os.environ.get('S3_KEY')
     S3_SECRET = os.environ.get('S3_SECRET')
     S3_LOCATION = f'http://{S3_BUCKET}.s3.amazonaws.com/'
-    AWS_REGION = os.environ.get('AWS_REGION')
-    S3_REGION = os.getenv('S3_REGION', 'eu-central-1')
+    AWS_REGION = os.environ.get('AWS_REGION', 'eu-central-1')
 
-    S3_BUCKET_2="msvc-gallery"
-    S3_REGION_2="eu-central-1"
+    AWS_REKOGNITION_KEY= os.environ.get('AWS_REKOGNITION_KEY')
+    AWS_REKOGNITION_SECRET = os.environ.get('AWS_REKOGNITION_SECRET')
+
 
     # Okta configuration
     OKTA_DOMAIN = os.environ.get('OKTA_DOMAIN')

@@ -13,7 +13,7 @@ s3_client = boto3.client(
     's3',
     aws_access_key_id=os.getenv('S3_KEY'),
     aws_secret_access_key=os.getenv('S3_SECRET'),
-    region_name=os.getenv('S3_REGION_2')
+    region_name=os.getenv('AWS_REGION')
 )
 
 
@@ -24,7 +24,7 @@ def get_galleries():
     for gallery in galleries:
         gallery_data = GallerySchema().dump(gallery)
         if gallery.cover_image_url:
-            gallery_data['cover_image_url'] = f"https://{current_app.config['S3_BUCKET_2']}.s3.{current_app.config['S3_REGION_2']}.amazonaws.com/{gallery.cover_image_url}"
+            gallery_data['cover_image_url'] = f"https://{current_app.config['S3_BUCKET']}.s3.{current_app.config['AWS_REGION']}.amazonaws.com/{gallery.cover_image_url}"
         galleries_data.append(gallery_data)
     return jsonify(galleries_data)
 
@@ -58,7 +58,7 @@ def create_gallery():
         try:
             s3_client.upload_fileobj(
                 cover_image,
-                current_app.config['S3_BUCKET_2'],
+                current_app.config['S3_BUCKET'],
                 filename
             )
             cover_image_filename = filename  # Only save the filename in the database
