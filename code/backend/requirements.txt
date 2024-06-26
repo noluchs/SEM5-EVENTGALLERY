@@ -4,7 +4,6 @@ Flask-SQLAlchemy
 mysql-connector-python 
 pymysql
 boto3
-gunicorn
 Pillow
 marshmallow_sqlalchemy
 Flask-JWT-Extended

@@ -6,7 +6,7 @@
     <div v-else>
       <div v-if="gallery">
         <h1>{{ gallery.name }}</h1>
-        <button @click="openUploadModal">Filter by Face</button>
+        <button @click="openCamera">Filter by Face</button>
         <div class="row">
           <div class="col-md-3" v-for="picture in pictures" :key="picture.id">
             <img :src="getPictureUrl(picture.filename)" class="img-thumbnail mb-2" alt="Picture">
@@ -16,16 +16,19 @@
       <p v-else>Loading gallery...</p>
     </div>
 
-    <!-- Upload Modal -->
-    <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+    <!-- Camera Modal -->
+    <div class="modal fade" id="cameraModal" tabindex="-1" aria-labelledby="cameraModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="uploadModalLabel">Upload Image</h5>
+            <h5 class="modal-title" id="cameraModalLabel">Capture Image</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <input type="file" @change="handleFileUpload" class="form-control" accept="image/*">
+            <video v-if="!capturedImage" id="video" width="100%" autoplay></video>
+            <canvas v-show="false" id="canvas"></canvas>
+            <img v-if="capturedImage" :src="capturedImage" class="img-thumbnail mb-2" alt="Captured Image">
+            <button v-if="!capturedImage" @click="captureImage" class="btn btn-primary mt-3">Capture</button>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -50,7 +53,8 @@ const pictures = ref([]);
 const isLoading = ref(true);
 const route = useRoute();
 const selectedImage = ref(null);
-let uploadModal = null;
+const capturedImage = ref(null);
+let cameraModal = null;
 
 async function fetchGalleries() {
   try {
@@ -88,29 +92,37 @@ function getPictureUrl(filename) {
   return `https://msvc-gallery.s3.eu-central-1.amazonaws.com/${filename}`;
 }
 
-function openUploadModal() {
-  console.log("Opening upload modal...");
+function openCamera() {
+  console.log("Opening camera modal...");
   selectedImage.value = null;
-  uploadModal = new Modal(document.getElementById('uploadModal'));
-  uploadModal.show();
-}
+  capturedImage.value = null;
+  cameraModal = new Modal(document.getElementById('cameraModal'));
+  cameraModal.show();
 
-function handleFileUpload(event) {
-  console.log("File upload triggered...");
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      selectedImage.value = e.target.result;
-      console.log("Selected image: ", selectedImage.value);
-    };
-    reader.readAsDataURL(file);
+  const video = document.getElementById('video');
+
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+      video.srcObject = stream;
+      video.play();
+    });
   }
 }
 
+function captureImage() {
+  const video = document.getElementById('video');
+  const canvas = document.getElementById('canvas');
+  const context = canvas.getContext('2d');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  capturedImage.value = canvas.toDataURL('image/png');
+  console.log("Captured image: ", capturedImage.value);
+}
+
 async function submitImage() {
-  if (!selectedImage.value) {
-    alert('Please select an image to upload.');
+  if (!capturedImage.value) {
+    alert('Please capture an image.');
     return;
   }
 
@@ -119,7 +131,7 @@ async function submitImage() {
     console.log("Sending image to backend for comparison...");
     const response = await axios.post(`http://localhost:5001/api/rekognition/`, {
       gallery_id: galleryId,
-      image: selectedImage.value
+      image: capturedImage.value
     }, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -129,8 +141,8 @@ async function submitImage() {
     pictures.value = matchedPictures;
     console.log('Matched pictures:', matchedPictures);
 
-    if (uploadModal) {
-      uploadModal.hide();
+    if (cameraModal) {
+      cameraModal.hide();
     }
   } catch (error) {
     console.error('Error comparing faces:', error);

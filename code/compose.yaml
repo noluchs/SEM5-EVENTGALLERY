@@ -6,13 +6,28 @@ networks:
   eventgallery-net:
 
 services:
-  frontend:
+
+  proxy:
+    container_name: proxy-dev
+    restart: always
+    image: nginx:1.13.7
+    ports:
+      - 80:80
+    volumes:
+      - ./proxy/nginx-proxy.dev.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - eventgallery-net
+    depends_on:
+      - eventgallery-frontend
+      - eventgallery-backend
+
+  eventgallery-frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
       - '3000:3000'
-    container_name: frontend-dev
+    container_name: eventgallery-frontend-dev
     env_file:
       - environment.env
     networks:

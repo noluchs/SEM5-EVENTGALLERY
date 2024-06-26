@@ -1,3 +1,5 @@
+# app/facerecognition/routes.py
+
 from app.facerecognition import bp
 from flask import Blueprint, request, jsonify, current_app
 from app.models import Photo
