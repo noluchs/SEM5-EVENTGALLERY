@@ -69,14 +69,14 @@ jobs:
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.5.3
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-private-key: ${{ SSH_PRIVATE_KEY }}
 
       - name: Copy Docker Compose file
-        run: scp ./compose.prod.yaml ec2-user@${{ secrets.DEPLOY_TARGET }}:/home/ec2-user/compose.prod.yaml
+        run: scp ./compose.prod.yaml ec2-user@${{ DEPLOY_TARGET }}:/home/ec2-user/compose.prod.yaml
 
       - name: Deploy to EC2
         run: |
-          ssh ec2-user@${{ secrets.DEPLOY_TARGET }} << 'EOF'
+          ssh ec2-user@${{ DEPLOY_TARGET }} << 'EOF'
           docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GHCR_TOKEN  }}
           cd /home/ec2-user
           docker-compose -f compose.prod.yaml pull
