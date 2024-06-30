@@ -7,28 +7,15 @@ networks:
 
 services:
 
-  proxy:
-    container_name: proxy
-    restart: unless-stopped
-    image: jonasal/nginx-certbot:latest
-    ports:
-      - 80:80
-      - 443:443
-    environment:
-      - CERTBOT_EMAIL=noah@luchsphoto.ch
-    volumes:
-      - nginx_secrets:/etc/letsencrypt
-      - ./user_conf.d:/etc/nginx/user_conf.d
-    networks:
-      - eventgallery-net
-
-
   eventgallery-frontend:
     image: ghcr.io/noluchs/mscv-gallery-with-face-matching/msvcfrontend:latest
     build:
       context: ./frontend
       dockerfile: 'Dockerfile.prod'
     container_name: eventgallery-frontend
+    ports:
+      - 80:80
+      - 443:443
     env_file:
       - .env
     restart: always
