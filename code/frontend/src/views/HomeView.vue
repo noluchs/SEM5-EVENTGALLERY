@@ -23,7 +23,7 @@ const router = useRouter();
 
 async function fetchGalleries() {
   try {
-    const response = await fetch('${process.env.VUE_APP_API_URL}/gallery/');
+    const response = await fetch(`${process.env.VUE_APP_ROOT_API}/gallery`);
     if (response.ok) {
       const data = await response.json();
       console.log('Fetched galleries:', data); // Debugging: Log API response

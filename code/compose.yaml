@@ -29,7 +29,6 @@ services:
       - '3000:3000'
     container_name: eventgallery-frontend-dev
     environment:
-      - VUE_APP_API_URL=http://localhost:5001/api
       - CHOKIDAR_USEPOLLING=true
     env_file:
       - environment.env

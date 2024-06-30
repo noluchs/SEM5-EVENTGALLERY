@@ -12,8 +12,8 @@ const app = createApp(App);
 app.use(router);
 app.use(
   createAuth0({
-    domain: config.VITE_APP_AUTH0_DOMAIN,
-  clientId: config.VITE_APP_AUTH0_CLIENT_ID,
+    domain: config.AUTH0_DOMAIN,
+    clientId: config.AUTH0_CLIENT_ID,
     authorizationParams: {
       redirect_uri: window.location.origin
     }

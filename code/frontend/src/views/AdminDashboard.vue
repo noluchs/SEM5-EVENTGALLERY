@@ -75,7 +75,7 @@ const selectedFiles = ref([]);
 
 async function fetchGalleries() {
   try {
-    const response = await axios.get('${process.env.VUE_APP_API_URL}/api/gallery/', {
+    const response = await axios.get(`${process.env.VUE_APP_ROOT_API}/gallery/`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
@@ -88,7 +88,7 @@ async function fetchGalleries() {
 
 async function fetchPictures(galleryId) {
   try {
-    const response = await axios.get(`${process.env.VUE_APP_API_URL}/api/image/?gallery_id=${galleryId}`, {
+    const response = await axios.get(`${process.env.VUE_APP_ROOT_API}/image/?gallery_id=${galleryId}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
@@ -105,7 +105,7 @@ async function createGallery() {
     formData.append('name', newGallery.value.name);
     formData.append('cover_image', coverImage.value);
 
-    const response = await axios.post('${process.env.VUE_APP_API_URL}/api/gallery/', formData, {
+    const response = await axios.post('${process.env.VUE_APP_ROOT_API}/gallery/', formData, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'multipart/form-data'
@@ -121,7 +121,7 @@ async function createGallery() {
 
 async function deleteGallery(galleryId) {
   try {
-    await axios.delete(`${process.env.VUE_APP_API_URL}/api/gallery/${galleryId}`, {
+    await axios.delete(`${process.env.VUE_APP_ROOT_API}/gallery/${galleryId}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
@@ -156,7 +156,7 @@ async function uploadFiles() {
   }
 
   try {
-    await axios.post('${process.env.VUE_APP_API_URL}/api/image/', formData, {
+    await axios.post('${process.env.VUE_APP_ROOT_API}/image/', formData, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'multipart/form-data'
@@ -172,7 +172,7 @@ async function uploadFiles() {
 
 async function deletePicture(pictureId) {
   try {
-    await axios.delete(`${process.env.VUE_APP_API_URL}/api/image/${pictureId}`, {
+    await axios.delete(`${process.env.VUE_APP_ROOT_API}/image/${pictureId}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }

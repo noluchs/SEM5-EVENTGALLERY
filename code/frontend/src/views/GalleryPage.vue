@@ -58,7 +58,7 @@ let cameraModal = null;
 
 async function fetchGalleries() {
   try {
-    const response = await axios.get('${process.env.VUE_APP_API_URL}/api/gallery/', {
+     const response = await axios.get(`${process.env.VUE_APP_ROOT_API}/gallery/`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
@@ -76,7 +76,7 @@ async function fetchGalleries() {
 async function fetchPictures() {
   const galleryId = route.params.id;
   try {
-    const response = await axios.get(`${process.env.VUE_APP_API_URL}/api/image/?gallery_id=${galleryId}`, {
+    const response = await axios.get(`${process.env.VUE_APP_ROOT_API}/image/?gallery_id=${galleryId}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
@@ -129,7 +129,7 @@ async function submitImage() {
   const galleryId = route.params.id;
   try {
     console.log("Sending image to backend for comparison...");
-    const response = await axios.post(`${process.env.VUE_APP_API_URL}/api/rekognition/`, {
+    const response = await axios.post(`${process.env.VUE_APP_ROOT_API}/rekognition/`, {
       gallery_id: galleryId,
       image: capturedImage.value
     }, {

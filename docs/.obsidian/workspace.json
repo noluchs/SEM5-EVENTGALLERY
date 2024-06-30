@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4_Service/4.2 Frontend.md",
+                "file": "3_Servicedesign/3.3 Datenbank-Schema.md",
                 "mode": "source",
                 "source": false
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "4_Service/4.2 Frontend.md",
+                "file": "3_Servicedesign/3.3 Datenbank-Schema.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "4_Service/4.2 Frontend.md",
+                "file": "3_Servicedesign/3.3 Datenbank-Schema.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "4_Service/4.2 Frontend.md"
+                "file": "3_Servicedesign/3.3 Datenbank-Schema.md"
               }
             }
           }
@@ -197,13 +197,15 @@
   },
   "active": "d9790dbf385293f7",
   "lastOpenFiles": [
-    "4_Service/4.4 Deployment.md",
+    "3_Servicedesign/3.4 Security und Datenschutz.md",
+    "3_Servicedesign/3.5 Servicekosten.md",
     "5_Schlussteil/index.md",
-    "4_Service/4.1 Backend.md",
+    "5_Schlussteil/5.2 Reflexion.md",
+    "5_Schlussteil/5.1 Fazit.md",
+    "4_Service/4.4 Deployment.md",
     "4_Service/4.3 Testing.md",
     "4_Service/4.2 Frontend.md",
-    "3_Servicedesign/3.5 Servicekosten.md",
-    "3_Servicedesign/3.4 Security und Datenschutz.md",
+    "4_Service/4.1 Backend.md",
     "3_Servicedesign/3.3 Datenbank-Schema.md",
     "3_Servicedesign/3.2 Technologien.md",
     "3_Servicedesign/3.1 Anforderung.md",
@@ -213,9 +215,7 @@
     "2_Projektorganisation/Sprint/Sprint 1.md",
     "2_Projektorganisation/Sprint/Sprint 2.md",
     "4_Service/index.md",
-    "5_Schlussteil/5.2 Reflexion.md",
     "anhang/learnings.md",
-    "5_Schlussteil/5.1 Fazit.md",
     "Unbenannt",
     "5_Schlussteil",
     "4_Service/testing.md",
