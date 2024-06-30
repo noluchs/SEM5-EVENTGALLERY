@@ -49,7 +49,7 @@ services:
         aliases:
           - eventgallery-backend
     depends_on:
-      ma-db:
+      eventgallery-db:
         condition: service_healthy
 
   eventgallery-db:

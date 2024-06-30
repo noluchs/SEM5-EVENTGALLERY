@@ -13,31 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3_Servicedesign/index.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "47979d7beba8cfe9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2_Projektorganisation/Sprint/index.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "d9790dbf385293f7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "3_Servicedesign/3.3 Datenbank-Schema.md",
+                "file": "4_Service/4.1 Backend.md",
                 "mode": "source",
                 "source": false
               }
@@ -67,8 +43,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -134,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "3_Servicedesign/3.3 Datenbank-Schema.md",
+                "file": "4_Service/4.1 Backend.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "3_Servicedesign/3.3 Datenbank-Schema.md",
+                "file": "4_Service/4.1 Backend.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "3_Servicedesign/3.3 Datenbank-Schema.md"
+                "file": "4_Service/4.1 Backend.md"
               }
             }
           }
@@ -195,34 +170,42 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "d9790dbf385293f7",
+  "active": "4636542e08733b6e",
   "lastOpenFiles": [
-    "3_Servicedesign/3.4 Security und Datenschutz.md",
     "3_Servicedesign/3.5 Servicekosten.md",
-    "5_Schlussteil/index.md",
-    "5_Schlussteil/5.2 Reflexion.md",
-    "5_Schlussteil/5.1 Fazit.md",
-    "4_Service/4.4 Deployment.md",
-    "4_Service/4.3 Testing.md",
-    "4_Service/4.2 Frontend.md",
-    "4_Service/4.1 Backend.md",
+    "3_Servicedesign/3.4 Security und Datenschutz.md",
     "3_Servicedesign/3.3 Datenbank-Schema.md",
     "3_Servicedesign/3.2 Technologien.md",
     "3_Servicedesign/3.1 Anforderung.md",
+    "2_Projektorganisation/2.3 Sprint Planung .md",
+    "2_Projektorganisation/2.5 SEUSAG.md",
+    "2_Projektorganisation/2.6 Risikomangment.md",
+    "2_Projektorganisation/2.7 SWOT Analyse.md",
+    "5_Schlussteil/5.3 Next Steps.md",
+    "5_Schlussteil/5.2 Reflexion.md",
+    "2_Projektorganisation/index.md",
+    "2_Projektorganisation/2.2 Projektorganisation.md",
+    "2_Projektorganisation/2.1 Projektmethode.md",
+    "3_Servicedesign/index.md",
+    "2_Projektorganisation/Sprint/index.md",
+    "2_Projektorganisation/2.4 Sprint/index.md",
+    "2_Projektorganisation/2.4 Sprint/Sprint 3.md",
+    "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
+    "2_Projektorganisation/2.4 Sprint/Sprint 1.md",
+    "2_Projektorganisation/2.4 Sprint/Pasted image 20240619150500.png",
+    "2_Projektorganisation/2.4 Sprint",
+    "2_Projektorganisation/risikomanagement.md",
+    "2_Projektorganisation/swot analyse.md",
+    "2_Projektorganisation/seusag.md",
+    "2_Projektorganisation/SEUSAG",
     "2_Projektorganisation/sprintplanung.md",
     "2_Projektorganisation/projektorganisation.md",
     "2_Projektorganisation/projektmethode.md",
-    "2_Projektorganisation/Sprint/Sprint 1.md",
-    "2_Projektorganisation/Sprint/Sprint 2.md",
-    "4_Service/index.md",
-    "anhang/learnings.md",
     "Unbenannt",
     "5_Schlussteil",
-    "4_Service/testing.md",
     "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.48.18.png",
     "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.49.56.png",
     "2_Projektorganisation/attachments",
-    "anhang/quellen.md",
     "anhang/Bierdeckel_20_Vor.png",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10774975494_ff1f0e85a4_s.jpg",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10589670286_9cfa212324_s.jpg",
@@ -234,14 +217,6 @@
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/stripe-js-4d55e19d.js",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/s.js",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/rollup-c7f38863.css",
-    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/prbd-bfd1863f.js",
-    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/maplibre-GKTYIQWA.js",
-    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/IStock_corporate_logo.svg",
-    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/11435888666_f3aa003bcc_s.jpg",
-    "2_Projektorganisation/Sprint/index.md",
-    "anhang/Schmittel.md",
-    "3_Servicedesign/index.md",
-    "2_Projektorganisation/index.md",
-    "2_Projektorganisation/Sprint/Sprint 3.md"
+    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/IStock_corporate_logo.svg"
   ]
 }
