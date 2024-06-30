@@ -72,7 +72,7 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Copy Docker Compose file
-        run: scp ./compose.prod.yaml ec2-user@${{ secrets.DEPLOY_TARGET }}:/home/ec2-user/compose.prod.yaml
+        run: scp -o StrictHostKeyChecking=no ./compose.prod.yaml ec2-user@${{ secrets.DEPLOY_TARGET }}:/home/ec2-user/compose.prod.yaml
 
       - name: Deploy to EC2
         run: |
