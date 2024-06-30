@@ -54,8 +54,8 @@ jobs:
       - name: Build and push Docker images
         run: |
           REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
-          docker build -t ghcr.io/$REPO_NAME/msvcfrontend:latest .code/frontend
-          docker build -t ghcr.io/$REPO_NAME/msvcbackend:latest .code/backend
+          docker build -t ghcr.io/$REPO_NAME/msvcfrontend:latest ./code/frontend
+          docker build -t ghcr.io/$REPO_NAME/msvcbackend:latest ./code/backend
           docker push ghcr.io/$REPO_NAME/msvcfrontend:latest
           docker push ghcr.io/$REPO_NAME/msvcbackend:latest
 
