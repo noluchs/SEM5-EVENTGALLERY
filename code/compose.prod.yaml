@@ -29,6 +29,8 @@ services:
       context: ./frontend
       dockerfile: 'Dockerfile.prod'
     container_name: eventgallery-frontend
+    env_file:
+      - .env
     restart: always
     networks:
       eventgallery-net:
@@ -42,8 +44,8 @@ services:
       dockerfile: 'Dockerfile.prod'
     container_name: eventgallery-backend
     restart: always
-    environment:
-      - DATABASE_URI=mysql+mysqlconnector://root:root@eventgallery-db:3306/eventgallery
+    env_file:
+      - .env
     networks:
       eventgallery-net:
         aliases:
