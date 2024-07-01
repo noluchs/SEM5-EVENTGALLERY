@@ -101,7 +101,7 @@ jobs:
             ls -la ./code
 
             # Upload docker-compose file to the server
-            scp -o StrictHostKeyChecking=no ./code/compose.prod.yaml ec2-user@${{ secrets.DEPLOY_TARGET }}:/home/ec2-user/MSCV-Gallery-with-Face-Matching/code/compose.prod.yaml
+            scp -o StrictHostKeyChecking=no code/compose.prod.yaml ec2-user@${{ secrets.DEPLOY_TARGET }}:/home/ec2-user/MSCV-Gallery-with-Face-Matching/code/compose.prod.yaml
 
             # Pull newest images from registry and start them
             ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.DEPLOY_TARGET }} << 'EOF'
