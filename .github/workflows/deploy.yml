@@ -66,7 +66,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-
       - name: Install SSH key
         run: |
           mkdir -p ~/.ssh
@@ -76,18 +75,21 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
-
       - name: Copy files to Server
         run: |
-
-            # Upload docker-compose file to the server
-            scp -v -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null code/compose.prod.yaml ec2-user@${{ secrets.DEPLOY_TARGET }}:/home/ec2-user/MSCV-Gallery-with-Face-Matching/code/compose.prod.yaml
+          # Upload docker-compose file to the server
+          scp -v -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null code/compose.prod.yaml ec2-user@${{ secrets.DEPLOY_TARGET }}:/home/ec2-user/MSCV-Gallery-with-Face-Matching/code/compose.prod.yaml
 
       - name: Deploy on server
         run: |
-            ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.DEPLOY_TARGET }}
-            docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} -p ${{ secrets.GITHUB_TOKEN }}
-            cd /home/ec2-user/MSCV-Gallery-with-Face-Matching/code
-            docker-compose -f compose.prod.yaml pull
-            docker-compose -f compose.prod.yaml up -d
-            docker image prune -f"
+          ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.DEPLOY_TARGET }} << 'EOF'
+          docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} -p ${{ secrets.GITHUB_TOKEN }}
+          cd /home/ec2-user/MSCV-Gallery-with-Face-Matching/code
+          docker-compose -f compose.prod.yaml pull
+          docker-compose -f compose.prod.yaml up -d
+          docker image prune -f
+          EOF
+        env:
+          GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEPLOY_TARGET: ${{ secrets.DEPLOY_TARGET }}
