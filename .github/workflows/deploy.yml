@@ -71,6 +71,8 @@ jobs:
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
+          ls -la ~/.ssh
+          cat ~/.ssh/id_rsa
         shell: bash
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -83,13 +85,9 @@ jobs:
       - name: Deploy on server
         run: |
           ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.DEPLOY_TARGET }} << 'EOF'
-          docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} -p ${{ secrets.GITHUB_TOKEN }}
+          docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} -p ${{ secrets.GHCR_TOKEN }}
           cd /home/ec2-user/MSCV-Gallery-with-Face-Matching/code
           docker-compose -f compose.prod.yaml pull
           docker-compose -f compose.prod.yaml up -d
           docker image prune -f
           EOF
-        env:
-          GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
-          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEPLOY_TARGET: ${{ secrets.DEPLOY_TARGET }}
