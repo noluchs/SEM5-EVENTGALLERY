@@ -2,8 +2,8 @@ name: CI/CD Pipeline
 
 on:
   push:
-    paths:
-      - 'code/**'
+    #paths:
+    #  - 'code/**'
     branches:
       - main
 
