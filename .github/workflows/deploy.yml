@@ -77,6 +77,10 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
+      - name: Debugging - List files in code directory
+        run: ls -la code
+
+
       - name: Copy files to Server
         run: |
           # Upload docker-compose file to the server
