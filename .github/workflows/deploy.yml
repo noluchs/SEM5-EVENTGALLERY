@@ -90,15 +90,10 @@ jobs:
             echo "Host *" > ~/.ssh/config
             echo "  StrictHostKeyChecking no" >> ~/.ssh/config
 
-            # Check if compose.prod.yaml file exists locally
-            if [ ! -f ./code/compose.prod.yaml ]; then
-              echo "File compose.prod.yaml not found!"
-              exit 1
-            fi
 
             # Debugging: List files in the code directory
             echo "Listing files in the code directory:"
-            ls -la ./code
+            ls -la code
 
             # Upload docker-compose file to the server
             scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -q code/compose.prod.yaml ec2-user@${{ secrets.DEPLOY_TARGET }}:/home/ec2-user/MSCV-Gallery-with-Face-Matching/code/compose.prod.yaml
