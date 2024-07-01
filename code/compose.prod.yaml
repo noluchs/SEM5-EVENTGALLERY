@@ -15,12 +15,8 @@ services:
       dockerfile: 'Dockerfile.prod'
     container_name: eventgallery-frontend
     ports:
-      - 8080:80
-    env_file:
-      - .env
+      - 3000:3000
     restart: always
-    volumes:
-      - ./frontend/nginx/default.conf:/etc/nginx/conf.d/default.conf
     networks:
       eventgallery-net:
         aliases:
