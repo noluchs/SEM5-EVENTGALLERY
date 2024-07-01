@@ -77,24 +77,24 @@ jobs:
 
             # Start ssh-agent and import ssh private key
             eval `ssh-agent`
-            echo "$SSH_PRIVATE_KEY" | ssh-add -
+            echo "${{ secrets.SSH_PRIVATE_KEY }}" | ssh-add -
 
             # Add server to list of known hosts
             mkdir -p ~/.ssh
             chmod 700 ~/.ssh
             touch ~/.ssh/known_hosts
             chmod 600 ~/.ssh/known_hosts
-            echo "$SSH_HOST_KEY" >> ~/.ssh/known_hosts
+            echo "${{ secrets.SSH_HOST_KEY }}" >> ~/.ssh/known_hosts
 
             # Disable strict host key checking
             echo "Host *" > ~/.ssh/config
             echo "  StrictHostKeyChecking no" >> ~/.ssh/config
 
             # Upload docker-compose file to the server
-            scp -o StrictHostKeyChecking=no ./compose.prod.yaml ec2-user@${{ secrets.AWS_EC2_HOST }}:/home/ec2-user/compose.prod.yaml
+            scp -o StrictHostKeyChecking=no ./compose.prod.yaml ec2-user@${{ secrets.DEPLOY_TARGETT }}:/home/ec2-user/compose.prod.yaml
 
             # Pull newest images from registry and start them
-            ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.AWS_EC2_HOST }} << 'EOF'
+            ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.DEPLOY_TARGET }} << 'EOF'
             docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} -p ${{ secrets.GITHUB_TOKEN }}
             cd /home/ec2-user
             docker-compose -f compose.prod.yaml pull
