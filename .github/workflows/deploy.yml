@@ -81,7 +81,7 @@ jobs:
         run: |
 
             # Upload docker-compose file to the server
-            scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -q code/compose.prod.yaml ec2-user@${{ secrets.DEPLOY_TARGET }}:/home/ec2-user/MSCV-Gallery-with-Face-Matching/code/compose.prod.yaml
+            scp -v -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null code/compose.prod.yaml ec2-user@${{ secrets.DEPLOY_TARGET }}:/home/ec2-user/MSCV-Gallery-with-Face-Matching/code/compose.prod.yaml
 
       - name: Deploy on server
         run: |
