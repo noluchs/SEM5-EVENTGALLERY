@@ -18,7 +18,7 @@ services:
       - CERTBOT_EMAIL=noah@luchsphoto.ch
     volumes:
       - nginx_secrets:/etc/letsencrypt
-        - ./proxy/nginx-proxy.prod.conf:/etc/nginx/conf.d/default.conf
+        - ./proxy/nginx-proxy.prod.conf:/etc/nginx/conf.d/default.conf3
     networks:
       - eventgallery-net
 
