@@ -66,42 +66,28 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Run deployment in Docker container
-        uses: addnab/docker-run-action@v3
-        with:
-          image: alpine
-          options: --entrypoint ""
-          run: |
-            # Install envsubst and ssh-add
-            apk add --no-cache gettext openssh-client
 
-            # Start ssh-agent and import ssh private key
-            eval `ssh-agent`
-            echo "${{ secrets.SSH_PRIVATE_KEY }}" | ssh-add -
-
-            # Add server to list of known hosts
-            mkdir -p ~/.ssh
-            chmod 700 ~/.ssh
-            touch ~/.ssh/known_hosts
-            chmod 600 ~/.ssh/known_hosts
-            echo "${{ secrets.SSH_HOST_KEY }}" >> ~/.ssh/known_hosts
-
-            # Disable strict host key checking
-            echo "Host *" > ~/.ssh/config
-            echo "  StrictHostKeyChecking no" >> ~/.ssh/config
+      - name: Install SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
 
-            # Debugging: List files in the code directory
-            echo "Listing files in the code directory:"
-            ls -la code
+      - name: Copy files to Server
+        run: |
 
             # Upload docker-compose file to the server
             scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -q code/compose.prod.yaml ec2-user@${{ secrets.DEPLOY_TARGET }}:/home/ec2-user/MSCV-Gallery-with-Face-Matching/code/compose.prod.yaml
 
-            # Pull newest images from registry and start them
-            ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.DEPLOY_TARGET }} << 'EOF'
+      - name: Deploy on server
+        run: |
+            ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.DEPLOY_TARGET }}
             docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} -p ${{ secrets.GITHUB_TOKEN }}
             cd /home/ec2-user/MSCV-Gallery-with-Face-Matching/code
             docker-compose -f compose.prod.yaml pull
             docker-compose -f compose.prod.yaml up -d
-            EOF
+            docker image prune -f"
