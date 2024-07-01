@@ -91,7 +91,7 @@ jobs:
             echo "  StrictHostKeyChecking no" >> ~/.ssh/config
 
             # Upload docker-compose file to the server
-            scp -o StrictHostKeyChecking=no ./code/compose.prod.yaml ec2-user@${{ secrets.DEPLOY_TARGETT }}:/home/ec2-user/compose.prod.yaml
+            scp -o StrictHostKeyChecking=no ./code/compose.prod.yaml ec2-user@${{ secrets.DEPLOY_TARGET }}:/home/ec2-user/compose.prod.yaml
 
             # Pull newest images from registry and start them
             ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.DEPLOY_TARGET }} << 'EOF'
