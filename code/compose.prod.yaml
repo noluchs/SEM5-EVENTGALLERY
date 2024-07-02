@@ -29,6 +29,8 @@ services:
       dockerfile: 'Dockerfile.prod'
     container_name: eventgallery-frontend
     restart: always
+    ports:
+      - 3000:80
     networks:
       eventgallery-net:
         aliases:
@@ -40,6 +42,8 @@ services:
       context: ./backend
       dockerfile: 'Dockerfile.prod'
     container_name: eventgallery-backend
+    ports:
+      - 5000:5000
     restart: always
     env_file:
       - .env
