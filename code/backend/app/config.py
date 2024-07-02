@@ -21,3 +21,19 @@ class Config:
     OKTA_CLIENT_ID = os.environ.get('OKTA_CLIENT_ID')
     OKTA_CLIENT_SECRET = os.environ.get('OKTA_CLIENT_SECRET')
     OKTA_REDIRECT_URI = os.environ.get('OKTA_REDIRECT_URI')
+
+
+class Config:
+    SECRET_KEY = 'you-will-never-guess'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+class TestingConfig(Config):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
+    WTF_CSRF_ENABLED = False
+
+config = {
+    'default': Config,
+    'testing': TestingConfig
+}
