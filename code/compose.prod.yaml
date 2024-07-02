@@ -6,6 +6,20 @@ networks:
   eventgallery-net:
 
 services:
+  proxy:
+    container_name: proxy
+    restart: unless-stopped
+    image: jonasal/nginx-certbot:latest
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      - CERTBOT_EMAIL=noah.luchsinger@outlook.com
+    volumes:
+      - nginx_secrets:/etc/letsencrypt
+      - ./user_conf.d:/etc/nginx/user_conf.d
+    networks:
+      - eventgallery-net
 
 
   eventgallery-frontend:
@@ -14,8 +28,6 @@ services:
       context: ./frontend
       dockerfile: 'Dockerfile.prod'
     container_name: eventgallery-frontend
-    ports:
-      - 80:80
     restart: always
     networks:
       eventgallery-net:
@@ -27,8 +39,6 @@ services:
     build:
       context: ./backend
       dockerfile: 'Dockerfile.prod'
-    ports:
-      - 5000:5001
     container_name: eventgallery-backend
     restart: always
     env_file:
@@ -61,3 +71,4 @@ services:
 
 volumes:
   eventgallery-db:
+  nginx_secrets:
