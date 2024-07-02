@@ -15,7 +15,7 @@ services:
       dockerfile: 'Dockerfile.prod'
     container_name: eventgallery-frontend
     ports:
-      - 3000:3000
+      - 80:80
     restart: always
     networks:
       eventgallery-net:
