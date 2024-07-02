@@ -28,7 +28,7 @@ services:
       context: ./backend
       dockerfile: 'Dockerfile.prod'
     ports:
-      - 5000:5001
+      - 5001:5001
     container_name: eventgallery-backend
     restart: always
     env_file:
@@ -42,7 +42,7 @@ services:
         condition: service_healthy
 
   eventgallery-db:
-    image: mysql:8.4
+    image: mysql:5.7
     container_name: eventgallery-db
     restart: always
     environment:
