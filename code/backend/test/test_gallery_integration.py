@@ -1,6 +1,6 @@
 import pytest
 from app import create_app, db
-from app.models import Gallery, Photo, Image
+from app.models import Gallery, Photo
 import io
 import os
 
@@ -36,33 +36,6 @@ def test_add_image_to_gallery(client):
     data = response.get_json()
     assert 'id' in data
     assert data['gallery_id'] == gallery_id
-
-def test_upload_image(client):
-    image_path = os.path.join('backend/test/testfile', 'test_image.jpg')
-    with open(image_path, 'rb') as image_data:
-        response = client.post('/image', content_type='multipart/form-data', data={
-            'file': (image_data, 'test_image.jpg')
-        })
-    assert response.status_code == 201
-    data = response.get_json()
-    assert 'id' in data
-    assert data['filename'] == 'test_image.jpg'
-
-def test_get_image(client):
-    # Upload an image first
-    image_path = os.path.join('backend/test/testfile', 'test_image.jpg')
-    with open(image_path, 'rb') as image_data:
-        upload_response = client.post('/image', content_type='multipart/form-data', data={
-            'file': (image_data, 'test_image.jpg')
-        })
-    image_id = upload_response.get_json()['id']
-
-    # Retrieve the uploaded image
-    response = client.get(f'/image/{image_id}')
-    assert response.status_code == 200
-    data = response.get_json()
-    assert data['id'] == image_id
-    assert data['filename'] == 'test_image.jpg'
 
 def test_face_recognition(client, monkeypatch):
     # Mock the boto3 client
