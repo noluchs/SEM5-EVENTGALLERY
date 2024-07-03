@@ -18,8 +18,18 @@ services:
       - 443:443
       - 8080:8080
     volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
-        - ./proxy/traefik.prod.yaml:/etc/traefik/traefik.yaml:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik/traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./letsencrypt:/letsencrypt
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.rule=Host(`gallery.luchsphoto.ch`)"
+      - "traefik.http.routers.traefik.entrypoints=websecure"
+      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.traefik.tls=true"
+      - "traefik.http.routers.traefik.tls.certresolver=letsencrypt"
+      - "traefik.http.middlewares.traefik-auth.basicauth.users=admin:$$apr1$$H6uskkkW$$IgXLP6rZW.UeGyQh77lxY0"
+
 
 
 
@@ -38,9 +48,10 @@ services:
           - eventgallery-frontend
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.frontend.rule=Host(`gallery.luchsphoto.ch`)"
+      - "traefik.http.routers.frontend.rule=Host(`gallery.luchsphoto.ch`) && Path(`/`)"
       - "traefik.http.routers.frontend.entrypoints=websecure"
       - "traefik.http.services.frontend.loadbalancer.server.port=3000"
+      - "traefik.http.routers.frontend.tls.certresolver=letsencrypt"
 
 
 
@@ -67,6 +78,7 @@ services:
       - "traefik.http.routers.backend.rule=Host(`gallery.luchsphoto.ch`) && PathPrefix(`/api`)"
       - "traefik.http.routers.backend.entrypoints=websecure"
       - "traefik.http.services.backend.loadbalancer.server.port=5000"
+      - "traefik.http.routers.backend.tls.certresolver=letsencrypt"
 
 
   eventgallery-db:
@@ -89,4 +101,5 @@ services:
 
 volumes:
   eventgallery-db:
-  nginx_secrets:
+  letsencrypt:
+  
