@@ -17,10 +17,8 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./proxy/traefik.prod.yaml:/etc/traefik/traefik.yaml:ro
-      - ./letsencrypt:/letsencrypt
-      - /etc/traefik:/etc/traefik
+        - /var/run/docker.sock:/var/run/docker.sock
+        - ./proxy/traefik.yaml:/etc/traefik/traefik.yaml:ro
 
 
 
