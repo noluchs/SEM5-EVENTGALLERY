@@ -37,7 +37,7 @@ services:
     #image: ghcr.io/noluchs/mscv-gallery-with-face-matching/msvcfrontend:latest
     build:
       context: ./frontend
-      dockerfile: 'Dockerfile.prod'
+      dockerfile: 'Dockerfile'
     container_name: eventgallery-frontend
     restart: always
     ports:
