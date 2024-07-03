@@ -9,6 +9,16 @@ services:
   traefik:
     image: traefik:v3.0.4
     container_name: traefik
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entryPoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      #- "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+      - "--certificatesresolvers.myresolver.acme.email=noah@luchsphoto.ch"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
     networks:
       eventgallery-net:
         aliases:
@@ -16,19 +26,15 @@ services:
     ports:
       - 80:80
       - 443:443
-      - 8080:8080
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./proxy/traefik.prod.yaml:/etc/traefik/traefik.yaml:ro
       - ./letsencrypt:/letsencrypt
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik.rule=Host(`gallery.luchsphoto.ch`)"
       - "traefik.http.routers.traefik.entrypoints=websecure"
-      - "traefik.http.routers.traefik.service=api@internal"
-      - "traefik.http.routers.traefik.tls=true"
-      - "traefik.http.routers.traefik.tls.certresolver=letsencrypt"
-      - "traefik.http.middlewares.traefik-auth.basicauth.users=admin:$$apr1$$H6uskkkW$$IgXLP6rZW.UeGyQh77lxY0"
+      - "traefik.http.routers.traefik.tls.certresolver=myresolver"
+
 
 
 
@@ -51,7 +57,7 @@ services:
       - "traefik.http.routers.frontend.rule=Host(`gallery.luchsphoto.ch`) && Path(`/`)"
       - "traefik.http.routers.frontend.entrypoints=websecure"
       - "traefik.http.services.frontend.loadbalancer.server.port=3000"
-      - "traefik.http.routers.frontend.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.frontend.tls.certresolver=myresolver"
 
 
 
@@ -78,7 +84,7 @@ services:
       - "traefik.http.routers.backend.rule=Host(`gallery.luchsphoto.ch`) && PathPrefix(`/api`)"
       - "traefik.http.routers.backend.entrypoints=websecure"
       - "traefik.http.services.backend.loadbalancer.server.port=5000"
-      - "traefik.http.routers.backend.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.backend.tls.certresolver=myresolver"
 
 
   eventgallery-db:
