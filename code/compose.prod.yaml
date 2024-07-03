@@ -21,12 +21,6 @@ services:
       - ./proxy/traefik.yaml:/etc/traefik/traefik.yaml:ro
       - ./letsencrypt:/letsencrypt
       - /etc/traefik:/etc/traefik
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.traefik.rule=Host(`gallery.luchsphoto.ch`)"
-      - "traefik.http.routers.traefik.entrypoints=websecure"
-      - "traefik.http.routers.traefik.service=api@internal"
-      - "traefik.http.routers.traefik.tls=true"
 
 
 
