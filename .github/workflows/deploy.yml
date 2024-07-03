@@ -91,4 +91,5 @@ jobs:
           cd /home/ec2-user/MSCV-Gallery-with-Face-Matching/code
           docker compose -f compose.prod.yaml pull
           docker compose -f compose.prod.yaml up -d
+          
           EOF
