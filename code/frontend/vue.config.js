@@ -4,6 +4,9 @@ module.exports = defineConfig({
 })
 // vue.config.js
 module.exports = {
+   allowedHosts: [
+      'gallery.luchsphoto.ch',
+      'localhost'],
   devServer: {
     port: 3000
   }
