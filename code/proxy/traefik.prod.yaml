@@ -20,6 +20,7 @@ global:
 api:
     dashboard: true
     insecure: true
+    debug: true
 
 
 # -- Change EntryPoints here...
