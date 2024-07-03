@@ -6,20 +6,28 @@ networks:
   eventgallery-net:
 
 services:
-  proxy:
-    container_name: proxy
-    restart: unless-stopped
-    image: jonasal/nginx-certbot:latest
+  traefik:
+    image: traefik:v2.5
+    container_name: traefik
+    networks:
+      eventgallery-net:
+        aliases:
+          - traefik
     ports:
       - 80:80
       - 443:443
-    environment:
-      - CERTBOT_EMAIL=noah.luchsinger@outlook.com
     volumes:
-      - nginx_secrets:/etc/letsencrypt
-      - ./user_conf.d:/etc/nginx/user_conf.d
-    networks:
-      - eventgallery-net
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./proxy/traefik.yaml:/etc/traefik/traefik.yaml:ro
+      - ./letsencrypt:/letsencrypt
+      - /etc/traefik:/etc/traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.rule=Host(`gallery.luchsphoto.ch`)"
+      - "traefik.http.routers.traefik.entrypoints=websecure"
+      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.traefik.tls=true"
+
 
 
   eventgallery-frontend:
@@ -35,6 +43,13 @@ services:
       eventgallery-net:
         aliases:
           - eventgallery-frontend
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=Host(`gallery.luchsphoto.ch`)"
+      - "traefik.http.routers.frontend.entrypoints=websecure"
+      - "traefik.http.services.frontend.loadbalancer.server.port=3000"
+
+
 
   eventgallery-backend:
     #image: ghcr.io/noluchs/mscv-gallery-with-face-matching/msvcbackend:latest
@@ -54,6 +69,12 @@ services:
     depends_on:
       eventgallery-db:
         condition: service_healthy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backend.rule=Host(`gallery.luchsphoto.ch`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.backend.entrypoints=websecure"
+      - "traefik.http.services.backend.loadbalancer.server.port=5000"
+
 
   eventgallery-db:
     image: mysql:5.7
