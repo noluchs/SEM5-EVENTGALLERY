@@ -54,7 +54,7 @@ services:
           - eventgallery-frontend
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.frontend.rule=Host(`gallery.luchsphoto.ch`) && Path(`/`)"
+      - "traefik.http.routers.frontend.rule=Host(`gallery.luchsphoto.ch`) && PathPrefix(`/`)"
       - "traefik.http.routers.frontend.entrypoints=websecure"
       - "traefik.http.services.frontend.loadbalancer.server.port=3000"
       - "traefik.http.routers.frontend.tls.certresolver=myresolver"
