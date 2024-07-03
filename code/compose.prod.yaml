@@ -23,21 +23,21 @@ services:
 
 
   eventgallery-frontend:
-    image: ghcr.io/noluchs/mscv-gallery-with-face-matching/msvcfrontend:latest
+    #image: ghcr.io/noluchs/mscv-gallery-with-face-matching/msvcfrontend:latest
     build:
       context: ./frontend
       dockerfile: 'Dockerfile.prod'
     container_name: eventgallery-frontend
     restart: always
     ports:
-      - 3000:80
+      - 3000:3000
     networks:
       eventgallery-net:
         aliases:
           - eventgallery-frontend
 
   eventgallery-backend:
-    image: ghcr.io/noluchs/mscv-gallery-with-face-matching/msvcbackend:latest
+    #image: ghcr.io/noluchs/mscv-gallery-with-face-matching/msvcbackend:latest
     build:
       context: ./backend
       dockerfile: 'Dockerfile.prod'
