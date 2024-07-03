@@ -1,27 +1,34 @@
-#Base image
-FROM node:lts-alpine3.17 as builder
+FROM node:16-alpine as build
 
-# Set the working directory
+RUN apk update && apk upgrade && \
+  apk add --no-cache bash git openssh
+
+RUN mkdir /app
+
 WORKDIR /app
 
-# Copy the package.json
-COPY ./package.json /app/package.json
+COPY package.json .
 
-# install project dependencies
 RUN npm install
 
-COPY . /app
-RUN npm run build
+COPY . .
 
-# production env
-FROM nginx:1.23.3-alpine-slim
+# ---------------
 
-COPY --from=builder /app/dist /usr/share/nginx/html
-COPY --from=builder /app/nginx.conf /etc/nginx/
+FROM node:16-alpine
 
-COPY 404.html /usr/share/nginx/html
-COPY 500.html /usr/share/nginx/html
+RUN mkdir -p /app/dist
+
+WORKDIR /app
+
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/package.json .
+COPY --from=build /app/web-server.js .
+
+ENV NODE_ENV production
+
+RUN npm install --production
 
 EXPOSE 3000
 
-CMD [ "nginx", "-g", "daemon off;" ]
+CMD ["node", "web-server.js"]
