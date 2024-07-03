@@ -1,14 +1,11 @@
-const { defineConfig } = require('@vue/cli-service')
+const { defineConfig } = require('@vue/cli-service');
 module.exports = defineConfig({
-  transpileDependencies: true
-})
-// vue.config.js
-module.exports = {
-   allowedHosts: [
-      'gallery.luchsphoto.ch',
-      'localhost'],
+  transpileDependencies: true,
   devServer: {
+    allowedHosts: [
+      'gallery.luchsphoto.ch',
+      'localhost'
+    ],
     port: 3000
   }
-}
-
+});
