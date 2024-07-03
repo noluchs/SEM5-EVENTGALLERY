@@ -7,7 +7,7 @@ networks:
 
 services:
   traefik:
-    image: traefik:v2.5
+    image: traefik:v3.0.4
     container_name: traefik
     networks:
       eventgallery-net:
@@ -19,7 +19,7 @@ services:
       - 8080:8080
     volumes:
         - /var/run/docker.sock:/var/run/docker.sock
-        - ./proxy/traefik.yaml:/etc/traefik/traefik.yaml:ro
+        - ./proxy/traefik.prod.yaml:/etc/traefik/traefik.yaml:ro
 
 
 
