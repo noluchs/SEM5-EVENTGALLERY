@@ -105,7 +105,7 @@ async function createGallery() {
     formData.append('name', newGallery.value.name);
     formData.append('cover_image', coverImage.value);
 
-    const response = await axios.post('${process.env.VUE_APP_ROOT_API}/gallery/', formData, {
+    const response = await axios.post(`${process.env.VUE_APP_ROOT_API}/gallery/`, formData, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'multipart/form-data'
@@ -156,7 +156,7 @@ async function uploadFiles() {
   }
 
   try {
-    await axios.post('${process.env.VUE_APP_ROOT_API}/image/', formData, {
+    await axios.post(`${process.env.VUE_APP_ROOT_API}/image/`, formData, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'multipart/form-data'
