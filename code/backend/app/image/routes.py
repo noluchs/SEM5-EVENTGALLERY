@@ -79,3 +79,14 @@ def delete_photo(id):
     db.session.commit()
 
     return jsonify({'message': 'Photo deleted successfully'}), 200
+
+from flask import jsonify
+
+@bp.route('/test-s3-connection', methods=['GET'])
+def test_s3_connection():
+    try:
+        # Replace 'your-bucket-name' with your actual S3 bucket name
+        response = s3_client.list_objects_v2(Bucket='your-bucket-name', MaxKeys=10)
+        return jsonify({'message': 'Successfully connected to S3', 'data': response}), 200
+    except Exception as e:
+        return jsonify({'error': 'Failed to connect to S3', 'details': str(e)}), 500

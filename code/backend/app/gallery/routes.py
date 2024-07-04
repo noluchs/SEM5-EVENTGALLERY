@@ -19,16 +19,31 @@ s3_client = boto3.client(
 
 @bp.route('/', methods=['GET'])
 def get_galleries():
-    galleries = Gallery.query.all()
-    galleries_data = []
-    for gallery in galleries:
-        gallery_data = GallerySchema().dump(gallery)
-        if gallery.cover_image_url:
-            gallery_data['cover_image_url'] = f"https://{current_app.config['S3_BUCKET']}.s3.{current_app.config['AWS_REGION']}.amazonaws.com/{gallery.cover_image_url}"
-        galleries_data.append(gallery_data)
-    return jsonify(galleries_data)
+    try:
+        logging.debug("Attempting to fetch galleries from the database.")
+        galleries = Gallery.query.all()
 
+        if not galleries:
+            logging.warning("No galleries found in the database.")
+        else:
+            logging.debug(f"Fetched {len(galleries)} galleries from the database.")
 
+        galleries_data = []
+        for gallery in galleries:
+            gallery_data = GallerySchema().dump(gallery)
+            logging.debug(f"Serialized gallery data: {gallery_data}")
+
+            if gallery.cover_image_url:
+                gallery_data[
+                    'cover_image_url'] = f"https://{current_app.config['S3_BUCKET']}.s3.{current_app.config['AWS_REGION']}.amazonaws.com/{gallery.cover_image_url}"
+
+            galleries_data.append(gallery_data)
+
+        logging.debug(f"Serialized galleries data to return: {galleries_data}")
+        return jsonify(galleries_data)
+    except Exception as e:
+        logging.error(f"Error fetching galleries: {e}")
+        return jsonify({'error': 'Failed to fetch galleries'}), 500
 @bp.route('/<int:id>', methods=['GET'])
 def get_gallery(id):
     gallery = Gallery.query.get_or_404(id)
@@ -114,3 +129,14 @@ def delete_gallery(id):
     db.session.commit()
 
     return jsonify({'message': 'Gallery deleted successfully'}), 200
+
+
+@bp.route('/debug/db-uri', methods=['GET'])
+def debug_db_uri():
+    try:
+        db_uri = current_app.config['SQLALCHEMY_DATABASE_URI']
+        logging.debug(f"Current SQLALCHEMY_DATABASE_URI: {db_uri}")
+        return jsonify({'SQLALCHEMY_DATABASE_URI': db_uri})
+    except Exception as e:
+        logging.error(f"Error fetching database URI: {e}")
+        return jsonify({'error': 'Failed to fetch database URI'}), 500

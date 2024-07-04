@@ -4,7 +4,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'my_super_secret_string'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI') or 'sqlite:///' + os.path.join(basedir, 'app.db')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI') #or 'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     S3_BUCKET = os.environ.get('S3_BUCKET')
     S3_KEY = os.environ.get('S3_KEY')
@@ -23,10 +23,7 @@ class Config:
     OKTA_REDIRECT_URI = os.environ.get('OKTA_REDIRECT_URI')
 
 
-class Config:
-    SECRET_KEY = 'you-will-never-guess'
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
 
 class TestingConfig(Config):
     TESTING = True

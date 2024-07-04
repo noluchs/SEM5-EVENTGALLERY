@@ -4,6 +4,7 @@ from .extensions import db
 from .config import Config
 import os
 from flask_migrate import Migrate
+from sqlalchemy import text
 
 migrate = Migrate()
 
@@ -32,6 +33,15 @@ def create_app(config_class=Config):
     @app.route('/')
     def test_page():
         return {'message': 'Eventgallery Backend'}
+
+    @app.route('/test-db')
+    def test_db():
+        try:
+            db.session.execute(text('SELECT 1'))
+            return 'Datenbankverbindung erfolgreich!'
+        except Exception as e:
+            return f'Fehler bei der Datenbankverbindung: {e}'
+
 
     return app
 
