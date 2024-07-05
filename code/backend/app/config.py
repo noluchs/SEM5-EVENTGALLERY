@@ -25,11 +25,3 @@ class Config:
 
 
 
-class TestingConfig(Config):
-    TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
-    WTF_CSRF_ENABLED = False
-
-config = {
-    'testing': TestingConfig
-}

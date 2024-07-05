@@ -1,10 +1,11 @@
 from apiflask import APIFlask
 from flask_cors import CORS
-from .extensions import db
+from .extensions import db, TestingConfig
 from .config import Config
 import os
 from flask_migrate import Migrate
 from sqlalchemy import text
+
 
 migrate = Migrate()
 
