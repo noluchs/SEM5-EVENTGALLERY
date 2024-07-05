@@ -38,7 +38,7 @@ services:
 
 
   eventgallery-frontend:
-    image: ghcr.io/noluchs/mscv-gallery-with-face-matching/msvcfrontend:latest
+    #image: ghcr.io/noluchs/mscv-gallery-with-face-matching/msvcfrontend:latest
     build:
       context: ./frontend
       dockerfile: 'Dockerfile.prod'
@@ -58,7 +58,7 @@ services:
 
 
   eventgallery-backend:
-    image: ghcr.io/noluchs/mscv-gallery-with-face-matching/msvcbackend:latest
+    #image: ghcr.io/noluchs/mscv-gallery-with-face-matching/msvcbackend:latest
     build:
       context: ./backend
       dockerfile: 'Dockerfile.prod'
