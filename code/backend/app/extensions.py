@@ -1,6 +1,7 @@
 import boto3
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
+from .config import Config
 
 
 
@@ -30,11 +31,5 @@ def get_rekognition_client():
 
 class TestingConfig(Config):
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
-    WTF_CSRF_ENABLED = False
-
-config = {
-    'testing': TestingConfig
-}
-
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
 
