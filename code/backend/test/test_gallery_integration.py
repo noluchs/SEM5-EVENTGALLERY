@@ -1,6 +1,6 @@
 import pytest
 from app import create_app, db
-from app.config import TestingConfig  # Import TestingConfig directly
+from app.extensions import TestingConfig  # Import TestingConfig directly
 from app.models import Gallery, Photo
 import io
 import os
