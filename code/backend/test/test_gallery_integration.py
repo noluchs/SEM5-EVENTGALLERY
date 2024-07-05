@@ -22,11 +22,9 @@ def test_create_gallery(client):
     assert 'id' in data
 
 def test_add_image_to_gallery(client):
-    # First create a gallery
     response = client.post('/gallery', json={'name': 'Test Gallery'})
     gallery_id = response.get_json()['id']
 
-    # Add image to the gallery
     image_path = os.path.join('backend/test/testfile', 'test_image.jpg')
     with open(image_path, 'rb') as image_data:
         response = client.post(f'/gallery/{gallery_id}/photos', content_type='multipart/form-data', data={
@@ -38,7 +36,6 @@ def test_add_image_to_gallery(client):
     assert data['gallery_id'] == gallery_id
 
 def test_face_recognition(client, monkeypatch):
-    # Mock the boto3 client
     class MockBoto3Client:
         def compare_faces(self, SourceImage, TargetImage):
             return {
@@ -47,11 +44,9 @@ def test_face_recognition(client, monkeypatch):
 
     monkeypatch.setattr('boto3.client', lambda *args, **kwargs: MockBoto3Client())
 
-    # First create a gallery
     response = client.post('/gallery', json={'name': 'Test Gallery'})
     gallery_id = response.get_json()['id']
 
-    # Add two images to the gallery
     image_path1 = os.path.join('backend/test/testfile', 'test_image1.jpg')
     with open(image_path1, 'rb') as image_data1:
         client.post(f'/gallery/{gallery_id}/photos', content_type='multipart/form-data', data={
@@ -64,7 +59,6 @@ def test_face_recognition(client, monkeypatch):
             'file': (image_data2, 'test_image2.jpg')
         })
 
-    # Use face recognition to compare images
     response = client.post('/facerecognition/compare', json={
         'gallery_id': gallery_id,
         'image_path': 'test_image1.jpg'

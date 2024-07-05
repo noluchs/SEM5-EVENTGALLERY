@@ -31,6 +31,5 @@ class TestingConfig(Config):
     WTF_CSRF_ENABLED = False
 
 config = {
-    'default': Config,
     'testing': TestingConfig
 }

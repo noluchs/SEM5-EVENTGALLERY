@@ -1,8 +1,6 @@
 import pytest
 from app import create_app
 
-# Initialize the testing environment
-
 @pytest.fixture
 def client():
     app = create_app('testing')
