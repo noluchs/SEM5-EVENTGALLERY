@@ -1,12 +1,17 @@
 import pytest
 from app import create_app, db
-from app.extensions import TestingConfig
+from app.config import TestingConfig  # Ensure the correct import path
 from app.models import Gallery, Photo
 import io
 import os
 
 @pytest.fixture
-def client():
+def client(monkeypatch):
+    # Set AWS credentials and region from environment variables
+    monkeypatch.setenv('AWS_ACCESS_KEY_ID', os.getenv('S3_KEY', 'testing'))
+    monkeypatch.setenv('AWS_SECRET_ACCESS_KEY', os.getenv('S3_SECRET', 'testing'))
+    monkeypatch.setenv('AWS_DEFAULT_REGION', os.getenv('AWS_REGION', 'us-east-1'))
+
     app = create_app(TestingConfig)  # Pass the TestingConfig class
     client = app.test_client()
 
@@ -35,4 +40,3 @@ def test_add_image_to_gallery(client):
     data = response.get_json()
     assert 'id' in data
     assert data['gallery_id'] == gallery_id
-
