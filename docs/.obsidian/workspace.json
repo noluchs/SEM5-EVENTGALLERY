@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2_Projektorganisation/2.5 SEUSAG.md",
+                "file": "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
                 "mode": "source",
                 "source": false
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2_Projektorganisation/2.5 SEUSAG.md",
+                "file": "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2_Projektorganisation/2.5 SEUSAG.md",
+                "file": "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2_Projektorganisation/2.5 SEUSAG.md"
+                "file": "2_Projektorganisation/2.4 Sprint/Sprint 2.md"
               }
             }
           }
@@ -197,19 +197,24 @@
   },
   "active": "3ce63fff07ea7352",
   "lastOpenFiles": [
-    "3_Servicedesign/3.3 Datenbank-Schema.md",
-    "2_Projektorganisation/2.5 SEUSAG.md",
-    "2_Projektorganisation/2.3 Sprint Planung .md",
     "2_Projektorganisation/2.4 Sprint/Sprint 1.md",
     "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
     "2_Projektorganisation/2.4 Sprint/Sprint 3.md",
     "2_Projektorganisation/2.4 Sprint/index.md",
-    "5_Schlussteil/5.2 Next Steps.md",
-    "5_Schlussteil/5.1 Fazit.md",
-    "4_Service/4.5 Deployment.md",
+    "2_Projektorganisation/2.4 Sprint/Pasted image 20240619150500.png",
+    "2_Projektorganisation/2.1 Projektmethode.md",
+    "2_Projektorganisation/2.3 Sprint Planung .md",
+    "2_Projektorganisation/2.2 Projektorganisation.md",
+    "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.49.56.png",
+    "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.48.18.png",
     "4_Service/4.4 Proxy.md",
     "4_Service/4.3 Frontend.md",
     "4_Service/4.2 Amazon.md",
+    "2_Projektorganisation/2.5 SEUSAG.md",
+    "3_Servicedesign/3.3 Datenbank-Schema.md",
+    "5_Schlussteil/5.2 Next Steps.md",
+    "5_Schlussteil/5.1 Fazit.md",
+    "4_Service/4.5 Deployment.md",
     "4_Service/4.1 Backend.md",
     "3_Servicedesign/3.5 Servicekosten.md",
     "3_Servicedesign/3.4 Security und Datenschutz.md",
@@ -218,24 +223,18 @@
     "2_Projektorganisation/2.7 SWOT Analyse.md",
     "2_Projektorganisation/index.md",
     "2_Projektorganisation/2.6 Risikomangment.md",
-    "2_Projektorganisation/2.2 Projektorganisation.md",
-    "2_Projektorganisation/2.1 Projektmethode.md",
     "anhang/download.png",
     "anhang/Bierdeckel_20_Vor.png",
     "4_Service/index.md",
     "5_Schlussteil/index.md",
     "anhang/ITCNE23_Semesterarbeit 3 (Einreichungsformular).pdf",
-    "anhang/learnings.md",
     "2_Projektorganisation/2.4 Sprint/attachments/Screenshot 2024-07-06 at 11.48.26.png",
     "2_Projektorganisation/2.4 Sprint/attachments/ScreenshotSprint2.png",
     "2_Projektorganisation/2.4 Sprint/attachments",
-    "2_Projektorganisation/2.4 Sprint/Pasted image 20240619150500.png",
     "2_Projektorganisation/2.4 Sprint",
     "2_Projektorganisation/SEUSAG",
     "Unbenannt",
     "5_Schlussteil",
-    "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.48.18.png",
-    "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.49.56.png",
     "2_Projektorganisation/attachments",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10774975494_ff1f0e85a4_s.jpg",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10589670286_9cfa212324_s.jpg",
