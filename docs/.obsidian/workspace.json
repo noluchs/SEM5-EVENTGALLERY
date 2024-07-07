@@ -13,19 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5_Schlussteil/5.2 Next Steps.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e3e91deab338b670",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "5_Schlussteil/5.2 Next Steps.md",
+                "file": "4_Service/4.2 Amazon.md",
                 "mode": "source",
                 "source": false
               }
@@ -37,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5_Schlussteil/5.1 Fazit.md",
+                "file": "5_Schlussteil/5.2 Next Steps.md",
                 "mode": "source",
                 "source": false
               }
@@ -195,37 +183,40 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "e3e91deab338b670",
+  "active": "3ce63fff07ea7352",
   "lastOpenFiles": [
-    "4_Service/4.2 Frontend.md",
-    "3_Servicedesign/Unbenannt.md",
-    "5_Schlussteil/5.2 Next Steps.md",
-    "4_Service/4.1 Backend.md",
-    "5_Schlussteil/index.md",
     "5_Schlussteil/5.1 Fazit.md",
-    "5_Schlussteil/5.2 Reflexion.md",
-    "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
-    "2_Projektorganisation/2.4 Sprint/Sprint 3.md",
-    "2_Projektorganisation/2.4 Sprint/attachments/Screenshot 2024-07-06 at 11.48.26.png",
-    "3_Servicedesign/3.2 Technologien.md",
-    "2_Projektorganisation/2.4 Sprint/Sprint 1.md",
-    "2_Projektorganisation/2.3 Sprint Planung .md",
-    "2_Projektorganisation/2.4 Sprint/attachments/ScreenshotSprint2.png",
-    "2_Projektorganisation/2.4 Sprint/attachments",
-    "2_Projektorganisation/2.1 Projektmethode.md",
-    "4_Service/index.md",
-    "4_Service/Unbenannt.md",
-    "4_Service/4.4 Deployment.md",
-    "4_Service/4.3 Proxy.md",
+    "4_Service/4.5 Deployment.md",
+    "4_Service/4.4 Proxy.md",
+    "4_Service/4.3 Frontend.md",
+    "4_Service/4.2 Amazon.md",
+    "4_Service/4.1 Backend.md",
     "3_Servicedesign/3.5 Servicekosten.md",
     "3_Servicedesign/3.4 Security und Datenschutz.md",
     "3_Servicedesign/3.3 Datenbank-Schema.md",
+    "3_Servicedesign/3.2 Technologien.md",
     "3_Servicedesign/3.1 Anforderung.md",
     "2_Projektorganisation/2.7 SWOT Analyse.md",
+    "2_Projektorganisation/index.md",
     "2_Projektorganisation/2.6 Risikomangment.md",
     "2_Projektorganisation/2.5 SEUSAG.md",
-    "2_Projektorganisation/Kunden Interview.md",
+    "2_Projektorganisation/2.3 Sprint Planung .md",
     "2_Projektorganisation/2.2 Projektorganisation.md",
+    "2_Projektorganisation/2.1 Projektmethode.md",
+    "anhang/download.png",
+    "anhang/Bierdeckel_20_Vor.png",
+    "4_Service/index.md",
+    "5_Schlussteil/index.md",
+    "anhang/ITCNE23_Semesterarbeit 3 (Einreichungsformular).pdf",
+    "anhang/learnings.md",
+    "anhang/quellen.md",
+    "anhang/Schmittel.md",
+    "5_Schlussteil/5.2 Next Steps.md",
+    "3_Servicedesign/Unbenannt.md",
+    "5_Schlussteil/5.2 Reflexion.md",
+    "2_Projektorganisation/2.4 Sprint/attachments/Screenshot 2024-07-06 at 11.48.26.png",
+    "2_Projektorganisation/2.4 Sprint/attachments/ScreenshotSprint2.png",
+    "2_Projektorganisation/2.4 Sprint/attachments",
     "2_Projektorganisation/2.4 Sprint/Pasted image 20240619150500.png",
     "2_Projektorganisation/2.4 Sprint",
     "2_Projektorganisation/SEUSAG",
@@ -234,14 +225,11 @@
     "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.48.18.png",
     "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.49.56.png",
     "2_Projektorganisation/attachments",
-    "anhang/Bierdeckel_20_Vor.png",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10774975494_ff1f0e85a4_s.jpg",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10589670286_9cfa212324_s.jpg",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10514059394_46a6c59f4d_s.jpg",
-    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10512588145_80102db580_s.jpg",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr.html",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/superagent-5dc9a557.js",
-    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/stripe-js-4d55e19d.js",
-    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/s.js"
+    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/stripe-js-4d55e19d.js"
   ]
 }
