@@ -36,7 +36,7 @@ ChatGPT wird genutzt, um technische Unterstützung zu erhalten und um bei Bedarf
 
 Ein AWS Account wird benötigt, um die Ressourcen des Services zu nutzen und den Service letztendlich zu hosten. AWS bietet eine breite Palette von Cloud-Diensten, die für die Implementierung und Bereitstellung von Projekten, insbesondere im Webentwicklungsbereich, entscheidend sind.
 
-Die genannten Sachmittel stellen die grundlegende Infrastruktur für die Entwicklung, Dokumentation und Bereitstellung des Projekts bereit. Ihre sorgfältige Auswahl und effiziente Nutzung tragen maßgeblich zum Erfolg und reibungslosen Ablauf des Projekts bei.
+Die genannten Sachmittel stellen die grundlegende Infrastruktur für die Entwicklung, Dokumentation und Bereitstellung des Projekts bereit. Ihre sorgfältige Auswahl und effiziente Nutzung tragen massgeblich zum Erfolg und reibungslosen Ablauf des Projekts bei.
 
 
 

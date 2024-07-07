@@ -68,7 +68,7 @@ Trotz zusätzlicher Arbeitszeit wurden nicht alle geplanten Aufgaben vollständi
 
 #### Unterschätzung der Frontend-Entwicklung
 
-Die Komplexität und der Umfang der Frontend-Entwicklung wurden unterschätzt. Im nächsten Sprint wird ein größerer Fokus auf die Entwicklung und Integration des Frontends gelegt, um sicherzustellen, dass es reibungslos mit dem Backend zusammenarbeitet.
+Die Komplexität und der Umfang der Frontend-Entwicklung wurden unterschätzt. Im nächsten Sprint wird ein grösserer Fokus auf die Entwicklung und Integration des Frontends gelegt, um sicherzustellen, dass es reibungslos mit dem Backend zusammenarbeitet.
 
 ## Kritische Würdigung des Sprint-Reviews
 

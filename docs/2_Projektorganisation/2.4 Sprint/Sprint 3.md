@@ -45,7 +45,7 @@ Im dritten Sprint wurden alle Ziele erreicht, wenn auch mit erheblichem Mehraufw
   
 
 5. **Präsentation vorbereitet**
-   - Erstellung der Präsentationsmaterialien, einschließlich Folien, Diagramme und Demo
+   - Erstellung der Präsentationsmaterialien, einschliesslich Folien, Diagramme und Demo
    - Üben und Vorbereiten der Abschlusspräsentation, um die wichtigsten Aspekte des Projekts klar und präzise zu vermitteln
    - Feedback von Kollegen eingeholt und die Präsentation entsprechend verbessert
   
@@ -84,15 +84,15 @@ Die Notwendigkeit, Lösungen anzupassen und neue Tools zu integrieren, hat gezei
 
 #### Frühzeitiges Testen und Iterieren
 
-Durch frühzeitiges Testen und Iterieren konnten viele Probleme rechtzeitig erkannt und behoben werden. Diese Vorgehensweise hat sich als äußerst effektiv erwiesen, um die Qualität des Endprodukts zu sichern.
+Durch frühzeitiges Testen und Iterieren konnten viele Probleme rechtzeitig erkannt und behoben werden. Diese Vorgehensweise hat sich als äusserst effektiv erwiesen, um die Qualität des Endprodukts zu sichern.
 
 
 #### Dokumentation als fortlaufender Prozess 
 
-Die fortlaufende Erstellung und Aktualisierung der Dokumentation hat sich als äußerst wertvoll erwiesen. Eine gute Dokumentation erleichtert die Zusammenarbeit im Team und die zukünftige Wartung des Systems erheblich.
+Die fortlaufende Erstellung und Aktualisierung der Dokumentation hat sich als äusserst wertvoll erwiesen. Eine gute Dokumentation erleichtert die Zusammenarbeit im Team und die zukünftige Wartung des Systems erheblich.
 
 ## Kritische Würdigung des Sprint-Reviews
 
   
 
-Der dritte Sprint hat gezeigt, dass eine flexible Planung und die Bereitschaft, neue Werkzeuge und Ansätze zu integrieren, entscheidend für den Erfolg sind. Trotz der Herausforderungen und des zusätzlichen Aufwands wurden alle gesetzten Ziele erreicht. Die Erfahrungen aus diesem Sprint werden in zukünftigen Projekten von großem Nutzen sein.
+Der dritte Sprint hat gezeigt, dass eine flexible Planung und die Bereitschaft, neue Werkzeuge und Ansätze zu integrieren, entscheidend für den Erfolg sind. Trotz der Herausforderungen und des zusätzlichen Aufwands wurden alle gesetzten Ziele erreicht. Die Erfahrungen aus diesem Sprint werden in zukünftigen Projekten von grossem Nutzen sein.

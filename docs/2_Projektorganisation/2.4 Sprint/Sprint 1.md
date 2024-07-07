@@ -8,7 +8,7 @@ nav_order: 1
 
 ## Fazit vom Sprint 1
 
-Der erste Sprint des Projekts brachte einige große Herausforderungen mit sich, insbesondere in Bezug auf das Basis-Setup der Microservices und die GitHub Pages Pipeline. Ursprünglich war geplant, die Microservices für die Benutzerverwaltung, Galerieverwaltung und Bildverwaltung aufzusetzen. Die Realität zwang mich jedoch, meine Strategie zu überdenken und mich zunächst auf die Technologieauswahl und die Anforderungsanalyse zu konzentrieren. Diese Entscheidung führte zu einem intensiven Lernprozess und einigen unerwarteten Schwierigkeiten. Insbesondere das Aufsetzen von GitHub Pages verursachte Probleme, die mich viel Zeit in diesem Sprint kosteten.
+Der erste Sprint des Projekts brachte einige grosse Herausforderungen mit sich, insbesondere in Bezug auf das Basis-Setup der Microservices und die GitHub Pages Pipeline. Ursprünglich war geplant, die Microservices für die Benutzerverwaltung, Galerieverwaltung und Bildverwaltung aufzusetzen. Die Realität zwang mich jedoch, meine Strategie zu überdenken und mich zunächst auf die Technologieauswahl und die Anforderungsanalyse zu konzentrieren. Diese Entscheidung führte zu einem intensiven Lernprozess und einigen unerwarteten Schwierigkeiten. Insbesondere das Aufsetzen von GitHub Pages verursachte Probleme, die mich viel Zeit in diesem Sprint kosteten.
 
 Trotz dieser Herausforderungen konnte ich wesentliche Fortschritte erzielen:
 
@@ -32,7 +32,7 @@ Trotz dieser Herausforderungen konnte ich wesentliche Fortschritte erzielen:
 
 #### Bessere Zeiteinteilung
 
-Ich muss sicherstellen, dass ich meine Aufgaben effektiver priorisiere und Zeitmanagement-Techniken anwende. Dies wird helfen, Aufgaben innerhalb der geplanten Zeitrahmen abzuschließen und Engpässe zu vermeiden.
+Ich muss sicherstellen, dass ich meine Aufgaben effektiver priorisiere und Zeitmanagement-Techniken anwende. Dies wird helfen, Aufgaben innerhalb der geplanten Zeitrahmen abzuschliessen und Engpässe zu vermeiden.
 
 #### Genauere Planung der Tasks
 
