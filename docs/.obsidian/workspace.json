@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5_Schlussteil/5.2 Next Steps.md",
+                "file": "2_Projektorganisation/2.3 Sprint Planung .md",
                 "mode": "source",
                 "source": false
               }
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "5_Schlussteil/5.2 Next Steps.md",
+                "file": "2_Projektorganisation/2.3 Sprint Planung .md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "5_Schlussteil/5.2 Next Steps.md",
+                "file": "2_Projektorganisation/2.3 Sprint Planung .md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "5_Schlussteil/5.2 Next Steps.md"
+                "file": "2_Projektorganisation/2.3 Sprint Planung .md"
               }
             }
           }
@@ -185,6 +185,7 @@
   },
   "active": "3ce63fff07ea7352",
   "lastOpenFiles": [
+    "5_Schlussteil/5.2 Next Steps.md",
     "5_Schlussteil/5.1 Fazit.md",
     "4_Service/4.5 Deployment.md",
     "4_Service/4.4 Proxy.md",
@@ -211,7 +212,6 @@
     "anhang/learnings.md",
     "anhang/quellen.md",
     "anhang/Schmittel.md",
-    "5_Schlussteil/5.2 Next Steps.md",
     "3_Servicedesign/Unbenannt.md",
     "5_Schlussteil/5.2 Reflexion.md",
     "2_Projektorganisation/2.4 Sprint/attachments/Screenshot 2024-07-06 at 11.48.26.png",
