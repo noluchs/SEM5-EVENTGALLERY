@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 2.4.1 Sprint 3 Review
+title: 2.4.3 Sprint 3 Review
 parent: 2.4 Sprint
 grand_parent:   2. Projektorganisation  
 nav_order: 3
@@ -22,7 +22,6 @@ Im dritten Sprint wurden alle Ziele erreicht, wenn auch mit erheblichem Mehraufw
 1. **Integration der Microservices**
    - Erfolgreiche API-Integration zwischen den Services
    - Sicherstellung der Datenkonsistenz und Integrität
-  
 
 2. **Frontend fertiggestellt**
    - Implementierung aller geplanten Benutzeroberflächen
@@ -30,26 +29,23 @@ Im dritten Sprint wurden alle Ziele erreicht, wenn auch mit erheblichem Mehraufw
    - Durchführung von End-to-End-Tests zur Sicherstellung der Funktionalität
    - Optimierung der Benutzeroberfläche für eine bessere User Experience (UX)
 
-
 3. **Deployment vorbereitet und durchgeführt**
-   - Erstellung und Testen der Deployment-Skripte
+   - Erstellen und testen der Deployment-Skripte
    - Einrichtung der Produktionsumgebung auf AWS EC2 mit Docker Compose
-   - Konfiguration und Testen der CI/CD-Pipeline mit GitHub Actions
+   - Konfigurieren und testen der CI/CD-Pipeline mit GitHub Actions
    - Sicherstellung, dass alle Dienste reibungslos in der Produktionsumgebung laufen
-
 
 4. **Dokumentation erstellt**
    - Technische Dokumentation der Architektur und APIs
    - Erstellung von Benutzerhandbüchern und Betriebsdokumentationen
    - Detaillierte Dokumentation der Setup- und Deployment-Prozesse
    - Zusammenstellung aller relevanten Informationen für die spätere Wartung und Weiterentwicklung des Systems
-  
 
 5. **Präsentation vorbereitet**
    - Erstellung der Präsentationsmaterialien, einschliesslich Folien, Diagramme und Demo
    - Üben und Vorbereiten der Abschlusspräsentation, um die wichtigsten Aspekte des Projekts klar und präzise zu vermitteln
    - Feedback von Kollegen eingeholt und die Präsentation entsprechend verbessert
-  
+
 
 6. **Proxy mit SSL-Zertifikat**
    - Implementierung eines Reverse Proxys mit Traefik

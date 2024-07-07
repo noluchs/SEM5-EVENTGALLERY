@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 2.4.1 Sprint 2 Review
+title: 2.4.2 Sprint 2 Review
 parent: 2.4 Sprint
 grand_parent:   2. Projektorganisation  
 nav_order: 2
@@ -14,11 +14,11 @@ Der zweite Sprint des Projekts war intensiv und brachte sowohl Erfolge als auch 
 ### Erreichte Ziele
 
 1. **Galerieverwaltung implementieren**
-   - Erstellen, Verwalten und Löschen von Galerien
-   - Hinzufügen und Entfernen von Bildern
+   - Erstellen, verwalten und löschen von Galerien
+   - Hinzufügen und entfernen von Bildern
 
 2. **Bildverwaltung implementieren**
-   - Hochladen, Speichern und Abrufen von Bildern
+   - Hochladen, speichern und abrufen von Bildern
    - Anbindung an AWS S3
 
 3. **API-Struktur planen und implementieren**

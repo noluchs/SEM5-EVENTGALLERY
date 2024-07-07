@@ -14,7 +14,7 @@ Die digitalen und interaktiven Bedürfnisse bei Veranstaltungen erfordern eine e
 Veranstaltungen erzeugen eine grosse Menge an Fotomaterial, das effizient verwaltet und durchsucht werden muss. Besucher und Teilnehmer benötigen eine schnelle Methode, um sich selbst auf Fotos zu finden, ohne manuell durch Hunderte oder Tausende von Bildern blättern zu müssen.
 
 ## Ansatz
-Durch die Entwicklung eines Microservice-basierten Galerie-Verwaltungssystems mit integrierter Gesichtserkennung können Nutzer durch einfaches Hochladen eines Selfies alle Fotos finden, auf denen sie abgebildet sind. Dieses System nutzt moderne Cloud-Dienste und Gesichtserkennungstechnologien, um eine skalierbare und effiziente Lösung zu bieten.
+Durch die Entwicklung eines microservicebasierten Galerieverwaltungssystems mit integrierter Gesichtserkennung können Nutzer durch einfaches Hochladen eines Selfies alle Fotos finden, auf denen sie abgebildet sind. Dieses System nutzt moderne Cloud-Dienste und Gesichtserkennungstechnologien, um eine skalierbare und effiziente Lösung zu bieten.
 
 ## Vorteile
 - **Zeitersparnis:** Die Nutzer können ihre persönlichen Fotos schnell finden, was ihre Zufriedenheit erhöht.

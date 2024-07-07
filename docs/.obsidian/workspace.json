@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
+                "file": "3_Servicedesign/3.5 Servicekosten.md",
                 "mode": "source",
                 "source": false
               }
@@ -44,31 +44,31 @@
             }
           },
           {
-            "id": "e866f11011db7ea3",
+            "id": "5d1b6933aab89c75",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
+                "file": "3_Servicedesign/3.5 Servicekosten.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "fde4057b83feda00",
+            "id": "bc3414f034996ebb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2_Projektorganisation/2.3 Sprint Planung .md",
+                "file": "2_Projektorganisation/2.7 SWOT Analyse.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
+                "file": "3_Servicedesign/3.5 Servicekosten.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
+                "file": "3_Servicedesign/3.5 Servicekosten.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2_Projektorganisation/2.4 Sprint/Sprint 2.md"
+                "file": "3_Servicedesign/3.5 Servicekosten.md"
               }
             }
           }
@@ -195,34 +195,36 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "3ce63fff07ea7352",
+  "active": "5d1b6933aab89c75",
   "lastOpenFiles": [
-    "2_Projektorganisation/2.4 Sprint/Sprint 1.md",
-    "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
+    "anhang/tecnicaldraw.drawio",
+    "anhang/Unconfirmed 812518.crdownload",
+    "2_Projektorganisation/2.7 SWOT Analyse.md",
+    "3_Servicedesign/3.5 Servicekosten.md",
+    "3_Servicedesign/3.2 Technologien.md",
+    "3_Servicedesign/3.1 Anforderung.md",
+    "2_Projektorganisation/2.6 Risikomangment.md",
+    "2_Projektorganisation/2.5 SEUSAG.md",
     "2_Projektorganisation/2.4 Sprint/Sprint 3.md",
-    "2_Projektorganisation/2.4 Sprint/index.md",
-    "2_Projektorganisation/2.4 Sprint/Pasted image 20240619150500.png",
-    "2_Projektorganisation/2.1 Projektmethode.md",
     "2_Projektorganisation/2.3 Sprint Planung .md",
+    "2_Projektorganisation/2.1 Projektmethode.md",
+    "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
     "2_Projektorganisation/2.2 Projektorganisation.md",
+    "2_Projektorganisation/2.4 Sprint/index.md",
+    "2_Projektorganisation/2.4 Sprint/Sprint 1.md",
+    "2_Projektorganisation/2.4 Sprint/Pasted image 20240619150500.png",
     "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.49.56.png",
     "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.48.18.png",
     "4_Service/4.4 Proxy.md",
     "4_Service/4.3 Frontend.md",
     "4_Service/4.2 Amazon.md",
-    "2_Projektorganisation/2.5 SEUSAG.md",
     "3_Servicedesign/3.3 Datenbank-Schema.md",
     "5_Schlussteil/5.2 Next Steps.md",
     "5_Schlussteil/5.1 Fazit.md",
     "4_Service/4.5 Deployment.md",
     "4_Service/4.1 Backend.md",
-    "3_Servicedesign/3.5 Servicekosten.md",
     "3_Servicedesign/3.4 Security und Datenschutz.md",
-    "3_Servicedesign/3.2 Technologien.md",
-    "3_Servicedesign/3.1 Anforderung.md",
-    "2_Projektorganisation/2.7 SWOT Analyse.md",
     "2_Projektorganisation/index.md",
-    "2_Projektorganisation/2.6 Risikomangment.md",
     "anhang/download.png",
     "anhang/Bierdeckel_20_Vor.png",
     "4_Service/index.md",
@@ -240,7 +242,6 @@
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10589670286_9cfa212324_s.jpg",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10514059394_46a6c59f4d_s.jpg",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr.html",
-    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/superagent-5dc9a557.js",
-    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/stripe-js-4d55e19d.js"
+    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/superagent-5dc9a557.js"
   ]
 }
