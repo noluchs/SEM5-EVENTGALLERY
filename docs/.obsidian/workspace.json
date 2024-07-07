@@ -20,43 +20,19 @@
             }
           },
           {
-            "id": "3ce63fff07ea7352",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "3_Servicedesign/3.5 Servicekosten.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "dda36d425e70f0e8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "3_Servicedesign/3.3 Datenbank-Schema.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "bc3414f034996ebb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2_Projektorganisation/2.7 SWOT Analyse.md",
+                "file": "anhang/quellen.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -122,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2_Projektorganisation/2.7 SWOT Analyse.md",
+                "file": "anhang/quellen.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2_Projektorganisation/2.7 SWOT Analyse.md",
+                "file": "anhang/quellen.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2_Projektorganisation/2.7 SWOT Analyse.md"
+                "file": "anhang/quellen.md"
               }
             }
           }
@@ -185,12 +161,14 @@
   },
   "active": "bc3414f034996ebb",
   "lastOpenFiles": [
+    "anhang/learnings.md",
+    "2_Projektorganisation/2.7 SWOT Analyse.md",
+    "4_Service/4.2 Amazon.md",
+    "3_Servicedesign/3.5 Servicekosten.md",
     "3_Servicedesign/3.3 Datenbank-Schema.md",
     "3_Servicedesign/3.4 Security und Datenschutz.md",
-    "3_Servicedesign/3.5 Servicekosten.md",
     "anhang/tecnicaldraw.drawio",
     "anhang/Unconfirmed 812518.crdownload",
-    "2_Projektorganisation/2.7 SWOT Analyse.md",
     "3_Servicedesign/3.2 Technologien.md",
     "3_Servicedesign/3.1 Anforderung.md",
     "2_Projektorganisation/2.6 Risikomangment.md",
@@ -207,7 +185,6 @@
     "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.48.18.png",
     "4_Service/4.4 Proxy.md",
     "4_Service/4.3 Frontend.md",
-    "4_Service/4.2 Amazon.md",
     "5_Schlussteil/5.2 Next Steps.md",
     "5_Schlussteil/5.1 Fazit.md",
     "4_Service/4.5 Deployment.md",
