@@ -44,18 +44,6 @@
             }
           },
           {
-            "id": "5d1b6933aab89c75",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "3_Servicedesign/3.5 Servicekosten.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "bc3414f034996ebb",
             "type": "leaf",
             "state": {
@@ -134,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "3_Servicedesign/3.5 Servicekosten.md",
+                "file": "2_Projektorganisation/2.7 SWOT Analyse.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "3_Servicedesign/3.5 Servicekosten.md",
+                "file": "2_Projektorganisation/2.7 SWOT Analyse.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "3_Servicedesign/3.5 Servicekosten.md"
+                "file": "2_Projektorganisation/2.7 SWOT Analyse.md"
               }
             }
           }
@@ -195,12 +183,14 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "5d1b6933aab89c75",
+  "active": "bc3414f034996ebb",
   "lastOpenFiles": [
+    "3_Servicedesign/3.3 Datenbank-Schema.md",
+    "3_Servicedesign/3.4 Security und Datenschutz.md",
+    "3_Servicedesign/3.5 Servicekosten.md",
     "anhang/tecnicaldraw.drawio",
     "anhang/Unconfirmed 812518.crdownload",
     "2_Projektorganisation/2.7 SWOT Analyse.md",
-    "3_Servicedesign/3.5 Servicekosten.md",
     "3_Servicedesign/3.2 Technologien.md",
     "3_Servicedesign/3.1 Anforderung.md",
     "2_Projektorganisation/2.6 Risikomangment.md",
@@ -218,12 +208,10 @@
     "4_Service/4.4 Proxy.md",
     "4_Service/4.3 Frontend.md",
     "4_Service/4.2 Amazon.md",
-    "3_Servicedesign/3.3 Datenbank-Schema.md",
     "5_Schlussteil/5.2 Next Steps.md",
     "5_Schlussteil/5.1 Fazit.md",
     "4_Service/4.5 Deployment.md",
     "4_Service/4.1 Backend.md",
-    "3_Servicedesign/3.4 Security und Datenschutz.md",
     "2_Projektorganisation/index.md",
     "anhang/download.png",
     "anhang/Bierdeckel_20_Vor.png",
@@ -241,7 +229,6 @@
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10774975494_ff1f0e85a4_s.jpg",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10589670286_9cfa212324_s.jpg",
     "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10514059394_46a6c59f4d_s.jpg",
-    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr.html",
-    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/superagent-5dc9a557.js"
+    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr.html"
   ]
 }
