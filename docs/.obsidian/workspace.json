@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4_Service/4.3 Frontend.md",
+                "file": "5_Schlussteil/5.1 Fazit.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "4_Service/4.3 Frontend.md",
+                "file": "5_Schlussteil/5.1 Fazit.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "4_Service/4.3 Frontend.md",
+                "file": "5_Schlussteil/5.1 Fazit.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "4_Service/4.3 Frontend.md"
+                "file": "5_Schlussteil/5.1 Fazit.md"
               }
             }
           }
@@ -161,8 +161,22 @@
   },
   "active": "bc3414f034996ebb",
   "lastOpenFiles": [
+    "anhang/Demo Oscars 2024/ACA_2024_Host_1080x1350.jpg",
+    "anhang/Demo Oscars 2024/171974_SC8_0388 Large.jpeg",
+    "anhang/Demo Oscars 2024/171974_SC8_0144 Large.jpeg",
+    "anhang/Demo Oscars 2024/171974_SC8_0022 Large.jpeg",
+    "anhang/Demo Oscars 2024/171974_SC7_9759 Large.jpeg",
+    "anhang/Demo Oscars 2024/171974_SC7_2020 Large.jpeg",
+    "anhang/Demo Oscars 2024/171974_SC7_1756 Large.jpeg",
+    "anhang/Demo Oscars 2024/171974_SC7_1552 Large.jpeg",
+    "anhang/Demo Oscars 2024/171974_SC7_0464 Large.jpeg",
+    "anhang/Demo Oscars 2024/171974_SC7_0355 Large.jpeg",
+    "anhang/Demo Oscars 2024/171973_FM2_3030 Large.jpeg",
+    "anhang/Demo Oscars 2024",
+    "anhang/Demo",
+    "anhang/untitled folder",
+    "4_Service/4.3 Frontend.md",
     "anhang/quellen.md",
-    "anhang/awsaufbau.png",
     "anhang/learnings.md",
     "2_Projektorganisation/2.7 SWOT Analyse.md",
     "4_Service/4.2 Amazon.md",
@@ -182,30 +196,16 @@
     "2_Projektorganisation/2.2 Projektorganisation.md",
     "2_Projektorganisation/2.4 Sprint/index.md",
     "2_Projektorganisation/2.4 Sprint/Sprint 1.md",
-    "2_Projektorganisation/2.4 Sprint/Pasted image 20240619150500.png",
-    "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.49.56.png",
-    "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.48.18.png",
     "4_Service/4.4 Proxy.md",
-    "4_Service/4.3 Frontend.md",
     "5_Schlussteil/5.2 Next Steps.md",
     "5_Schlussteil/5.1 Fazit.md",
     "4_Service/4.5 Deployment.md",
     "4_Service/4.1 Backend.md",
     "2_Projektorganisation/index.md",
-    "anhang/download.png",
-    "anhang/Bierdeckel_20_Vor.png",
-    "4_Service/index.md",
     "anhang/ITCNE23_Semesterarbeit 3 (Einreichungsformular).pdf",
-    "2_Projektorganisation/2.4 Sprint/attachments/Screenshot 2024-07-06 at 11.48.26.png",
-    "2_Projektorganisation/2.4 Sprint/attachments/ScreenshotSprint2.png",
     "2_Projektorganisation/2.4 Sprint/attachments",
     "2_Projektorganisation/2.4 Sprint",
     "2_Projektorganisation/SEUSAG",
-    "Unbenannt",
-    "5_Schlussteil",
-    "2_Projektorganisation/attachments",
-    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10774975494_ff1f0e85a4_s.jpg",
-    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr_files/10589670286_9cfa212324_s.jpg",
-    "anhang/Scrum_Framework für komplexe Produkte _ Www.tanjafoehr.com _ Tanja Föhr _ Flickr.html"
+    "Unbenannt"
   ]
 }
