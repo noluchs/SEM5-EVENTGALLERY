@@ -47,43 +47,8 @@ docker compose -f compose.prod.yaml up --build
 ```
 
 ## Design
+![PlantUML model](https://www.plantuml.com/plantuml/png/NOxD2i8m48Jl-nHBxtq5AUBFrNl9OPiEMapIibd58BwxWT9BRyFtCSDqsKJj5GFH8lufTt1pVYFPLKA0beQ_nDpVTFuKnsrxuFwYSpAaqUt5iGviVCkhEOd981cEVaIFQGGZBbOu8WxGl28_gGyWwcgl7le3)
 
-```plantuml
-@startuml
-
-package "EventGallery" {
-  [Proxy] --> [Frontend]
-  [Proxy] --> [Backend]
-  [Backend] --> [Database]
-}
-
-hide empty members
-hide circle
-
-@enduml
-```
-
-## Use Cases
-
-```plantuml
-@startuml
-
-actor User
-
-User --> (Register User)
-User --> (Login User)
-User --> (Register Gallery)
-User --> (Upload Photo)
-User --> (Search Photos)
-
-actor Admin
-
-Admin --> (Manage Users)
-Admin --> (Manage Galleries)
-Admin --> (View Logs)
-
-@enduml
-```
 
 ## CI/CD
 
