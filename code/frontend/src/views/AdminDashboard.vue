@@ -39,6 +39,9 @@
             <h5 v-if="selectedGallery">{{ selectedGallery.name }}</h5>
             <input type="file" @change="handleFileSelection($event)" class="form-control mt-3" multiple>
             <button @click="uploadFiles" class="btn btn-primary mt-3">Upload Files</button>
+            <div v-if="isUploading" class="loading-container">
+              <img src="@/assets/loading.svg" alt="Loading..." class="loading-animation">
+            </div>
             <div class="mt-4">
               <h6>Existing Pictures</h6>
               <div v-if="pictures.length" class="row">
@@ -72,6 +75,7 @@ const coverImage = ref(null);
 const selectedGallery = ref(null);
 const pictures = ref([]);
 const selectedFiles = ref([]);
+const isUploading = ref(false); // New ref for upload loading state
 
 async function fetchGalleries() {
   try {
@@ -155,6 +159,8 @@ async function uploadFiles() {
     formData.append('files', file);
   }
 
+  isUploading.value = true; // Start the loading animation
+
   try {
     await axios.post(`${process.env.VUE_APP_ROOT_API}/image/`, formData, {
       headers: {
@@ -167,6 +173,8 @@ async function uploadFiles() {
     selectedFiles.value = [];
   } catch (error) {
     console.error('Error uploading files:', error);
+  } finally {
+    isUploading.value = false; // Stop the loading animation
   }
 }
 
@@ -196,5 +204,14 @@ onMounted(() => {
 .container {
   max-width: 800px;
   margin: 0 auto;
+}
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading-animation {
+  width: 50px;
+  height: 50px;
 }
 </style>
