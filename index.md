@@ -6,7 +6,7 @@ permalink: /
 ---
 # Einleitung
 
-![Bild vom Aufbau der Applikation](link-zu-ihrem-bild)
+![Bild vom Aufbau der Applikation](/docs/anhang/awsaufbau.png)
 
 Die digitalen und interaktiven Bedürfnisse bei Veranstaltungen erfordern eine effiziente Lösung zur schnellen Identifizierung persönlicher Fotos in grossen Galerien. Dieses Projekt entwickelt ein Microservice-basiertes System mit Gesichtserkennung, um dieses Problem zu lösen. Es unterscheidet sich von bestehenden Lösungen durch seine modulare Architektur und die direkte Integration von Gesichtserkennungstechnologien, die speziell auf die Anforderungen von Event-Veranstaltern und Teilnehmern zugeschnitten sind.
 
