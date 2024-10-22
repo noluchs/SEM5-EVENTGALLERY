@@ -1,7 +1,7 @@
 # MSCV-Gallery-with-Face-Matching
 
 Dokumentation unter
-[Dokumentation](https://noluchs.github.io/MSCV-Gallery-with-Face-Matching/)
+[Dokumentation](https://noluchs.github.io/SEM4)
 
 ## Intro
 
@@ -13,7 +13,6 @@ This repo hosts the project _EventGallery_, a microservice-based gallery managem
 - ApiFlask (https://apiflask.com/)
 - SQLAlchemy (https://www.sqlalchemy.org/)
 - MySQL (https://www.mysql.com/de/)
-- Docker Compose (https://docs.docker.com/compose/)
 - pyTest (https://docs.pytest.org/en/8.0.x/)
 - Gunicorn (https://gunicorn.org/)
 - Vue (https://vuejs.org/)
@@ -21,28 +20,7 @@ This repo hosts the project _EventGallery_, a microservice-based gallery managem
 
 ## Installation
 
-Clone this repository and its sub-repositories with:
 
-```bash
-git clone --recurse-submodules [repository path]
-```
-
-Development Environment (with Hot reload):
-
-```bash
-docker compose up --build
-```
-
-Run tests:
-
-```bash
-docker compose -f compose.test.yaml up --build
-```
-
-Production:
-
-```bash
-docker compose -f compose.prod.yaml up --build
 ```
 
 ## Design
