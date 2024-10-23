@@ -8,31 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "357236ff8b4577ac",
+            "id": "5b5698d2c16abbc9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4_Service/4.2 Amazon.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "bc3414f034996ebb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "5_Schlussteil/5.1 Fazit.md",
+                "file": "3_Kubernetes/index.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "5_Schlussteil/5.1 Fazit.md",
+                "file": "3_Kubernetes/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "5_Schlussteil/5.1 Fazit.md",
+                "file": "3_Kubernetes/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "5_Schlussteil/5.1 Fazit.md"
+                "file": "3_Kubernetes/index.md"
               }
             }
           }
@@ -151,16 +138,34 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "switcher:Schnellauswahl öffnen": false,
+      "graph:Graphen-Ansicht öffnen": false,
+      "canvas:Neuen Canvas erstellen": false,
+      "daily-notes:Heutige Notiz öffnen": false,
+      "templates:Vorlage einfügen": false,
+      "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "bc3414f034996ebb",
+  "active": "5b5698d2c16abbc9",
   "lastOpenFiles": [
+    "4_CICD/index.md",
+    "3_Servicedesign/3.1 Anforderung.md",
+    "3_Servicedesign/3.4 Servicekosten.md",
+    "3_Servicedesign/3.3 Security und Datenschutz.md",
+    "5_Schlussteil/5.1 Fazit.md",
+    "5_Schlussteil/5.2 Next Steps.md",
+    "3_Servicedesign/3.2 Technologien.md",
+    "2_Projektorganisation/index.md",
+    "2_Projektorganisation/2.7 SWOT Analyse.md",
+    "2_Projektorganisation/2.6 Risikomangment.md",
+    "2_Projektorganisation/2.5 SEUSAG.md",
+    "2_Projektorganisation/2.3 Sprint Planung .md",
+    "2_Projektorganisation/2.2 Projektorganisation.md",
+    "2_Projektorganisation/2.1 Projektmethode.md",
+    "2_Projektorganisation/2.4 Sprint/Sprint 3.md",
+    "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
+    "2_Projektorganisation/2.4 Sprint/Sprint 1.md",
+    "2_Projektorganisation/2.4 Sprint/Pasted image 20240619150500.png",
     "anhang/tecnicaldraw.drawio.png",
     "anhang/Demo Oscars 2024/ACA_2024_Host_1080x1350.jpg",
     "anhang/Demo Oscars 2024/171974_SC8_0388 Large.jpeg",
@@ -170,38 +175,20 @@
     "anhang/Demo Oscars 2024/171974_SC7_2020 Large.jpeg",
     "anhang/Demo Oscars 2024/171974_SC7_1756 Large.jpeg",
     "anhang/Demo Oscars 2024/171974_SC7_1552 Large.jpeg",
-    "anhang/Demo Oscars 2024/171974_SC7_0464 Large.jpeg",
-    "anhang/Demo Oscars 2024/171974_SC7_0355 Large.jpeg",
     "anhang/Demo Oscars 2024",
     "anhang/Demo",
     "anhang/untitled folder",
     "4_Service/4.3 Frontend.md",
     "anhang/quellen.md",
     "anhang/learnings.md",
-    "2_Projektorganisation/2.7 SWOT Analyse.md",
     "4_Service/4.2 Amazon.md",
     "3_Servicedesign/3.5 Servicekosten.md",
     "3_Servicedesign/3.3 Datenbank-Schema.md",
     "3_Servicedesign/3.4 Security und Datenschutz.md",
     "anhang/tecnicaldraw.drawio",
     "anhang/Unconfirmed 812518.crdownload",
-    "3_Servicedesign/3.2 Technologien.md",
-    "3_Servicedesign/3.1 Anforderung.md",
-    "2_Projektorganisation/2.6 Risikomangment.md",
-    "2_Projektorganisation/2.5 SEUSAG.md",
-    "2_Projektorganisation/2.4 Sprint/Sprint 3.md",
-    "2_Projektorganisation/2.3 Sprint Planung .md",
-    "2_Projektorganisation/2.1 Projektmethode.md",
-    "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
-    "2_Projektorganisation/2.2 Projektorganisation.md",
     "2_Projektorganisation/2.4 Sprint/index.md",
-    "2_Projektorganisation/2.4 Sprint/Sprint 1.md",
     "4_Service/4.4 Proxy.md",
-    "5_Schlussteil/5.2 Next Steps.md",
-    "5_Schlussteil/5.1 Fazit.md",
-    "4_Service/4.5 Deployment.md",
-    "4_Service/4.1 Backend.md",
-    "2_Projektorganisation/index.md",
     "anhang/ITCNE23_Semesterarbeit 3 (Einreichungsformular).pdf",
     "2_Projektorganisation/2.4 Sprint/attachments",
     "2_Projektorganisation/2.4 Sprint",

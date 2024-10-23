@@ -1,10 +1,10 @@
 ---
 layout: default
-title: 4. Service
+title: 4. CICD
 nav_order: 4
 has_children: true
 ---
 
-# Service
+# CICD
 
 {: .no_toc }
