@@ -6,24 +6,20 @@ permalink: /
 ---
 # Einleitung
 
-![Bild vom Aufbau der Applikation](docs/anhang/tecnicaldraw.drawio.png)
+Im 3. Semester habe ich ein Galerieverwaltungssystem mit Gesichtserkennung entwickelt, das auf einem Server in diversen Containern läuft. Das System ist zwar funktional, aber es fehlen wichtige Funktionen wie automatische Skalierbarkeit und Ausfallsicherheit. Ziel dieser Arbeit ist es, das bestehende System Kubernetes-fähig zu machen und eine CI/CD-Pipeline einzurichten, um eine effiziente und fehlerfreie Bereitstellung der Microservices sicherzustellen.
 
-Die digitalen und interaktiven Bedürfnisse bei Veranstaltungen erfordern eine effiziente Lösung zur schnellen Identifizierung persönlicher Fotos in grossen Galerien. Dieses Projekt entwickelt ein Microservice-basiertes System mit Gesichtserkennung, um dieses Problem zu lösen. Es unterscheidet sich von bestehenden Lösungen durch seine modulare Architektur und die direkte Integration von Gesichtserkennungstechnologien, die speziell auf die Anforderungen von Event-Veranstaltern und Teilnehmern zugeschnitten sind.
+## Need:
+Das bestehende Microservice-basierte Galerieverwaltungssystem benötigt eine zukunftssichere Plattform, die eine automatische Skalierung und Ausfallsicherheit ermöglicht. Derzeit erfolgt das Deployment manuell, was zu potenziellen Fehlern und Verzögerungen führt. Da das System mit wachsenden Datenmengen und steigender Nutzerzahl umgehen muss, ist eine flexible, automatisierte Lösung notwendig.
 
-## Bedarf
-Veranstaltungen erzeugen eine grosse Menge an Fotomaterial, das effizient verwaltet und durchsucht werden muss. Besucher und Teilnehmer benötigen eine schnelle Methode, um sich selbst auf Fotos zu finden, ohne manuell durch Hunderte oder Tausende von Bildern blättern zu müssen.
+## Approach:
+Das System wird auf Kubernetes migriert, um eine automatische Orchestrierung und Skalierung der Microservices sicherzustellen. Kubernetes ermöglicht es, die Ressourcen je nach Auslastung dynamisch anzupassen. Zudem wird eine CI/CD-Pipeline implementiert, die sicherstellt, dass der Code nach jeder Änderung automatisch getestet und in den Produktions-Cluster integriert wird. Dies erfolgt entweder mit GitHub oder Azure DevOps als CI/CD-Tool.
 
-## Ansatz
-Durch die Entwicklung eines microservicebasierten Galerieverwaltungssystems mit integrierter Gesichtserkennung können Nutzer durch einfaches Hochladen eines Selfies alle Fotos finden, auf denen sie abgebildet sind. Dieses System nutzt moderne Cloud-Dienste und Gesichtserkennungstechnologien, um eine skalierbare und effiziente Lösung zu bieten.
+## Benefit:
+Durch die Kubernetes-Migration wird das System widerstandsfähiger und kann auf veränderte Lastanforderungen reagieren. Die CI/CD-Pipeline automatisiert den gesamten Bereitstellungsprozess und reduziert menschliche Fehler. Die Nutzung von Kubernetes und CI/CD sorgt dafür, dass die Anwendung hochverfügbar ist, einfach zu warten und flexibel auf zukünftige Anforderungen skalierbar bleibt.
 
-## Vorteile
-- **Zeitersparnis:** Die Nutzer können ihre persönlichen Fotos schnell finden, was ihre Zufriedenheit erhöht.
-- **Verbesserte Interaktion:** Die einfache und schnelle Suche motiviert die Teilnehmer, ihre Fotos zu teilen, was die Interaktionsrate auf der Webseite erhöht.
-- **Anpassungsfähigkeit:** Die Microservice-Architektur ermöglicht eine einfache Anpassung an verschiedene Veranstaltungstypen und -grössen.
-- **Datenschutz:** Alle Fotos und Gesichtsmerkmale werden sicher gespeichert und datenschutzkonform behandelt.
+## Competition:
+Im Vergleich zu herkömmlichen Server- und Containerlösungen bietet Kubernetes eine native Unterstützung für automatische Skalierbarkeit und Ausfallsicherheit. Andere Lösungen erfordern oft manuelle Skalierung oder den Einsatz zusätzlicher Tools, um ähnliche Ergebnisse zu erzielen. Kubernetes bietet eine umfassende Plattform, die nicht nur die Verwaltung erleichtert, sondern auch die Effizienz im Betrieb erheblich steigert.
 
-## Wettbewerb
-Aktuelle Lösungen erfordern oft manuelles Durchsuchen der Galerien oder bieten keine spezifische, nutzerfreundliche Suche basierend auf Gesichtserkennung. Dieses System stellt eine direkte Verbesserung dar, indem es eine intuitive, effektive und schnelle Suche ermöglicht und sich leicht an verschiedene Veranstaltungsgrössen anpassen lässt.
 
 ## Praxisbeispiel mit Zahlen und Fakten
 
@@ -32,18 +28,20 @@ Aktuelle Lösungen erfordern oft manuelles Durchsuchen der Galerien oder bieten 
 
 ### Aktuelle Situation
 - Viele Teilnehmer machen sich nicht die Mühe, ihre Fotos manuell zu suchen, da es zu zeitaufwendig ist. Dadurch gehen viele wertvolle Erinnerungen verloren und die Interaktionsrate auf der Webseite bleibt niedrig.
+- Das aktuelle System benötigt manuelles Deployment und manuelle Skalierung, wodurch Ressourcen ineffizient genutzt werden und Verzögerungen entstehen können, wenn plötzlich viele Teilnehmer gleichzeitig auf das System zugreifen.
 
-### Mit dem neuen System
-- Teilnehmer laden ein Selfie hoch.
-- Das System analysiert das Selfie und zeigt innerhalb von 30 Sekunden alle relevanten Fotos an.
-- Die einfache und schnelle Suche motiviert mehr Teilnehmer, ihre Fotos zu finden und zu teilen.
+### Mit dem neuen System (nach Kubernetes-Migration und CI/CD)
+- **Teilnehmererfahrung:** Teilnehmer laden ein Selfie hoch, und das System analysiert es innerhalb von 30 Sekunden, um alle relevanten Fotos anzuzeigen. Durch die Integration in Kubernetes kann das System bei erhöhtem Teilnehmeraufkommen automatisch skalieren und die hohe Verfügbarkeit der Anwendung gewährleisten.
+- **Automatisierte Skalierung:** Kubernetes skaliert die Microservices dynamisch nach der Last, um eine gleichbleibend hohe Performance zu bieten, unabhängig von der Anzahl der gleichzeitig aktiven Teilnehmer.
+- **Kontinuierliche Verbesserungen:** Durch die Implementierung der CI/CD-Pipeline werden Änderungen und Optimierungen im System automatisch getestet und nahtlos bereitgestellt, ohne dass die Verfügbarkeit beeinträchtigt wird.
 
 ### Ergebnis
 - **Erhöhte Nutzerzufriedenheit:** Teilnehmer können ihre persönlichen Fotos schnell und unkompliziert finden, was zu einer höheren Zufriedenheit führt.
 - **Steigerung der Interaktionsrate:** Durch die leichtere Zugänglichkeit der Fotos steigt die Wahrscheinlichkeit, dass Teilnehmer ihre Bilder auf Social Media teilen.
 - **Verbesserte Veranstaltungswahrnehmung:** Die Möglichkeit, leicht an persönliche Fotos zu gelangen, verbessert das gesamte Veranstaltungserlebnis und hinterlässt einen positiven Eindruck bei den Teilnehmern.
+- **Skalierbarkeit und Zuverlässigkeit:** Durch Kubernetes kann das System bei hohen Nutzerzahlen automatisch skalieren und bleibt dabei zuverlässig und performant.
 
-## Nutzen
+## Nutzen für den Veranstalter
 - **Verbesserte Nutzererfahrung:** Das System bietet eine schnelle und präzise Fotosuche, wodurch das Erlebnis für die Teilnehmer angenehmer und interaktiver wird.
 - **Erhöhte Teilungsrate:** Da die Teilnehmer ihre Fotos leichter finden und teilen können, steigt die Wahrscheinlichkeit, dass sie die Fotos auf Social Media teilen, was die Sichtbarkeit und Reichweite der Veranstaltung erhöht.
-- **Effiziente Verwaltung:** Veranstalter können eine grosse Menge an Fotos effizient verwalten und sicherstellen, dass die Teilnehmer ihre persönlichen Fotos schnell und einfach finden können.
+- **Effiziente Verwaltung und automatische Skalierung:** Veranstalter können eine grosse Menge an Fotos effizient verwalten. Durch die automatische Skalierung in Kubernetes wird das System bei steigenden Nutzerzahlen nicht langsamer, und die Bereitstellung von neuen Features und Updates erfolgt ohne Unterbrechungen dank der CI/CD-Pipeline.
