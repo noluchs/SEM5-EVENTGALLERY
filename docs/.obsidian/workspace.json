@@ -34,9 +34,21 @@
               "icon": "lucide-file",
               "title": "3.1 Archidektur"
             }
+          },
+          {
+            "id": "6acac3a24fa43a8b",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.7.7"
+              },
+              "icon": "lucide-file",
+              "title": "Release Notes 1.7.7"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -177,7 +189,7 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "f7b3269eb441cb0f",
+  "active": "6acac3a24fa43a8b",
   "lastOpenFiles": [
     "3_Kubernetes/index.md",
     "3_Kubernetes/3.1 Archidektur.md",
