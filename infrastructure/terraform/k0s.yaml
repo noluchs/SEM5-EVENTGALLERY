@@ -1,0 +1,36 @@
+apiVersion: k0sctl.k0sproject.io/v1beta1
+kind: Cluster
+metadata:
+  name: cloud-hf-22
+spec:
+  hosts:
+  - ssh:
+      address: cloud-hf-22-c1
+      user: ubuntu
+      port: 22
+      keyPath: opt/id_lerncloud
+    role: controller
+  - ssh:
+      address: cloud-hf-22-c2
+      user: ubuntu
+      port: 22
+      keyPath: opt/id_lerncloud
+    role: controller
+  - ssh:
+      address: cloud-hf-22-w1
+      user: ubuntu
+      port: 22
+      keyPath: opt/id_lerncloud
+    role: worker
+  - ssh:
+      address: cloud-hf-22-w2
+      user: ubuntu
+      port: 22
+      keyPath: opt/id_lerncloud
+    role: worker
+  - ssh:
+      address: cloud-hf-22-w3
+      user: ubuntu
+      port: 22
+      keyPath: opt/id_lerncloud
+    role: worker
