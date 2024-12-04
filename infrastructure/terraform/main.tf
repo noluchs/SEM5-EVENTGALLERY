@@ -18,8 +18,11 @@ resource "maas_vm_instance" "k8s_controller_init" {
   storage   = 34
   hostname  = "cloud-hf-22-c1"
   zone      = "10-3-24-0"
-  user_data = file("${path.module}/cloud_init_k0s.yaml")
-
+  user_data = templatefile("${path.module}/cloud_init_k0s.yaml", {
+    github_org  = var.github_org,
+    github_repo = var.github_repo,
+    github_token = var.github_token
+  })
   depends_on = [ maas_vm_instance.k8s_controller, maas_vm_instance.k8s_worker ]
 }
 

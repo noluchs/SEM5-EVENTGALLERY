@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eventgallery-frontend
+  namespace: eventgallery
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: eventgallery-frontend
+  template:
+    metadata:
+      labels:
+        app: eventgallery-frontend
+    spec:
+    containers:
+      name: frontend
+        - image: ghcr.io/<Ihr-Benutzername>/eventgallery-frontend:latest
+          ports:
+            - containerPort: 3000

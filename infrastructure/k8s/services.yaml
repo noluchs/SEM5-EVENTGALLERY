@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+  namespace: eventgallery
+spec:
+  selector:
+    app: eventgallery-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  namespace: eventgallery
+spec:
+  selector:
+    app: eventgallery-backend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  type: ClusterIP
