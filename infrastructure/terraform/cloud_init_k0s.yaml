@@ -32,47 +32,7 @@ write_files:
       [Install]
       WantedBy=multi-user.target
 
-  # K0s configuration file   
-  - path: /opt/k0s.yaml
-    permissions: '0644'
-    content: |
-      ---
-      apiVersion: k0sctl.k0sproject.io/v1beta1
-      kind: Cluster
-      metadata:
-        name: cloud-hf-22
-      spec:
-        hosts:
-        - ssh:
-            address: cloud-hf-22-c1
-            user: ubuntu
-            port: 22
-            keyPath: /opt/id_lerncloud
-          role: controller
-        - ssh:
-            address: cloud-hf-22-c2
-            user: ubuntu
-            port: 22
-            keyPath: /opt/id_lerncloud
-          role: controller
-        - ssh:
-            address: cloud-hf-22-w1
-            user: ubuntu
-            port: 22
-            keyPath: /opt/id_lerncloud
-          role: worker
-        - ssh:
-            address: cloud-hf-22-w2
-            user: ubuntu
-            port: 22
-            keyPath: /opt/id_lerncloud
-          role: worker
-        - ssh:
-            address: cloud-hf-22-w3
-            user: ubuntu
-            port: 22
-            keyPath: /opt/id_lerncloud
-          role: worker
+  .
       ...
 
 runcmd:
@@ -84,7 +44,7 @@ runcmd:
   - curl -sSLf https://github.com/k0sproject/k0sctl/releases/latest/download/k0sctl-linux-amd64 -o /usr/local/bin/k0sctl >> /var/log/cloud-init-debug.log 2>&1 || { echo "Failed to download k0sctl" >> /var/log/cloud-init-debug.log; exit 1; }
   - sudo chmod +x /usr/local/bin/k0sctl >> /var/log/cloud-init-debug.log 2>&1
   - sudo k0sctl apply --config /opt/k0s.yaml >> /var/log/cloud-init-debug.log 2>&1 || { echo "Failed to apply k0s configuration" >> /var/log/cloud-init-debug.log; exit 1; }
-  - sudo k0sctl kubeconfig --config /opt/k0s.yaml > /opt/kubeconfig >> /var/log/cloud-init-debug.log 2>&1 || { echo "Failed to export kubeconfig" >> /var/log/cloud-init-debug.log; exit 1; }
+  - cdopt/k0s.yaml > /opt/kubeconfig >> /var/log/cloud-init-debug.log 2>&1 || { echo "Failed to export kubeconfig" >> /var/log/cloud-init-debug.log; exit 1; }
   - echo "k0s cluster setup complete" >> /var/log/cloud-init-debug.log
 
   # Github Runner

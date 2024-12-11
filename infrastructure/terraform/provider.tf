@@ -13,3 +13,4 @@ provider "maas" {
   api_url     = var.url
   api_key     = var.key
 }
+
