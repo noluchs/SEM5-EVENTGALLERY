@@ -22,18 +22,18 @@ write_files:
       apiVersion: k0sctl.k0sproject.io/v1beta1
       kind: Cluster
       metadata:
-        name: cloud-hf-08
+        name: nl-cloud-hf-22
       spec:
         hosts:
         - ssh:
-            address: cloud-hf-08-c1
+            address: nl-cloud-hf-22-c1
             user: ubuntu
             port: 22
             keyPath: /opt/id_lerncloud
           role: controller
 %{ for host in controller_hosts ~}
         - ssh:
-            address: ${host}
+            address: nl-${host}
             user: ubuntu
             port: 22
             keyPath: /opt/id_lerncloud
@@ -41,31 +41,55 @@ write_files:
 %{ endfor ~}
 %{ for host in worker_hosts ~}
         - ssh:
-            address: ${host}
+            address: nl-${host}
             user: ubuntu
             port: 22
             keyPath: /opt/id_lerncloud
           role: worker
 %{ endfor ~}
       ...
+    extensions:
+      helm:
+          repositories:
+          - name: traefik
+            url: https://helm.traefik.io/traefik
+          - name: bitnami
+            url: https://charts.bitnami.com/bitnami
+          charts:
+          - name: traefik
+            chartname: traefik/traefik
+            version: "10.3.2"
+            namespace: default
+          - name: metallb
+            chartname: bitnami/metallb
+            version: "2.5.4"
+            namespace: default
+            values: |2
+              configInline:
+                address-pools:
+                - name: generic-cluster-pool
+                  protocol: layer2
+                  addresses:
+                  - 10.0.24.215-10.0.24.220
 
 runcmd:
   - echo "Starting Cloud-init script" >> /var/log/cloud-init-debug.log
   - while ! ping -c 1 -W 1 8.8.8.8; do sleep 1; done
   - echo "Network is up" >> /var/log/cloud-init-debug.log
-#  - sudo mkdir -p /usr/local/bin >> /var/log/cloud-init-debug.log 2>&1
-#  - sudo chown ubuntu:ubuntu /usr/local/bin >> /var/log/cloud-init-debug.log 2>&1
-#  - sudo -u ubuntu curl -sSLf https://github.com/k0sproject/k0sctl/releases/latest/download/k0sctl-linux-amd64 -o /usr/local/bin/k0sctl >> /var/log/cloud-init-debug.log 2>&1
-#  - sudo chmod +x /usr/local/bin/k0sctl >> /var/log/cloud-init-debug.log 2>&1
-#  - echo "Installing kubectl" >> /var/log/cloud-init-debug.log
-#  - sudo snap install kubectl --classic >> /var/log/cloud-init-debug.log 2>&1
-#  - echo "Setting permissions for SSH key" >> /var/log/cloud-init-debug.log
-#  - sudo chmod 600 /opt/id_lerncloud >> /var/log/cloud-init-debug.log 2>&1
-#  - echo "Running k0sctl apply" >> /var/log/cloud-init-debug.log
-#  - sudo -u ubuntu k0sctl apply --config /opt/k0s.yaml >> /var/log/cloud-init-debug.log 2>&1
-#  - echo "k0sctl apply finished" >> /var/log/cloud-init-debug.log
-#  - sudo -u ubuntu k0sctl kubeconfig --config /opt/k0s.yaml > /opt/kubeconfig >> /var/log/cloud-init-debug.log 2>&1
-#  - echo "Cloud-init script finished" >> /var/log/cloud-init-debug.log
-#  - echo "Checking Kubernetes status" >> /var/log/cloud-init-debug.log
-#  - sudo -u ubuntu kubectl get pods --kubeconfig /opt/kubeconfig -A >> /var/log/cloud-init-debug.log 2>&1
-#  - echo "Kubernetes status check finished" >> /var/log/cloud-init-debug.log
+  - sudo mkdir -p /usr/local/bin >> /var/log/cloud-init-debug.log 2>&1
+  - sudo chown ubuntu:ubuntu /usr/local/bin >> /var/log/cloud-init-debug.log 2>&1
+  - sudo -u ubuntu curl -sSLf https://github.com/k0sproject/k0sctl/releases/latest/download/k0sctl-linux-amd64 -o /usr/local/bin/k0sctl >> /var/log/cloud-init-debug.log 2>&1
+  - sudo chmod +x /usr/local/bin/k0sctl >> /var/log/cloud-init-debug.log 2>&1
+  - echo "Installing kubectl" >> /var/log/cloud-init-debug.log
+  - sudo snap install helm --classic  >> /var/log/cloud-init-debug.log 2>&1
+  - sudo snap install kubectl --classic >> /var/log/cloud-init-debug.log 2>&1
+  - echo "Setting permissions for SSH key" >> /var/log/cloud-init-debug.log
+  - sudo chmod 600 /opt/id_lerncloud >> /var/log/cloud-init-debug.log 2>&1
+  - echo "Running k0sctl apply" >> /var/log/cloud-init-debug.log
+  - sudo k0sctl apply --config /opt/k0s.yaml >> /var/log/cloud-init-debug.log 2>&1
+  - echo "k0sctl apply finished" >> /var/log/cloud-init-debug.log
+  - sudo k0sctl kubeconfig --config /opt/k0s.yaml > /opt/kubeconfig >> /var/log/cloud-init-debug.log 2>&1
+  - echo "Cloud-init script finished" >> /var/log/cloud-init-debug.log
+  - echo "Checking Kubernetes status" >> /var/log/cloud-init-debug.log
+  - sudo -u ubuntu kubectl get pods --kubeconfig /opt/kubeconfig -A >> /var/log/cloud-init-debug.log 2>&1
+  - echo "Kubernetes status check finished" >> /var/log/cloud-init-debug.log

@@ -14,7 +14,8 @@ nav_order: 6
 4. [Amazon Rekognition Docs ](https://docs.aws.amazon.com/rekognition/latest/dg/what-is.html)
 5. [Vue 3 Tutorial für Einsteiger ](https://vuejs.de/artikel/vuejs-tutorial-deutsch-anfaenger/)
 6. [Auth0 Dokumentation](https://github.com/auth0/auth0-vue) 
-8.  [traefik Dokumetation](https://doc.traefik.io/traefik/)
+7. https://www.opslogix.com/blog/devops-insights-with-dennis-efficient-devops-gitlab-ci/cd-for-docker-builds-and-argocd-deployments-on-kubernetes
+9.  [traefik Dokumetation](https://doc.traefik.io/traefik/)
 
 
 

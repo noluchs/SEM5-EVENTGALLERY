@@ -16,7 +16,7 @@ nav_order: 3
 
 ### Erreichte Ziele
   
-1.
+
 
 ### Status Prozentual
 

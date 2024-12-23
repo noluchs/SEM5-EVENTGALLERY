@@ -22,7 +22,7 @@ resource "maas_vm_instance" "k8s_controller_init" {
   cpu_count = 2
   memory    = 4096
   storage   = 30
-  hostname  = "${var.hostname_prefix}-c1"
+  hostname  = "nl-${var.hostname_prefix}-c1"
   zone      = "10-3-24-0"
   user_data = local.cloud_init_k0s
 
@@ -36,7 +36,7 @@ resource "maas_vm_instance" "k8s_controller" {
   cpu_count = 2
   memory    = 4096
   storage   = 30
-  hostname  = "${var.hostname_prefix}-c${each.key}"
+  hostname  = "nl-${var.hostname_prefix}-c${each.key}"
   zone      = "10-3-24-0"
 }
 
@@ -47,6 +47,6 @@ resource "maas_vm_instance" "k8s_worker" {
   cpu_count = 2
   memory    = 4096
   storage   = 30
-  hostname  = "${var.hostname_prefix}-w${each.key}"
+  hostname  = "nl-${var.hostname_prefix}-w${each.key}"
   zone      = "10-3-24-0"
 }
