@@ -1,10 +1,10 @@
 ---
 layout: default
-title: 4. CICD
+title: 4. Deployment
 nav_order: 4
 has_children: true
 ---
 
-# CICD
+# 4.  Deployment
 
 {: .no_toc }
