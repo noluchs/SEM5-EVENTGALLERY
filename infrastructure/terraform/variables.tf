@@ -8,6 +8,13 @@ variable "key" {
   type        = string
   sensitive   = true
 }
+
+variable "hostname_prefix" {
+  description = "Prefix for the hostnames / KVM-hostname"
+  type        = string
+  default     = "cloud-hf-22"
+}
+
 variable "github_org" {
   description = "GitHub Organization or User"
   type        = string

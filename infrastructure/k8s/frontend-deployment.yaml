@@ -15,6 +15,6 @@ spec:
     spec:
     containers:
       name: frontend
-        - image: ghcr.io/<Ihr-Benutzername>/eventgallery-frontend:latest
+        - image: ghcr.io/noluchs/sem4-eventgallery/eventgallery-frontend:latest
           ports:
             - containerPort: 3000
