@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2_Projektorganisation/2.7 SWOT Analyse.md",
+                "file": "2_Projektorganisation/2.8 GitHub Branching Konzept.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2.7 SWOT Analyse"
+              "title": "2.8 GitHub Branching Konzept"
             }
           }
         ],
@@ -179,12 +179,7 @@
   },
   "active": "05109ec8a7717d5b",
   "lastOpenFiles": [
-    "4_CICD/index.md",
-    "4_CICD",
-    "3_Kubernetes/index.md",
-    "3_Kubernetes/3.1 Archidektur.md",
-    "3_Kubernetes",
-    "2_Projektorganisation/2.8 GitHub Branching Konzept.md",
+    "2_Projektorganisation/2.7 SWOT Analyse.md",
     "4_Deployment/index.md",
     "4_Deployment/3.2 ArgoCD.md",
     "4_Deployment/3.1 Kubernetes.md",
@@ -192,12 +187,17 @@
     "3_Servicedesign/index.md",
     "3_Servicedesign/3.5 Servicekosten.md",
     "2_Projektorganisation/2.4 Sprint/attachments/Pasted image 20241218154133.png",
+    "4_CICD/index.md",
+    "4_CICD",
+    "3_Kubernetes/index.md",
+    "3_Kubernetes/3.1 Archidektur.md",
+    "3_Kubernetes",
+    "2_Projektorganisation/2.8 GitHub Branching Konzept.md",
     "3_Servicedesign/3.4 Security und Datenschutz.md",
     "3_Servicedesign/3.3 Architektur und Technologie.md",
     "3_Servicedesign/3.2 Technologien.md",
     "3_Servicedesign/3.1 Anforderungen.md",
     "3_Servicedesign",
-    "2_Projektorganisation/2.7 SWOT Analyse.md",
     "2_Projektorganisation/2.3 Sprint Planung .md",
     "2_Projektorganisation/2.1 Projektmethode.md",
     "2_Projektorganisation/2.4 Sprint/Sprint 1.md",
