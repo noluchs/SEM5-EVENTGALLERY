@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2_Projektorganisation/2.8 GitHub Branching Konzept.md",
+                "file": "3_Servicedesign/3.3 Architektur.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2.8 GitHub Branching Konzept"
+              "title": "3.3 Architektur"
             }
           }
         ]
@@ -164,8 +164,12 @@
   },
   "active": "46c4804119ebbc25",
   "lastOpenFiles": [
-    "2_Projektorganisation/2.3 Sprint Planung .md",
+    "3_Servicedesign/3.2 Technologien.md",
+    "3_Servicedesign/3.1 Anforderungen.md",
     "2_Projektorganisation/2.8 GitHub Branching Konzept.md",
+    "2_Projektorganisation/index.md",
+    "3_Servicedesign/3.3 Architektur.md",
+    "2_Projektorganisation/2.3 Sprint Planung .md",
     "2_Projektorganisation/2.6 Risikomangment.md",
     "2_Projektorganisation/2.7 SWOT Analyse.md",
     "4_Deployment/index.md",
@@ -181,15 +185,11 @@
     "3_Kubernetes/3.1 Archidektur.md",
     "3_Kubernetes",
     "3_Servicedesign/3.4 Security und Datenschutz.md",
-    "3_Servicedesign/3.3 Architektur und Technologie.md",
-    "3_Servicedesign/3.2 Technologien.md",
-    "3_Servicedesign/3.1 Anforderungen.md",
     "3_Servicedesign",
     "2_Projektorganisation/2.1 Projektmethode.md",
     "2_Projektorganisation/2.4 Sprint/Sprint 1.md",
     "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
     "2_Projektorganisation/2.4 Sprint/attachments/Screenshot 2024-12-04 at 16.01.44.png",
-    "2_Projektorganisation/index.md",
     "2_Projektorganisation/2.5 SEUSAG.md",
     "2_Projektorganisation/2.2 Projektorganisation.md",
     "anhang/ScrumTeam.drawio.png",
