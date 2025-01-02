@@ -13,8 +13,11 @@ spec:
       labels:
         app: eventgallery-frontend
     spec:
-    containers:
-      name: frontend
-        - image: ghcr.io/noluchs/sem4-eventgallery/eventgallery-frontend:latest
+      containers:
+        - name: frontend
+          image: ghcr.io/noluchs/sem4-eventgallery/eventgallery-frontend:latest
           ports:
             - containerPort: 3000
+          env:
+            - name: BACKEND_URL
+              value: "http://eventgallery-backend:5000"
