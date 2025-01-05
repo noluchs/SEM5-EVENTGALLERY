@@ -17,6 +17,10 @@ def create_app(config_class=Config):
     db.init_app(app)
     migrate.init_app(app, db)
 
+    # Erstelle Tabellen, falls sie nicht existieren
+    with app.app_context():
+        db.create_all()
+
     # Register blueprints
 
     from .gallery import bp as gallery_bp
