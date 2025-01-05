@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: eventgallery-backend
-  namespace: eventgallery  # Ensure the namespace exists or create it
+  namespace: eventgallery
 spec:
   replicas: 2
   selector:
@@ -18,9 +18,9 @@ spec:
           image: ghcr.io/noluchs/sem4-eventgallery/eventgallery-backend:latest
           ports:
             - containerPort: 5000
-          envFrom:
-            - secretRef: 
-                name: eventgallery-backend-secrets  # Reference secrets for sensitive data
+          env:
+            - name: SQLALCHEMY_DATABASE_URI
+              value: "mysql://root:rootpassword@eventgallery-db:3306/eventgallery"
           resources:
             requests:
               memory: "256Mi"
@@ -28,13 +28,13 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
-          readinessProbe:  # Ensures the pod is ready before receiving traffic
+          readinessProbe:
             httpGet:
               path: /health
               port: 5000
             initialDelaySeconds: 5
             periodSeconds: 10
-          livenessProbe:  # Ensures the container is restarted if unhealthy
+          livenessProbe:
             httpGet:
               path: /health
               port: 5000
