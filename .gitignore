@@ -54,3 +54,5 @@ __pycache__
 .DS_Store
 .DS_Store
 infrastructure/k8s/kubeconfig
+docs/.DS_Store
+docs/.DS_Store
