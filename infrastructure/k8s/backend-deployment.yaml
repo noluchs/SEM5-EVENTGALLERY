@@ -4,7 +4,7 @@ metadata:
   name: eventgallery-backend
   namespace: eventgallery
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: eventgallery-backend
@@ -20,8 +20,91 @@ spec:
           ports:
             - containerPort: 5000
           env:
-            - name: SQLALCHEMY_DATABASE_URI
-              value: "mysql://root:rootpassword@eventgallery-db:3306/eventgallery"
+            - name: DATABASE_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: DATABASE_URI
+            - name: CHOKIDAR_USEPOLLING
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: CHOKIDAR_USEPOLLING
+            - name: FLASK_DEBUG
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: FLASK_DEBUG
+            - name: FLASK_RUN_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: FLASK_RUN_HOST
+            - name: FLASK_RUN_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: FLASK_RUN_PORT
+            - name: FLASK_APP
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: FLASK_APP
+            - name: MYSQL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: MYSQL_DATABASE
+            - name: MYSQL_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: MYSQL_USER
+            - name: AWS_REGION
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: AWS_REGION
+            - name: S3_BUCKET
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: S3_BUCKET
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: SECRET_KEY
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: MYSQL_PASSWORD
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: MYSQL_ROOT_PASSWORD
+            - name: S3_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: S3_KEY
+            - name: S3_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: S3_SECRET
+            - name: AWS_REKOGNITION_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: AWS_REKOGNITION_KEY
+            - name: AWS_REKOGNITION_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: AWS_REKOGNITION_SECRET
           resources:
             requests:
               memory: "256Mi"
@@ -29,15 +112,16 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: 5000
-            initialDelaySeconds: 5
-            periodSeconds: 10
           livenessProbe:
-            httpGet:
-              path: /health
-              port: 5000
-            initialDelaySeconds: 15
-            periodSeconds: 20
+          #  httpGet:
+          #    path: /health
+          #    port: 5000
+          #  initialDelaySeconds: 15
+          #  periodSeconds: 20
+
+          readinessProbe:
+          #  httpGet:
+          #    path: /health
+          #    port: 5000
+          #  initialDelaySeconds: 5
+          #  periodSeconds: 10

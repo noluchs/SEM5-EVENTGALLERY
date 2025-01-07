@@ -65,7 +65,7 @@ services:
     container_name: eventgallery-backend
     restart: always
     env_file:
-      - .env
+      - environment.env
     networks:
       eventgallery-net:
         aliases:
