@@ -56,3 +56,4 @@ __pycache__
 infrastructure/k8s/kubeconfig
 docs/.DS_Store
 docs/.DS_Store
+infrastructure/k8s/backend-secret.yaml
