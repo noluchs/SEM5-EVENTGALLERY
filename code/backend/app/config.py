@@ -4,7 +4,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
     SECRET_KEY = "my_super_secret_string"
-    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:root@eventgallery-db:3306/eventgallery"
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:rootpassword@eventgallery-db:3306/eventgallery"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     S3_BUCKET = os.environ.get('S3_BUCKET')
     S3_KEY = os.environ.get('S3_KEY')
