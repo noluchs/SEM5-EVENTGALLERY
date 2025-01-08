@@ -3,8 +3,8 @@ import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'my_super_secret_string'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI') #or 'sqlite:///' + os.path.join(basedir, 'app.db')
+    SECRET_KEY = "my_super_secret_string"
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:root@eventgallery-db:3306/eventgallery"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     S3_BUCKET = os.environ.get('S3_BUCKET')
     S3_KEY = os.environ.get('S3_KEY')
