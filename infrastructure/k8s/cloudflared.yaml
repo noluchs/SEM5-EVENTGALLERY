@@ -68,6 +68,6 @@ data:
     ingress:
     - hostname: gallery.luchsphoto.ch
       service: http://frontend-service.eventgallery.svc.cluster.local:80
-    - hostname: api.gallery.luchsphoto.ch
+    - hostname: api.luchsphoto.ch
       service: http://backend-service.eventgallery.svc.cluster.local:80
     - service: http_status:404
