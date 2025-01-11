@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudflare-tunnel
+  namespace: eventgallery
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudflare-tunnel
+  template:
+    metadata:
+      labels:
+        app: cloudflare-tunnel
+    spec:
+      containers:
+        - name: cloudflared
+          image: cloudflare/cloudflared:latest
+          command: ["cloudflared", "tunnel", "--config", "/etc/cloudflared/config.yml", "run"]
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+          volumeMounts:
+            - name: config
+              mountPath: /etc/cloudflared
+            - name: credentials
+              mountPath: /etc/cloudflared/credentials.json
+              subPath: credentials.json
+      volumes:
+        - name: config
+          configMap:
+            name: cloudflare-config
+        - name: credentials
+          secret:
+            secretName: tunnel-credentials

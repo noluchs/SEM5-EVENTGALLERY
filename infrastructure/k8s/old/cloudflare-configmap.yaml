@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloudflare-config
+  namespace: eventgallery
+data:
+  config.yml: |
+    tunnel: ef824aef-7557-4b41-a398-4684585177ad
+    credentials-file: /etc/cloudflared/credentials.json
+    ingress:
+      - hostname: gallery.luchsphoto.ch
+        service: http://eventgallery-frontend:3000
+      - hostname: api.gallery.luchsphoto.ch
+        service: http://eventgallery-backend:5000
+      - service: http_status:404
