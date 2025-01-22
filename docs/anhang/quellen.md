@@ -15,7 +15,11 @@ nav_order: 6
 5. [Vue 3 Tutorial für Einsteiger ](https://vuejs.de/artikel/vuejs-tutorial-deutsch-anfaenger/)
 6. [Auth0 Dokumentation](https://github.com/auth0/auth0-vue) 
 7. https://www.opslogix.com/blog/devops-insights-with-dennis-efficient-devops-gitlab-ci/cd-for-docker-builds-and-argocd-deployments-on-kubernetes
-9.  [traefik Dokumetation](https://doc.traefik.io/traefik/)
+10. https://github.com/Cloud-native-engineering/terraform_maas_k8s/tree/main
+11. https://metallb.io/
+12. https://argo-cd.readthedocs.io/en/stable/
+13. https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/
+14. 
 
 
 
