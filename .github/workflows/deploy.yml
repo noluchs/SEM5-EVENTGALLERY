@@ -6,74 +6,33 @@ on:
       - 'code/**'
     branches:
       - main
-  workflow_dispatch:
 
-permissions:
-  contents: write
-  packages: write
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   build:
-    name: Build and Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - name: Install Dependencies
-        run: |
-          cd code/frontend && npm install
-          cd ../backend && npm install
-      - name: Run Tests
-        run: |
-          cd code/frontend && npm test
-          cd ../backend && npm test
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-  package:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Docker Login
-        uses: docker/login-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build Frontend
-        uses: docker/build-push-action@v5
-        with:
-          context: ./code/frontend
-          file: ./code/frontend/Dockerfile.prod
-          push: true
-          tags: |
-            ghcr.io/${{ github.repository_owner }}/eventgallery-frontend:latest
-            ghcr.io/${{ github.repository_owner }}/eventgallery-frontend:${{ github.sha }}
-      - name: Build Backend
-        uses: docker/build-push-action@v5
-        with:
-          context: ./code/backend
-          file: ./code/backend/Dockerfile.prod
-          push: true
-          tags: |
-            ghcr.io/${{ github.repository_owner }}/eventgallery-backend:latest
-            ghcr.io/${{ github.repository_owner }}/eventgallery-backend:${{ github.sha }}
+          password: ${{ secrets.GHCR_TOKEN }}
 
-  deploy:
-    needs: package
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Update K8s Manifests
+      - name: Build and push frontend Docker image
         run: |
-          sed -i "s|image: ghcr.io/.*/eventgallery-frontend:.*|image: ghcr.io/${{ github.repository_owner }}/eventgallery-frontend:${{ github.sha }}|" infrastructure/k8s/frontend-deployment.yaml
-          sed -i "s|image: ghcr.io/.*/eventgallery-backend:.*|image: ghcr.io/${{ github.repository_owner }}/eventgallery-backend:${{ github.sha }}|" infrastructure/k8s/backend-deployment.yaml
-      - name: Commit Changes
+          REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
+          docker buildx build --platform linux/amd64 -t ghcr.io/$REPO_NAME/eventgallery-frontend:latest -f ./code/frontend/Dockerfile.prod ./code/frontend --push
+
+      - name: Build and push backend Docker image
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add infrastructure/k8s/*
-          git commit -m "Update image tags to ${{ github.sha }}"
-          git push
+          REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
+          docker buildx build --platform linux/amd64 -t ghcr.io/$REPO_NAME/eventgallery-backend:latest -f ./code/backend/Dockerfile.prod ./code/backend --push
