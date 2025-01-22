@@ -85,8 +85,37 @@ from flask import jsonify
 @bp.route('/test-s3-connection', methods=['GET'])
 def test_s3_connection():
     try:
-        # Replace 'your-bucket-name' with your actual S3 bucket name
-        response = s3_client.list_objects_v2(Bucket='your-bucket-name', MaxKeys=10)
-        return jsonify({'message': 'Successfully connected to S3', 'data': response}), 200
+        # Debug-Informationen sammeln
+        bucket = current_app.config['S3_BUCKET']
+        credentials = {
+            'region': os.getenv('AWS_REGION'),
+            'key_exists': bool(os.getenv('S3_KEY')),
+            'secret_exists': bool(os.getenv('S3_SECRET')),
+            'bucket': bucket
+        }
+        
+        # S3 Test durchführen
+        response = s3_client.list_objects_v2(
+            Bucket=bucket,
+            MaxKeys=1
+        )
+        
+        return jsonify({
+            'status': 'success',
+            'message': 'S3 Verbindung erfolgreich',
+            'credentials_check': credentials,
+            'response': {
+                'bucket': response.get('Name'),
+                'prefix': response.get('Prefix'),
+                'max_keys': response.get('MaxKeys')
+            }
+        }), 200
+        
     except Exception as e:
-        return jsonify({'error': 'Failed to connect to S3', 'details': str(e)}), 500
+        logging.error(f"S3 Verbindungsfehler: {str(e)}")
+        return jsonify({
+            'status': 'error',
+            'message': 'S3 Verbindung fehlgeschlagen',
+            'error_details': str(e),
+            'credentials_check': credentials
+        }), 500
