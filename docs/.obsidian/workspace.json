@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3_Servicedesign/3.3 Architektur.md",
+                "file": "3_Servicedesign/3.2 Technologien.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "3.3 Architektur"
+              "title": "3.2 Technologien"
             }
           }
         ]
@@ -43,7 +43,7 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-folder-closed",
-              "title": "Dateiexplorer"
+              "title": "Files"
             }
           },
           {
@@ -154,18 +154,24 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Schnellauswahl öffnen": false,
-      "graph:Graphen-Ansicht öffnen": false,
-      "canvas:Neuen Canvas erstellen": false,
-      "daily-notes:Heutige Notiz öffnen": false,
-      "templates:Vorlage einfügen": false,
-      "command-palette:Befehlspalette öffnen": false
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
     }
   },
   "active": "a2ffed49d77827de",
   "lastOpenFiles": [
     "3_Servicedesign/3.1 Anforderungen.md",
     "3_Servicedesign/3.2 Technologien.md",
+    "2_Projektorganisation/2.8 GitHub Branching Konzept.md",
+    "2_Projektorganisation/2.7 SWOT Analyse.md",
+    "2_Projektorganisation/2.6 Risikomangment.md",
+    "2_Projektorganisation/2.5 SEUSAG.md",
+    "2_Projektorganisation/2.3 Sprint Planung .md",
+    "3_Servicedesign/3.3 Architektur.md",
     "4_Deployment/4.1 Kubernetes.md",
     "anhang/quellen.md",
     "4_Deployment/4.5 Cloudflare Tunnel.md",
@@ -175,9 +181,7 @@
     "anhang/Schmittel.md",
     "3_Servicedesign/3.5 Servicekosten.md",
     "3_Servicedesign/3.4 Security und Datenschutz.md",
-    "3_Servicedesign/3.3 Architektur.md",
     "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
-    "2_Projektorganisation/2.8 GitHub Branching Konzept.md",
     "4_Deployment/index.md",
     "4_Deployment",
     "3_Servicedesign/index.md",
@@ -187,13 +191,9 @@
     "2_Projektorganisation/2.4 Sprint/Sprint 1.md",
     "2_Projektorganisation/2.4 Sprint/attachments/Pasted image 20241218154133.png",
     "3_Kubernetes/3.1 Archidektur.md",
-    "2_Projektorganisation/2.5 SEUSAG.md",
-    "2_Projektorganisation/2.3 Sprint Planung .md",
     "2_Projektorganisation/2.2 Projektorganisation.md",
     "2_Projektorganisation/2.1 Projektmethode.md",
     "2_Projektorganisation/2.4 Sprint/attachments/Screenshot 2024-12-04 at 16.01.44.png",
-    "3_Kubernetes/index.md",
-    "2_Projektorganisation/index.md",
     "anhang/ScrumTeam.drawio.png",
     "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.48.18.png",
     "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.49.56.png",
