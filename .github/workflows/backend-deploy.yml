@@ -66,6 +66,9 @@ jobs:
 
   scan-docker-image:
     needs: package-and-push
+    permissions:
+      security-events: write
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -81,14 +84,16 @@ jobs:
         continue-on-error: true
         with:
           image: ghcr.io/${{ github.repository }}/eventgallery-backend:${{ github.sha }}
-          args: --file=./code/backend/Dockerfile --severity-threshold=high --sarif-file-output=snyk.sarif
+          args: --file=./code/backend/Dockerfile --severity-threshold=high --sarif-file-output=./snyk.sarif
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
       - name: Upload Snyk report
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
         with:
-          sarif_file: snyk.sarif
+          sarif_file: ./snyk.sarif
+          category: snyk-docker
 
   update-k8s:
     needs: scan-docker-image
