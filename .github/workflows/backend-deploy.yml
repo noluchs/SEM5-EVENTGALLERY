@@ -87,12 +87,15 @@ jobs:
       - name: Scan Docker image
         uses: snyk/actions/docker@master
         continue-on-error: true
-        working-directory: ./workspace/snyk
-        with:
-          image: ghcr.io/${{ github.repository }}/eventgallery-backend:${{ github.sha }}
-          args: --file=../../code/backend/Dockerfile --severity-threshold=high --sarif-file-output=../reports/snyk.sarif
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          image: ghcr.io/${{ github.repository }}/eventgallery-backend:${{ github.sha }}
+          args: |
+            cd ./workspace/snyk && \
+            --file=../../code/backend/Dockerfile \
+            --severity-threshold=high \
+            --sarif-file-output=../reports/snyk.sarif
 
       - name: Verify SARIF file
         run: |
