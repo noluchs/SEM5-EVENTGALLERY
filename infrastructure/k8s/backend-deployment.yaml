@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: ghcr.io/noluchs/sem4-eventgallery/eventgallery-backend:54e97156a4ff7e6582b3e85894aa3424e6fe739e
+          image: ghcr.io/noluchs/sem4-eventgallery/eventgallery-backend:68e079f05bf5f95f39fe6fa5e6f5c5ad24fc1967
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
