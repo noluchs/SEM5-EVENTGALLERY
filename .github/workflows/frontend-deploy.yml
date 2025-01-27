@@ -23,12 +23,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: code/frontend/package-lock.json
           
       - name: Install dependencies
-        run: cd code/frontend && npm install
+        working-directory: ./code/frontend
+        run: npm ci
         
       - name: Run tests
-        run: cd code/frontend && npm test
+        working-directory: ./code/frontend
+        run: npm test
 
   package-and-push:
     needs: build-and-test
