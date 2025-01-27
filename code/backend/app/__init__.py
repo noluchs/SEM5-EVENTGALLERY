@@ -9,12 +9,20 @@ from sqlalchemy import text
 
 migrate = Migrate()
 
-def create_app():
-    app = Flask(__name__)
-    # ...existing code...
-    db.create_all()
+def create_app(config_class=Config):
+    app = APIFlask(__name__)
+    app.config.from_object(config_class)
+    CORS(app)
+    # Initialize Flask extensions here
+    db.init_app(app)
+    migrate.init_app(app, db)
+
+    # Erstelle Tabellen, falls sie nicht existieren
+    with app.app_context():
+        db.create_all()
 
     # Register blueprints
+
     from .gallery import bp as gallery_bp
     app.register_blueprint(gallery_bp, url_prefix='/api/gallery')
 
@@ -50,8 +58,6 @@ def create_app():
 
     return app
 
-# Create app instance for production
-app = create_app()
-
 if __name__ == "__main__":
+    app = create_app()
     app.run(host="0.0.0.0", port=5000, debug=True)
