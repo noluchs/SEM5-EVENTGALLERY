@@ -35,17 +35,34 @@ def create_app(config_class=Config):
     with app.app_context():
         db.create_all()
 
-    @app.route('/')
-    def test_page():
-        return {'message': 'Eventgallery Backend'}
 
-    @app.route('/test-db')
-    def test_db():
-        try:
-            db.session.execute(text('SELECT 1'))
-            return 'Datenbankverbindung erfolgreich!'
-        except Exception as e:
-            return f'Fehler bei der Datenbankverbindung: {e}'
+Da du bereits Routen im Backend definiert hast, können wir den /health-Endpunkt direkt hinzufügen. Ich ergänze deinen Code, indem ich eine neue Route für die Health-Probes hinzufüge. Diese prüft die allgemeine Gesundheit der Anwendung und kann optional auch die Datenbankverbindung einbeziehen:
+
+Aktualisierter Code mit /health-Endpunkt
+python
+Kopieren
+Bearbeiten
+@app.route('/')
+def test_page():
+    return {'message': 'Eventgallery Backend'}
+
+@app.route('/test-db')
+def test_db():
+    try:
+        db.session.execute(text('SELECT 1'))
+        return 'Datenbankverbindung erfolgreich!'
+    except Exception as e:
+        return f'Fehler bei der Datenbankverbindung: {e}'
+
+@app.route('/health', methods=['GET'])
+def health_check():
+    try:
+        # Prüfen, ob die Datenbankverbindung aktiv ist
+        db.session.execute(text('SELECT 1'))
+        return {'status': 'healthy', 'database': 'connected'}, 200
+    except Exception as e:
+        # Wenn die Datenbankverbindung fehlschlägt
+        return {'status': 'unhealthy', 'database': 'disconnected', 'error': str(e)}, 500
 
 
     return app
