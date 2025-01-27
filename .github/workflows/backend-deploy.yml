@@ -65,7 +65,7 @@ jobs:
             -f ./code/backend/Dockerfile ./code/backend --push
 
   update-k8s:
-    needs: scan-docker-image
+    needs: package-and-push
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
