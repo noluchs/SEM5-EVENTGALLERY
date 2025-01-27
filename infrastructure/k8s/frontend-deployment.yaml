@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: ghcr.io/noluchs/sem4-eventgallery/eventgallery-frontend:fae56a4cda21532110029b807295470ddc9004f1
+          image: ghcr.io/noluchs/sem4-eventgallery/eventgallery-frontend:d3b468b45ecb7cebc8a7f5aeb43fe6024d4b5033
           ports:
             - containerPort: 3000
           env:
