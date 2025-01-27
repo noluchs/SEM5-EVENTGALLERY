@@ -92,7 +92,6 @@ jobs:
         with:
           image: ghcr.io/${{ github.repository }}/eventgallery-backend:${{ github.sha }}
           args: |
-            cd ./workspace/snyk && \
             --file=../../code/backend/Dockerfile \
             --severity-threshold=high \
             --sarif-file-output=../reports/snyk.sarif
