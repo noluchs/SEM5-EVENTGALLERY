@@ -36,12 +36,6 @@ def create_app(config_class=Config):
         db.create_all()
 
 
-Da du bereits Routen im Backend definiert hast, können wir den /health-Endpunkt direkt hinzufügen. Ich ergänze deinen Code, indem ich eine neue Route für die Health-Probes hinzufüge. Diese prüft die allgemeine Gesundheit der Anwendung und kann optional auch die Datenbankverbindung einbeziehen:
-
-Aktualisierter Code mit /health-Endpunkt
-python
-Kopieren
-Bearbeiten
 @app.route('/')
 def test_page():
     return {'message': 'Eventgallery Backend'}
