@@ -1,6 +1,11 @@
-name: CI/CD Pipeline
+name: Backend CI/CD Pipeline
 
 on:
+  push:
+    paths:
+      - 'code/backend/**'
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -8,7 +13,24 @@ permissions:
   packages: write
 
 jobs:
-  build:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+          
+      - name: Build and test with Maven
+        run: cd code/backend && mvn clean test
+        
+  package-and-push:
+    needs: build-and-test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -24,14 +46,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_TOKEN }}
 
-      - name: Build and push frontend Docker image
-        run: |
-          REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
-          docker buildx build --platform linux/amd64 \
-            -t ghcr.io/$REPO_NAME/eventgallery-frontend:latest \
-            -t ghcr.io/$REPO_NAME/eventgallery-frontend:${{ github.sha }} \
-            -f ./code/frontend/Dockerfile.prod ./code/frontend --push
-
       - name: Build and push backend Docker image
         run: |
           REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
@@ -40,16 +54,22 @@ jobs:
             -t ghcr.io/$REPO_NAME/eventgallery-backend:${{ github.sha }} \
             -f ./code/backend/Dockerfile.prod ./code/backend --push
 
+  update-k8s:
+    needs: package-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Update K8s manifests
         run: |
           REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
           sed -i "s|ghcr.io/$REPO_NAME/eventgallery-backend:.*|ghcr.io/$REPO_NAME/eventgallery-backend:${{ github.sha }}|" infrastructure/k8s/backend-deployment.yaml
-          sed -i "s|ghcr.io/$REPO_NAME/eventgallery-frontend:.*|ghcr.io/$REPO_NAME/eventgallery-frontend:${{ github.sha }}|" infrastructure/k8s/frontend-deployment.yaml
 
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add infrastructure/k8s/backend-deployment.yaml infrastructure/k8s/frontend-deployment.yaml
+          git add infrastructure/k8s/backend-deployment.yaml
           git commit -m "Update deployment images to ${{ github.sha }}"
           git push
