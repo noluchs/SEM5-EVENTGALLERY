@@ -23,8 +23,9 @@ Die EventGallery besteht aus mehreren Microservices, die in einem Kubernetes-Clu
 ├── infrastructure/          # Terraform-Konfigurationen und Kubernetes-Manifeste
 │   ├── terraform/           # Automatisierung der Infrastruktur mit Terraform
 │   ├── k8s/                 # Kubernetes-Manifeste für Microservices
-├── backend/                 # Quellcode für das Backend
-├── frontend/                # Quellcode für das Frontend
+├── code/
+│   ├── backend/             # Quellcode für das Backend
+│   ├── frontend/            # Quellcode für das Frontend
 └── README.md                # Projektdokumentation
 ```
 
@@ -159,3 +160,10 @@ Dieses Projekt wurde von Noah Luchsinger im Rahmen der 4. Semesterarbeit entwick
 ## Lizenz
 
 Dieses Projekt ist unter der **MIT-Lizenz** lizenziert. Weitere Informationen finden Sie in der Datei `LICENSE`.
+
+---
+
+## Quellen
+
+Eine Liste der verwendeten Quellen ist in der Dokumentation verfügbar:
+[Quellen](https://noluchs.github.io/SEM4-EVENTGALLERY/6.%20Quellen/)
