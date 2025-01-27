@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6_Schlussteil/index.md",
+                "file": "5_CICD-Pipeline/index.md",
                 "mode": "source",
                 "source": false
               },
@@ -164,11 +164,11 @@
   },
   "active": "a2ffed49d77827de",
   "lastOpenFiles": [
+    "6_Schlussteil/index.md",
     "5_CICD-Pipeline/index.md",
     "anhang/Schmittel.md",
     "anhang/quellen.md",
     "6_Schlussteil/6.2 Next Steps.md",
-    "6_Schlussteil/index.md",
     "6_Schlussteil/6.1 Fazit.md",
     "2_Projektorganisation/2.4 Sprint/Sprint 3.md",
     "5_CICD-Pipeline",

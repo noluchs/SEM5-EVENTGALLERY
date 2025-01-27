@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 5. Deployment
+title: 5. CI/CD-Pipeline
 nav_order: 5
 has_children: no
 ---
