@@ -1,0 +1,36 @@
+---
+config:
+  theme: neo
+  layout: fixed
+---
+flowchart TD
+ subgraph subGraph0["User Devices"]
+        User["User (Browser)"]
+  end
+ subgraph subGraph1["Cloudflare Network"]
+        CF["Cloudflare Tunnel"]
+  end
+ subgraph subGraph2["Kubernetes Cluster"]
+        Frontend["Frontend Service"]
+        Backend["Backend Service"]
+        ArgoCD["ArgoCD"]
+        Metallb["Metallb Load Balancer"]
+        DB["Database"]
+  end
+ subgraph subGraph3["AWS Services"]
+        S3["Amazon S3"]
+        Rekognition["Amazon Rekognition"]
+  end
+ subgraph subGraph4["External API"]
+        Auth0["Auth0 (Authentication)"]
+  end
+    User -- HTTPS --> CF
+    CF --> Metallb
+    Metallb --> Frontend
+    Frontend -- API Call --> Auth0
+    Frontend -- Request --> Backend
+    Backend -- CI/CD --> ArgoCD
+    ArgoCD -- Fetch Code --> GitHub["GitHub Repository"]
+    Backend -- Read/Write --> DB
+    Backend -- Upload/Download --> S3
+    Backend -- Image Analysis --> Rekognition
