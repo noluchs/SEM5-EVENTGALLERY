@@ -15,9 +15,7 @@ aws_secret_key = os.getenv('AWS_REKOGNITION_SECRET')
 aws_region = os.getenv('AWS_REGION')
 
 # Debugging prints to verify environment variables
-print(f"AWS_ACCESS_KEY: {aws_access_key}")
-print(f"AWS_SECRET_KEY: {aws_secret_key}")
-print(f"AWS_REGION: {aws_region}")
+print("AWS credentials and region are set" if aws_access_key and aws_secret_key and aws_region else "AWS credentials and region are not set")
 
 if not aws_access_key or not aws_secret_key or not aws_region:
     raise ValueError("AWS credentials and region must be set in environment variables")
