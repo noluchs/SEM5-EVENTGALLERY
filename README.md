@@ -1,117 +1,145 @@
-# SEM4-EVENTGALLERY
+# SEM4 EVENTGALLERY
 
-Willkommen im Repository der **EventGallery**-Applikation, die im Rahmen der 4. Semesterarbeit entwickelt wurde. Diese Lösung bietet eine skalierbare und automatisierte Plattform zur Verwaltung von Event-Fotos mit moderner Cloud-nativer Infrastruktur.
+## Project Overview
 
----
+SEM4 EVENTGALLERY is a Kubernetes-based application for managing event photo galleries with integrated image recognition using AWS Rekognition. The project demonstrates modern cloud-native practices, including container orchestration, GitOps workflows, and scalable microservices.
 
-## Übersicht
+## Features
 
-Die EventGallery besteht aus mehreren Microservices, die in einem Kubernetes-Cluster bereitgestellt werden. Die Infrastruktur wurde mithilfe von **Terraform**, **k0s**, **ArgoCD**, **MetalLB** und **Cloudflare Tunnel** implementiert. Daten werden in **Amazon S3** gespeichert und mittels **Amazon Rekognition** analysiert.
+- **Kubernetes Orchestration:** Fully automated deployment using Kubernetes.
+- **Dynamic Scaling:** Utilizes HorizontalPodAutoscaler (HPA) for efficient resource allocation.
+- **GitOps with ArgoCD:** Continuous Deployment and Infrastructure as Code (IaC).
+- **Cloudflare Tunnel:** Secure external access to services.
+- **MetalLB Load Balancer:** Simplifies load balancing within the cluster.
+- **AWS Services:** Integrates S3 for image storage and Rekognition for image analysis.
 
-### Features
-- **Automatisierte CI/CD-Pipeline** mit ArgoCD.
-- **Skalierbare Microservices** in Kubernetes.
-- **Bildanalyse** durch Amazon Rekognition.
-- **Sicherer Zugriff** auf interne Services via Cloudflare Tunnel.
+## Repository Structure
 
----
-
-## Verzeichnisstruktur
-
-```plaintext
+```
 .
-├── infrastructure/          # Terraform-Konfigurationen und Kubernetes-Manifeste
-│   ├── terraform/           # Automatisierung der Infrastruktur mit Terraform
-│   ├── k8s/                 # Kubernetes-Manifeste für Microservices
-├── code/
-│   ├── backend/             # Quellcode für das Backend
-│   ├── frontend/            # Quellcode für das Frontend
-└── README.md                # Projektdokumentation
+├── code
+│   ├── backend           # Backend microservice source code
+│   ├── frontend          # Frontend microservice source code
+├── infrastructure
+│   ├── terraform         # Terraform scripts for Kubernetes cluster setup
+│   ├── k8s               # Kubernetes manifests for deployment
+│   └── argocd            # ArgoCD configuration
+├── .github               # GitHub Actions workflows
+└── README.md             # Project documentation
 ```
 
----
+## Setup Instructions
 
-## Voraussetzungen
+### Prerequisites
 
-Um die EventGallery zu starten, werden folgende Tools benötigt:
+1. Kubernetes cluster (e.g., via k0s or k3s).
+2. AWS account with S3 and Rekognition configured.
+3. kubectl and ArgoCD CLI installed.
+4. Docker and Terraform installed locally.
 
-- **Terraform**: Automatisierung der Infrastruktur.
-- **kubectl**: Verwaltung des Kubernetes-Clusters.
-- **ArgoCD**: Automatisiertes Deployment.
-- **Cloudflare Tunnel**: Sicherer Zugriff auf interne Dienste.
-- **Docker**: Erstellung von Container-Images.
+### Steps
 
----
+#### 1. Initialize Infrastructure
+- Use Terraform to provision the Kubernetes cluster:
 
-## Installation
-
-### 1. Repository klonen
+> **Note:** This step requires a fully functioning MAAS (Metal as a Service) environment as a prerequisite for the Terraform scripts to work.
 
 ```bash
-git clone https://github.com/<username>/SEM4-EVENTGALLERY.git
-cd SEM4-EVENTGALLERY
+cd infrastructure/terraform
+terraform init
+terraform apply
 ```
 
-### 2. Infrastruktur bereitstellen
+#### 2. Set Up Secrets and Configurations
 
-1. **Terraform initialisieren und anwenden:**
-   ```bash
-   cd infrastructure/terraform
-   terraform init
-   terraform apply
-   echo "Terraform-Infrastruktur erfolgreich bereitgestellt." # Protokollausgabe
-   ```
+##### Secrets
+- The file `backend-secret.yaml` is included under `infrastructure/k8s/` for secure management of sensitive data. Use the following content:
 
-2. **Kubernetes-Konfiguration anwenden:**
-   ```bash
-   kubectl apply -f infrastructure/k8s/
-   echo "Kubernetes-Konfiguration erfolgreich angewendet." # Protokollausgabe
-   ```
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: backend-secret
+  namespace: eventgallery
+type: Opaque
+data:
+  S3_KEY: <BASE64_ENCODED_ACCESS_KEY>
+  S3_SECRET: <BASE64_ENCODED_SECRET_ACCESS_KEY>
+  AWS_REKOGNITION_KEY: <BASE64_ENCODED_REKOGNITION_KEY>
+  AWS_REKOGNITION_SECRET: <BASE64_ENCODED_REKOGNITION_SECRET>
+  DB_PASSWORD: <BASE64_ENCODED_DATABASE_PASSWORD>
+```
 
-### 3. Dienste überprüfen
+> Replace the placeholders with Base64-encoded values of your actual credentials. Use the following command to encode values:
+>
+> ```bash
+> echo -n "YOUR_VALUE" | base64
+> ```
 
-Vergewissern Sie sich, dass alle Pods und Dienste laufen:
+Apply the secret to the Kubernetes cluster:
 
 ```bash
-kubectl get pods -A
-kubectl get services -A
-
-# Protokollausgabe für die Überprüfung
-echo "Pods und Dienste erfolgreich überprüft. Alle Komponenten sind bereit."
+kubectl apply -f infrastructure/k8s/backend-secret.yaml
 ```
 
----
+##### ConfigMap
+- The file `backend-config.yaml` is also included under `infrastructure/k8s/`. Use the following content:
 
-## Nutzung
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: eventgallery
+data:
+  DATABASE_URI: "mysql+pymysql://root:root@eventgallery-db:3306/eventgallery"
+  AWS_REGION: "eu-central-1"
+  S3_BUCKET: "msvc-gallery"
+```
 
-1. **Frontend aufrufen:** Die Anwendung ist unter der URL verfügbar, die durch den Cloudflare Tunnel bereitgestellt wird (z. B. `https://gallery.luchsphoto.ch`).
-   ```bash
-   echo "Frontend-Service ist unter der URL https://gallery.luchsphoto.ch verfügbar." # Protokollausgabe
-   ```
+Apply the configuration to the Kubernetes cluster:
 
-2. **Backend-API:** Das Backend ist über die Subdomain (z. B. `https://api.luchsphoto.ch`) erreichbar.
-   ```bash
-   echo "Backend-Service ist unter der URL https://api.luchsphoto.ch verfügbar." # Protokollausgabe
-   ```
+```bash
+kubectl apply -f infrastructure/k8s/backend-config.yaml
+```
 
-3. **Admin-Zugriff:** Änderungen und Monitoring können über ArgoCD und OpenLens durchgeführt werden.
-   ```bash
-   echo "ArgoCD und OpenLens sind für Admin-Zugriffe bereit." # Protokollausgabe
-   ```
+#### 3. Deploy Kubernetes Manifests
+- Apply the namespace, services, and deployments:
 
----
+```bash
+kubectl apply -f infrastructure/k8s/namespace.yaml
+kubectl apply -f infrastructure/k8s/
+```
 
-## Architektur
+#### 4. Configure ArgoCD
+- Apply the ArgoCD project and application manifests:
 
-### Übersicht
+```bash
+kubectl apply -f infrastructure/argocd/eventgallery-project.yaml
+```
 
-Die EventGallery nutzt folgende Hauptkomponenten:
-- **Frontend-Service:** Benutzeroberfläche für das Hochladen und Durchsuchen von Fotos.
-- **Backend-Service:** Verarbeitung und Analyse der Daten.
-- **Datenbank:** Speicherung von Metadaten.
-- **Cloudflare Tunnel:** Sicherer Zugriff auf Dienste.
+#### 5. Access the Application
+- Access the application via the Cloudflare Tunnel or the MetalLB Load Balancer:
+  - Frontend: `http://<EXTERNAL_IP>:3000`
+  - Backend: `http://<EXTERNAL_IP>:5000`
 
-### Diagramm
+## Usage
+
+1. Upload event photos via the frontend interface.
+2. Photos are stored in AWS S3 and analyzed using AWS Rekognition.
+3. The backend processes and serves results, enabling facial recognition and tagging features.
+
+## Example Command
+
+To verify the backend service is running correctly:
+
+```bash
+curl http://<EXTERNAL_IP>:5000/health
+```
+
+## Visual Overview
+
+Here is a high-level architecture diagram of the system:
 
 ```mermaid
 graph TD
@@ -126,6 +154,8 @@ graph TD
     subgraph Kubernetes Cluster
         Frontend["Frontend Service"]
         Backend["Backend Service"]
+        ArgoCD["ArgoCD"]
+        Metallb["Metallb Load Balancer"]
         DB["Database"]
     end
 
@@ -135,35 +165,26 @@ graph TD
     end
 
     User -->|HTTPS| CF
-    CF --> Frontend
-    Frontend --> Backend
-    Backend --> DB
-    Backend -->|Image Storage| S3
+    CF --> Metallb
+    Metallb --> Frontend
+    Frontend -->|API Call| Backend
+    Backend -->|Read/Write| DB
+    Backend -->|Upload/Download| S3
     Backend -->|Image Analysis| Rekognition
 ```
 
----
+## Contribution Guidelines
 
-## Dokumentation
+1. Fork the repository.
+2. Create a new branch for your feature: `git checkout -b feature-name`
+3. Commit your changes: `git commit -m 'Add new feature'`
+4. Push to the branch: `git push origin feature-name`
+5. Open a Pull Request.
 
-Die vollständige Projektdokumentation ist verfügbar unter:
-[https://noluchs.github.io/SEM4-EVENTGALLERY/](https://noluchs.github.io/SEM4-EVENTGALLERY/)
+## License
 
----
-
-## Mitwirkende
-
-Dieses Projekt wurde von Noah Luchsinger im Rahmen der 4. Semesterarbeit entwickelt.
-
----
-
-## Lizenz
-
-Dieses Projekt ist unter der **MIT-Lizenz** lizenziert. Weitere Informationen finden Sie in der Datei `LICENSE`.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
-## Quellen
-
-Eine Liste der verwendeten Quellen ist in der Dokumentation verfügbar:
-[Quellen](https://noluchs.github.io/SEM4-EVENTGALLERY/6.%20Quellen/)
+For full documentation, visit: [SEM4 EVENTGALLERY Documentation](https://noluchs.github.io/SEM4-EVENTGALLERY/)
