@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4_Deployment/4.2 MetalLB.md",
+                "file": "4_Deployment/4.7 Secret und Config Management.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "4.2 MetalLB"
+              "title": "4.7 Secret und Config Management"
             }
           }
         ]
@@ -164,8 +164,11 @@
   },
   "active": "7951076f8eda210e",
   "lastOpenFiles": [
-    "4_Deployment/4.3 ArgoCD.md",
+    "4_Deployment/4.6 AWS S3 & Amazon Rekognition.md",
+    "4_Deployment/4.7 Secret und Config Management.md",
+    "4_Deployment/4.5 Cloudflare Tunnel.md",
     "4_Deployment/4.4 Deployment Details.md",
+    "4_Deployment/4.3 ArgoCD.md",
     "4_Deployment/4.2 MetalLB.md",
     "4_Deployment/4.1 Kubernetes.md",
     "3_Servicedesign/3.3 Architektur.md",
@@ -200,9 +203,7 @@
     "2_Projektorganisation/2.1 Projektmethode.md",
     "2_Projektorganisation/2.7 SWOT Analyse.md",
     "2_Projektorganisation/2.6 Risikomangment.md",
-    "4_Deployment/4.5 Cloudflare Tunnel.md",
     "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
-    "4_Deployment/index.md",
     "4_Deployment",
     "3_Servicedesign",
     "2_Projektorganisation/2.4 Sprint/attachments/Pasted image 20241218154133.png",
