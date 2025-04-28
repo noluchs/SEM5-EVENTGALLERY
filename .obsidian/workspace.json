@@ -1,20 +1,22 @@
 {
   "main": {
-    "id": "ff468ead7412811e",
+    "id": "3b39180a7d06d7bb",
     "type": "split",
     "children": [
       {
-        "id": "41716d590bdd3878",
+        "id": "10d22eab62a7ca52",
         "type": "tabs",
         "children": [
           {
-            "id": "61e15becfaa58810",
+            "id": "747b8573b2ba5887",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "Neuer Tab"
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.8.10"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.8.10"
             }
           }
         ]
@@ -23,15 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "9c3d864b049c1fed",
+    "id": "e2737c81fe922097",
     "type": "split",
     "children": [
       {
-        "id": "3453edf43356a00e",
+        "id": "f55b6d4539b8bdeb",
         "type": "tabs",
         "children": [
           {
-            "id": "f7b3269eb441cb0f",
+            "id": "fec6567648f4b97f",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -44,7 +46,7 @@
             }
           },
           {
-            "id": "f349da93505112af",
+            "id": "289ec419617a3e39",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,7 +63,7 @@
             }
           },
           {
-            "id": "1a174b07eeb28713",
+            "id": "9b3489b9644d5d7d",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -74,23 +76,22 @@
       }
     ],
     "direction": "horizontal",
-    "width": 481.5
+    "width": 300
   },
   "right": {
-    "id": "69c68b50bd21e5e1",
+    "id": "0328fd85b087250e",
     "type": "split",
     "children": [
       {
-        "id": "8d6adf8f7bbb48fd",
+        "id": "6a19c3e95f4eceb4",
         "type": "tabs",
         "children": [
           {
-            "id": "848731e1250f567f",
+            "id": "f6ee63a6dbb60967",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "3_Kubernetes/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,46 +101,49 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Rückverweise für index"
+              "title": "Rückverweis"
             }
           },
           {
-            "id": "7882165d9be76f2b",
+            "id": "1bfd12d9c4ebb52e",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "3_Kubernetes/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Ausgehende Links von index öffnen"
+              "title": "Ausgehende Links"
             }
           },
           {
-            "id": "8f060cceda265649",
+            "id": "693c1d9f06848752",
             "type": "leaf",
             "state": {
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "Tags"
             }
           },
           {
-            "id": "bedb2122e9e06574",
+            "id": "3b37885ca1184be1",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "3_Kubernetes/index.md"
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Gliederung von index"
+              "title": "Gliederung"
             }
           }
         ]
@@ -159,53 +163,8 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "61e15becfaa58810",
+  "active": "747b8573b2ba5887",
   "lastOpenFiles": [
-    "index.md",
-    "4_Deployment/4.7 Secret und Config Management.md",
-    "4_Deployment/4.6 AWS S3 & Amazon Rekognition.md",
-    "4_Deployment/4.5 Cloudflare Tunnel.md",
-    "4_Deployment/4.4 Deployment Details.md",
-    "4_Deployment/4.3 ArgoCD.md",
-    "4_Deployment/4.2 MetalLB.md",
-    "4_Deployment/4.1 Kubernetes.md",
-    "3_Servicedesign/3.3 Architektur.md",
-    "3_Servicedesign/3.4 Security und Datenschutz.md",
-    "3_Servicedesign/3.2 Technologien.md",
-    "3_Servicedesign/3.1 Anforderungen.md",
-    "2_Projektorganisation/2.8 GitHub Branching Konzept.md",
-    "2_Projektorganisation/2.5 SEUSAG.md",
-    "6_Schlussteil/6.1 Fazit.md",
-    "anhang/mermaid-diagram-2025-01-28-213503.png",
-    "anhang/updated-mermaid-diagram.mmd",
-    "anhang/mermaid-flow-transparent-1x.png",
-    "anhang/mermaid-diagram-2025-01-28-202219.mmd",
-    "anhang/Unconfirmed 404913.crdownload",
-    "anhang/mermaid-diagram-2025-01-28-202004 2.png",
-    "anhang/svgtopng.zip",
-    "anhang/Unconfirmed 348415.crdownload",
-    "anhang/mermaid-diagram-2025-01-28-202004.png",
-    "anhang/mermaid-diagram-2025-01-28-202004.svg",
-    "anhang/Unconfirmed 711904.crdownload",
-    "6_Schlussteil/6.2 Next Steps.md",
-    "anhang/ITCNE23_Semesterarbeit 4 (Einreichungsformular).pdf",
-    "3_Servicedesign/3.5 Servicekosten.md",
-    "5_CICD-Pipeline/index.md",
-    "6_Schlussteil/index.md",
-    "anhang/Schmittel.md",
-    "anhang/quellen.md",
-    "2_Projektorganisation/2.4 Sprint/Sprint 3.md",
-    "5_CICD-Pipeline",
-    "2_Projektorganisation/2.4 Sprint/attachments/Pasted image 20250127132052.png",
-    "2_Projektorganisation/2.3 Sprint Planung .md",
-    "2_Projektorganisation/2.1 Projektmethode.md",
-    "2_Projektorganisation/2.7 SWOT Analyse.md",
-    "2_Projektorganisation/2.6 Risikomangment.md",
-    "4_Deployment",
-    "3_Servicedesign",
-    "2_Projektorganisation/2.4 Sprint/attachments/Pasted image 20241218154133.png",
-    "2_Projektorganisation/2.4 Sprint/attachments/Screenshot 2024-12-04 at 16.01.44.png",
-    "anhang/ScrumTeam.drawio.png",
-    "2_Projektorganisation/attachments/Screenshot 2024-06-23 at 12.48.18.png"
+    "docs/index.md"
   ]
 }
