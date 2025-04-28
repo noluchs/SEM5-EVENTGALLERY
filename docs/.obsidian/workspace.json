@@ -11,10 +11,14 @@
             "id": "61e15becfaa58810",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "index.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Neuer Tab"
+              "title": "index"
             }
           }
         ]
@@ -161,7 +165,18 @@
   },
   "active": "61e15becfaa58810",
   "lastOpenFiles": [
+    "2_Projektorganisation/2.5 SEUSAG.md",
+    "2_Projektorganisation/2.3 Sprint Planung .md",
+    "2_Projektorganisation/2.2 Projektorganisation.md",
+    "2_Projektorganisation/2.1 Projektmethode.md",
     "index.md",
+    "2_Projektorganisation/index.md",
+    "2_Projektorganisation/2.4 Sprint/Sprint 3.md",
+    "2_Projektorganisation/2.4 Sprint/Sprint 2.md",
+    "2_Projektorganisation/2.4 Sprint/Sprint 1.md",
+    "2_Projektorganisation/2.8 GitHub Management.md",
+    "2_Projektorganisation/2.7 SWOT Analyse.md",
+    "2_Projektorganisation/2.6 Risikomangment.md",
     "4_Deployment/4.7 Secret und Config Management.md",
     "4_Deployment/4.6 AWS S3 & Amazon Rekognition.md",
     "4_Deployment/4.5 Cloudflare Tunnel.md",
@@ -173,8 +188,6 @@
     "3_Servicedesign/3.4 Security und Datenschutz.md",
     "3_Servicedesign/3.2 Technologien.md",
     "3_Servicedesign/3.1 Anforderungen.md",
-    "2_Projektorganisation/2.8 GitHub Branching Konzept.md",
-    "2_Projektorganisation/2.5 SEUSAG.md",
     "6_Schlussteil/6.1 Fazit.md",
     "anhang/mermaid-diagram-2025-01-28-213503.png",
     "anhang/updated-mermaid-diagram.mmd",
@@ -190,17 +203,8 @@
     "6_Schlussteil/6.2 Next Steps.md",
     "anhang/ITCNE23_Semesterarbeit 4 (Einreichungsformular).pdf",
     "3_Servicedesign/3.5 Servicekosten.md",
-    "5_CICD-Pipeline/index.md",
-    "6_Schlussteil/index.md",
-    "anhang/Schmittel.md",
-    "anhang/quellen.md",
-    "2_Projektorganisation/2.4 Sprint/Sprint 3.md",
     "5_CICD-Pipeline",
     "2_Projektorganisation/2.4 Sprint/attachments/Pasted image 20250127132052.png",
-    "2_Projektorganisation/2.3 Sprint Planung .md",
-    "2_Projektorganisation/2.1 Projektmethode.md",
-    "2_Projektorganisation/2.7 SWOT Analyse.md",
-    "2_Projektorganisation/2.6 Risikomangment.md",
     "4_Deployment",
     "3_Servicedesign",
     "2_Projektorganisation/2.4 Sprint/attachments/Pasted image 20241218154133.png",
