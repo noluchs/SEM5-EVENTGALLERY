@@ -1,8 +1,8 @@
 title: MSVC Gallery with Face Matching
-description: 4 Semesterarbeit für Cloud Native Engineer Studium
+description: 5 Semesterarbeit für Cloud Native Engineer Studium
 theme: just-the-docs
 
-url: https://noluchs.github.io/4SEM
+url: https://noluchs.github.io/5SEM
 aux_links:
    Projektplanung: https://noluchs.atlassian.net/jira/software/projects/SCRUM/boards/1
 
@@ -11,4 +11,4 @@ aux_links:
 mermaid:
   # Version of mermaid library
   # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
-  version: "9.1.3"
+  version: "10.8.0"
