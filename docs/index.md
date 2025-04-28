@@ -71,4 +71,4 @@ graph TD
     ArgoCD --> Frontend
     ArgoCD --> Backend
     ArgoCD --> FaceService
-    ```
+```
