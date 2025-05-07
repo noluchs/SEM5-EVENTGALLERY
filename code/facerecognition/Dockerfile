@@ -21,4 +21,5 @@ COPY . .
 
 ENV FLASK_APP=wsgi.py
 ENV FLASK_RUN_HOST=0.0.0.0
+ENV GALLERY_PATH=/app/gallery
 CMD ["flask", "run", "--port=5000"]
