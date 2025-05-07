@@ -25,7 +25,7 @@ def verify():
     except Exception as e:
         print("Fehler in /face/verify:", e)
         traceback.print_exc()
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error": "An internal error occurred"}), 500
 
 
 # --- /face/match route ---
@@ -50,4 +50,4 @@ def match():
     except Exception as e:
         print("Fehler in /face/match:", e)
         traceback.print_exc()
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error": "An internal error occurred"}), 500
