@@ -1,0 +1,17 @@
+# Deep Learning Core
+tensorflow>=2.12.0
+keras>=2.12.0
+tf-keras>=2.12.0
+
+# DeepFace mit RetinaFace-Erkennung
+deepface>=0.0.79
+retina-face>=0.0.14
+opencv-python>=4.5.5.64
+
+# Web-API
+flask>=2.3.0
+flask_cors>=4.0.0
+
+# Nötige Dependencies
+numpy>=1.14.0
+pillow>=5.2.0
